@@ -61,7 +61,8 @@ EXCLUDES = {}
 VIRTUAL = {}
 
 DEPENDS_ON_FILES = (
-    'app/code/core/Mage/Catalog/Block/Product/Abstract.php')
+    'app/code/core/Mage/Catalog/Block/Product/Abstract.php',
+)
 
 PEAR_KEY = ''
 

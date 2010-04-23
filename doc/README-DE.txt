@@ -68,26 +68,26 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze
 * TESTCASES
 ** BASIC
 *** A:  
-**** 1. Installieren Sie das Modul (in einem Magento - Shop ver. 1.4.0.0). 
+    1. Installieren Sie das Modul (in einem Magento - Shop ver. 1.4.0.0). 
            Prüfen Sie ob danach die Bestellungsfunktionalität läuft.
-**** 2. Finden Sie oder legen Sie ein neuen Artikeln an (der Artikel muss 
+    2. Finden Sie oder legen Sie ein neuen Artikeln an (der Artikel muss 
            das Gewicht Attribut haben und das Gewicht Attribut muss im 
            Front-End sichtbar sein). Auf die Produktdetails Seite im Front-End 
            gehen und prüfen ob das "Gewicht" Attribut in der Produktbeschreibung 
            mit der "lieferung" CMS-Seite verlinkt ist.
 *** B:
-**** 1. Ins Front-End gehen und ein Artikel in den Warenkob liegen. Auf der 
+    1. Ins Front-End gehen und ein Artikel in den Warenkob liegen. Auf der 
            Warenkorb Seite prüfen ob es den "Versandkosten Informationen" Block
            zusammen mit dem Link "Hier finden Sie Informationen zu den 
            Versandkosten." gibt. Dieser Link muß auf die, im Backend eingestellte
            Seite verweisen.
 *** C:
-**** 1. Ins Front-End gehen und einen Artikel in den Warenkob liegen. Auf der 
+    1. Ins Front-End gehen und einen Artikel in den Warenkob liegen. Auf der 
            Warenkorb Seite prüfen ob es den "So bestellen Sie bei uns" Link direkt
            unter "Zur Kasse gehen" sichtbar ist. Dieser Link muss auf die, im 
            Backend eingestellte Seite verweisen.
 *** E:
-**** 1. Führen sie im Frontend einen Bestellvorgang durch; Wenn sie ihre
+    1. Führen sie im Frontend einen Bestellvorgang durch; Wenn sie ihre
             Rechnungsadresse eingegeben haben, sollte standartmäßig die Option
             "An diese Adresse verschicken" ausgewählt sein.
 *** F: Im Frontend nach jeder Preisanzeige soll ein Steuerinformationen

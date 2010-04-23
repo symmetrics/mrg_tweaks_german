@@ -35,8 +35,8 @@ AUTHORS = {
 # additional infos
 # =============================================================================
 INFO = '''
-    Fügt zusätzliche rechtliche Infos in den Warenkorb und in die Bestellung ein.
-    MwSt-Infos hinter dem Preis.
+    Fügt zusätzliche rechtliche Infos in den Warenkorb und in die Bestellung
+    ein, z.B. MwSt-Infos hinter dem Preis.
 '''
 
 SUMMARY = '''
@@ -61,8 +61,7 @@ EXCLUDES = {}
 VIRTUAL = {}
 
 DEPENDS_ON_FILES = (
-    'app/code/core/Mage/Catalog/Block/Product/Abstract.php'
-)
+    'app/code/core/Mage/Catalog/Block/Product/Abstract.php')
 
 PEAR_KEY = ''
 

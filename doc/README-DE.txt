@@ -40,7 +40,7 @@ hinzugefuegt, das alles wird gemacht ohne die Templates zu verändern.
 *** G: Liest den zugewiesenen Steuersatz automatisch aus.
 
 ** TECHNICAL
-*** A-E: Templates können in den Dateien
+Templates können in den Dateien
          app/design/frontend/default/default/template/:
              tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml
          angepasst werden. Es handelt sich dabei um normale HTML-Dateien, die 

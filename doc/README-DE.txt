@@ -92,4 +92,4 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze
             "An diese Adresse verschicken" ausgewählt sein.
 *** F: Im Frontend nach jeder Preisanzeige soll ein Steuerinformationen
        (zzgl. ..% MwSt.) und ein Link auf die Seite Versandkosten gezeigt sein.
-*** G: TODO
+*** G: Dieser Absatz fehlt noch.

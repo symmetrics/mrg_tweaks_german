@@ -32,7 +32,6 @@ $_weightLink = $this->getWeightLink();
         labels.each(function(label) {
             if (label.innerHTML.match('<? echo $_weightLabel ?>') !== null) {
                 label.update('<a href="<? echo $_weightLink ?>">' + label.innerHTML + '</a>');
-                throw $break;
             }
         });
     });

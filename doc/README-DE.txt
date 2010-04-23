@@ -41,12 +41,12 @@ hinzugefuegt, das alles wird gemacht ohne die Templates zu verändern.
 
 ** TECHNICAL
 Templates können in den Dateien
-         app/design/frontend/default/default/template/:
-             tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml
-         angepasst werden. Es handelt sich dabei um normale HTML-Dateien, die 
-         Sie komplett nach Ihren Wünschen verändern können.
-         Per Layout XML wird eine Javascript Datei eingebunden, die das select Feld im Checkout
-         ("An diese Adresse verschicken") ändert.
+app/design/frontend/default/default/template/:
+         tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml
+angepasst werden. Es handelt sich dabei um normale HTML-Dateien, die 
+Sie komplett nach Ihren Wünschen verändern können.
+Per Layout XML wird eine Javascript Datei eingebunden, die das select Feld im Checkout
+("An diese Adresse verschicken") ändert.
 
 *** F: 
 **** 1: Ein Beispiel-Link wird durch das Modul Symmetrics_ConfigGermanTexts installiert.

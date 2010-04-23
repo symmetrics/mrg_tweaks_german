@@ -48,18 +48,18 @@ Sie komplett nach Ihren Wünschen verändern können.
 Per Layout XML wird eine Javascript Datei eingebunden, die das select Feld im Checkout
 ("An diese Adresse verschicken") ändert.
 
-*** F: 
-**** 1: Ein Beispiel-Link wird durch das Modul Symmetrics_ConfigGermanTexts installiert.
+F: 
+1: Ein Beispiel-Link wird durch das Modul Symmetrics_ConfigGermanTexts installiert.
         Dieser kann jederzeit unter Configuration -> Tax -> Display -> Versandkosten (CMS-Seite)
         geändert werden.
-**** 2: Das Modul zeigt keinen Versandkosten-Link fuer Virtual und Downloadable
+2: Das Modul zeigt keinen Versandkosten-Link fuer Virtual und Downloadable
         Produkte an.
-**** 3: Das Modul verändert auf keine Weise die Konfiguration, den Core-Code
+3: Das Modul verändert auf keine Weise die Konfiguration, den Core-Code
         oder die Datenbank. Daher kann kann Modul jederzeit ohne Probleme
         gelöscht werden.
 
 ** PROBLEMS
-*** F: Wenn Sie unterschiedliche Mehrwertsteuersätze
+F: Wenn Sie unterschiedliche Mehrwertsteuersätze
        abhängig von Kundengruppen verwenden, kann die
        Anzeige des Mehrwertsteuersatzes fuer ein Produkt
        unkorrekt sein.

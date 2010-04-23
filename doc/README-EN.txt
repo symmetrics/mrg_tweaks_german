@@ -26,10 +26,9 @@ of "Trusted Shop" certification process.
 *** C: Adds some additional links below the order button in the cart.
 
 ** TECHNINCAL
-
-***    Links can be always customized in following files located at 
-       app/design/frontend/default/default/template/:
-         tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml,
+Links can be always customized in following files located at 
+app/design/frontend/default/default/template/:
+tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml,
 
 ** PROBLEMS
 

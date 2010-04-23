@@ -56,6 +56,8 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
     
     /**
      * Get link for weight attribute from system configuration
+     *
+     * @return string
      */
     public function getWeightLink()
     {

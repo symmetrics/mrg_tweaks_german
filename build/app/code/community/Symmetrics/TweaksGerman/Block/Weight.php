@@ -35,6 +35,11 @@
 class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
 {
     /**
+     * @const DELIVERY_URL_CONFIG_PATH system config path delivery cms page
+     */
+    const DELIVERY_URL_CONFIG_PATH = 'checkout/cart/deliveryurl';
+    
+    /**
      * Get translation for attribute
      *
      * @param string $code Attribute code
@@ -43,15 +48,15 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
      */
     public function getAttributeLabel($code)
     {
-        $_attribute = Mage::getModel('eav/entity_attribute')->loadByCode('catalog_product', $code);
-        $_weightLabels = $_attribute->getStoreLabels();
-        if (array_key_exists($this->getStoreId(), $_weightLabels)) {
-            $_weightLabel = $_weightLabels[$this->getStoreId()];
+        $attribute = Mage::getModel('eav/entity_attribute')->loadByCode('catalog_product', $code);
+        $weightLabels = $attribute->getStoreLabels();
+        if (array_key_exists($this->getStoreId(), $weightLabels)) {
+            $weightLabel = $weightLabels[$this->getStoreId()];
         } else {
-            $_weightLabel = $_attribute->getFrontendLabel();
+            $weightLabel = $attribute->getFrontendLabel();
         }
         
-        return $_weightLabel;
+        return $weightLabel;
     }
     
     /**
@@ -61,8 +66,7 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
      */
     public function getWeightLink()
     {
-        $configPath = 'checkout/cart/deliveryurl';
-        $pageIdentifier = Mage::getStoreConfig($configPath, $this->getStore());
+        $pageIdentifier = Mage::getStoreConfig(self::DELIVERY_URL_CONFIG_PATH, $this->getStore());
         
         return Mage::getUrl($pageIdentifier);
     }

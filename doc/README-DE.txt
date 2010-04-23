@@ -4,7 +4,6 @@
 Extrahieren Sie den Inhalt dieses Archivs in Ihr Magento Verzeichnis. Ggf. ist das Leeren/Auffrischen des Magento-Caches notwendig.
 
 ** USAGE
-
 Das Modul Symmetrics_TweaksGerman verändert das System so, dass es 
 deutschen rechtlichen Ansprüchen an einen Online-Shop genügt. Das Modul 
 ist ein Teil der Vorzertifizierung für das Trusted Shop Siegel.
@@ -22,7 +21,6 @@ ebenfalls ein Link auf die Seite Versandkosten
 hinzugefuegt, das alles wird gemacht ohne die Templates zu verändern.
 
 ** FUNCTIONALITY
-
 *** A: Verlinkt das Wort "Gewicht" in Attributen mit der Versandkosten-Seite.
 
 *** B: Ersetzt die Versandkostenschätzung im Warenkorb durch einen Link auf 
@@ -95,8 +93,3 @@ hinzugefuegt, das alles wird gemacht ohne die Templates zu verändern.
 *** F: Im Frontend nach jeder Preisanzeige soll ein Steuerinformationen
        (zzgl. ..% MwSt.) und ein Link auf die Seite Versandkosten gezeigt sein.
 *** G: TODO
-
-
-** CATCHABLE
-
-** STRESS

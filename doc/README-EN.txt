@@ -47,7 +47,3 @@ Taxes can be inccorrect under some circumstances.
            Check "In this way, you order by us" link on the cart page just under
            "Proceed to checkout" button. The link itself must be proper 
            referenced to the "bestellung" (order) CMS-page.
-
-** CATCHABLE
-
-** STRESS

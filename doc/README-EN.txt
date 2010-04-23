@@ -1,13 +1,7 @@
 * DOCUMENTATION
 
 ** INSTALLATION
-
-*** 1. Unpack the content of this module into Magento directory, i.e.
-       folders app/ and js/ must be copied into the project root. 
-       Update the system cache.
-
-*** 2. Go to the Front-end to provoke module setup/invocation by accessing the
-       home page. We are done.
+Unpack the content of this module into Magento directory.
 
 ** USAGE
 

@@ -1,11 +1,7 @@
 * DOCUMENTATION
 
 ** INSTALLATION
-
-*** 1. Den Inhalt dieses Archivs in Ihr Magento Verzeichnis extrahieren, so dass 
-       die Ordner app/ und js/ in den Projekt-Root kopiert werden. Cache löschen.
-
-*** 2. Frontend aufrufen. Fertig.
+Extrahieren Sie den Inhalt dieses Archivs in Ihr Magento Verzeichnis. Ggf. ist das Leeren/Auffrischen des Magento-Caches notwendig.
 
 ** USAGE
 

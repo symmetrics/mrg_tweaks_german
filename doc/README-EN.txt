@@ -25,11 +25,11 @@ app/design/frontend/default/default/template/:
 tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml,
 
 ** PROBLEMS
+Taxes can be inccorrect under some circumstances.
 
 * TESTCASES
 
 ** BASIC
-
 *** A:  1. Install the module (into Magento - Shop ver. 1.4.0.0). Make sure
            one can successfully order a product.
         2. Find or create a new product (it should have a defined "weight" 
@@ -51,4 +51,3 @@ tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml,
 ** CATCHABLE
 
 ** STRESS
-

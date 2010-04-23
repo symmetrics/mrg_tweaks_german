@@ -21,17 +21,16 @@
  * @link      http://www.symmetrics.de/
  */
 ?>
-<?php
-$_weightLabel = $this->getAttributeLabel('weight');
-$_weightLink = $this->getWeightLink();
-?>
+<?php $_weightLabel = $this->getAttributeLabel('weight') ?>
+<?php $_weightLink = $this->getWeightLink() ?>
+
 <script type="text/javascript">
     document.observe('dom:loaded', function() {
         var shopUrl = BLANK_IMG.substr (0, BLANK_IMG.length-13);
         var labels = $$('#product-attribute-specs-table .label');
         labels.each(function(label) {
-            if (label.innerHTML.match('<? echo $_weightLabel ?>') !== null) {
-                label.update('<a href="<? echo $_weightLink ?>">' + label.innerHTML + '</a>');
+            if (label.innerHTML.match('<?php echo $_weightLabel ?>') !== null) {
+                label.update('<a href="<?php echo $_weightLink ?>">' + label.innerHTML + '</a>');
             }
         });
     });

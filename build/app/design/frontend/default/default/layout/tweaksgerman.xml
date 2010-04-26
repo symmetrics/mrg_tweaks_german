@@ -17,7 +17,7 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @copyright 2009 Symmetrics Gmbh
+ * @copyright 2009-2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -31,8 +31,8 @@
             <block type="checkout/cart_shipping" name="checkout.cart.shipping" as="shipping" template="tweaksgerman/shippinginfo.phtml"/>
         </reference>
     </checkout_cart_index>
-	<checkout_onepage_index>
-		<reference name="head">
+    <checkout_onepage_index>
+        <reference name="head">
             <action method="addJs"><script>symmetrics/tweaksgerman/checkout.js</script></action>
         </reference>
     </checkout_onepage_index>

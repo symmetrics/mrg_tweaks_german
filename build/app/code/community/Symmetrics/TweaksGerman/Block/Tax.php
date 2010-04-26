@@ -39,33 +39,40 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
      *
      * @param Mage_Catalog_Model_Product $product product object
      *
-     * @return string
+     * @return string|null result is null if product is combined
      */
     public static function getTaxInfo($product)
     {
         if ($product->getCanShowPrice() !== false) {
             $tax = Mage::helper('tax');
             $productTypeId = $product->getTypeId();
-            
-            if ($productTypeId != 'combined') { // use not for Symmetrics_CombinedProduct
-                $taxPercent = $product->getTaxPercent();
-                if ($tax->displayPriceIncludingTax()) {
-                    $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Incl. %1$s%% tax'), $taxPercent);
-                } else {
-                    $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Excl. %1$s%% tax'), $taxPercent);
-                }
-    
-                $shippingLink = sprintf(
-                    Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>'),
-                    Mage::getUrl('') . Mage::getStoreConfig('tax/display/shippingurl')
-                );
-    
-                if ($productTypeId != 'virtual' && $productTypeId != 'downloadable') {
-                    return '<span class="tax-details">' . $taxInfo . ', ' . $shippingLink . '</span>';
-                } else {
-                    return '<span class="tax-details">' . $taxInfo . '</span>';
-                }
+
+            if ($productTypeId == 'combined') {
+                // ignore Symmetrics_CombinedProduct
+                return null;
             }
+
+            // compute tax info
+            $taxPercent = $product->getTaxPercent();
+            if ($tax->displayPriceIncludingTax()) {
+                $taxInfo = sprintf(Mage::helper('legitimategerman')->__('Incl. %1$s%% tax'), $taxPercent);
+            } else {
+                $taxInfo = sprintf(Mage::helper('legitimategerman')->__('Excl. %1$s%% tax'), $taxPercent);
+            }
+
+            // obtain shipping link
+            $shippingLinkPattern = Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>');
+            $shippingLinkValue = Mage::getUrl('') . Mage::getStoreConfig('tax/display/shippingurl');
+            $shippingLink = sprintf($shippingLinkPattern, $shippingLinkValue);
+
+            // produce tax info
+            if ($productTypeId != 'virtual' && $productTypeId != 'downloadable') {
+                $result = '<span class="tax-details">' . $taxInfo . ', ' . $shippingLink . '</span>';
+            } else {
+                $result = '<span class="tax-details">' . $taxInfo . '</span>';
+            }
+
+            return $result;
         }
     }
 }

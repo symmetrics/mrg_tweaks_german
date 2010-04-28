@@ -17,7 +17,7 @@ CMS-Seiten ausgewählt werden.
 
 Im Checkout ist die "An andere Adresse verschicken"-Option aktiviert. 
 Das Modul Symmetrics_TweaksGerman aktiviert stattdessen die Option
-"An diese Adresse verschicken". So muss der Kunde das nicht manuel umstellen.
+"An diese Adresse verschicken". So muss der Kunde das nicht manuell umstellen.
 
 Symmetrics_TweaksGerman fügt nach jeder Preisanzeige im Frontend 
 Informationen über die Steuern für einen Artikel hinzu. Diese Anzeige ist vom 

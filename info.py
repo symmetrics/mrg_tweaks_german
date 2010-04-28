@@ -44,6 +44,13 @@ Das Modul Symmetrics_TweaksGerman verändert das System so, dass es
 deutschen rechtlichen Ansprüchen an einen Online-Shop genügt. Das Modul 
 ist ein Teil der Vorzertifizierung für das Trusted Shop Siegel.
 
+Das Wort "Gewicht" in Attributen wird mit der Versandkosten-Seite verlinkt.
+
+Das Modul ersetzt die Versandkostenschätzung im Warenkorb und fügt 
+zusätzliche Links zu Bestellinformationen sowie Widerrufinformationen hinzu.
+
+Im Checkout ist die "An andere Adresse verschicken"-Option aktiviert.
+
 Zeigt die MwSt-Infos inkl. Versandlink hinter jedem Preis an.
 '''
 

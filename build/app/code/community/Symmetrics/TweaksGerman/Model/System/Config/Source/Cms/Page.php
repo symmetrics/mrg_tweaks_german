@@ -33,13 +33,11 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page 
+class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page
     extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
     /**
-     * Options
-     *
-     * @var array
+     * @var array $_options cached options
      */
     protected $_options;
 
@@ -56,7 +54,7 @@ class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page
                 ->setOrder('title', 'ASC')
                 ->toOptionArray();
         }
-        
+
         return $this->_options;
     }
 

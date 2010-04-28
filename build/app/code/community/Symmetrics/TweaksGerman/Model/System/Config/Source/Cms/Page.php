@@ -46,7 +46,7 @@ class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page
     /**
      * Return option array
      *
-     * @return array
+     * @return array options
      */
     public function toOptionArray()
     {
@@ -63,7 +63,7 @@ class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page
     /**
      * Get all options as array
      *
-     * @return array
+     * @return array options
      */
     public function getAllOptions()
     {

@@ -42,8 +42,7 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
      * @return string url appended to tax info
      */
     protected static function _getShippingLink()
-    {
-        // obtain shipping link
+    {        
         $pattern = Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>');
         $value = Mage::getUrl('') . Mage::getStoreConfig('tax/display/shippingurl');
         $shippingLink = sprintf($pattern, $value);

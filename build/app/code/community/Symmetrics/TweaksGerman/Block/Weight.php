@@ -35,16 +35,16 @@
 class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
 {
     /**
-     * @const DELIVERY_URL_CONFIG_PATH system config path delivery cms page
+     * @const string DELIVERY_URL_CONFIG_PATH system config path delivery cms page
      */
     const DELIVERY_URL_CONFIG_PATH = 'checkout/cart/deliveryurl';
-    
+
     /**
      * Get translation for attribute
      *
      * @param string $code Attribute code
      *
-     * @return string
+     * @return string label
      */
     public function getAttributeLabel($code)
     {
@@ -55,36 +55,36 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
         } else {
             $weightLabel = $attribute->getFrontendLabel();
         }
-        
+
         return $weightLabel;
     }
-    
+
     /**
      * Get link for weight attribute from system configuration
      *
-     * @return string
+     * @return string link
      */
     public function getWeightLink()
     {
         $pageIdentifier = Mage::getStoreConfig(self::DELIVERY_URL_CONFIG_PATH, $this->getStore());
-        
+
         return Mage::getUrl($pageIdentifier);
     }
-    
+
     /**
      * Get current store
-     * 
-     * @return Mage_Core_Model_Store
+     *
+     * @return Mage_Core_Model_Store store
      */
     public function getStore()
     {
         return Mage::app()->getStore();
     }
-    
+
     /**
      * Get id of current store
-     * 
-     * @return int
+     *
+     * @return int id
      */
     public function getStoreId()
     {

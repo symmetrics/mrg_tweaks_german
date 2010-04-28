@@ -54,8 +54,9 @@ Templates zu verändern.
 
 ** TECHNICAL
 Templates können in den Dateien
-app/design/frontend/default/default/template/tweaksgerman/cartinfo.phtml und
+app/design/frontend/default/default/template/tweaksgerman/cartinfo.phtml
 app/design/frontend/default/default/template/tweaksgerman/shippinginfo.phtml
+app/design/frontend/default/default/template/tweaksgerman/weight.phtml
 angepasst werden. Es handelt sich dabei um normale HTML-Dateien, die 
 Sie komplett nach Ihren Wünschen verändern können. Per Layout XML wird eine
 Javascript Datei eingebunden, die das select Feld im Checkout ("An diese 
@@ -88,18 +89,18 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
           Produktbeschreibung mit der, im Backend eingestellte, CMS-Seite 
           verlinkt ist.
 
-*** B: 1. Ins Front-End gehen und ein Artikel in den Warenkob legen. Auf der 
+*** B: 1. Ins Front-End gehen und ein Artikel in den Warenkorb legen. Auf der 
           Warenkorb Seite prüfen, ob es den "Versandkosten Informationen" 
           Block zusammen mit dem Link "Hier finden Sie Informationen zu den 
           Versandkosten" gibt. Dieser Link muss auf die im Backend 
           eingestellte Seite verweisen.
 
-*** C: 1. Ins Front-End gehen und einen Artikel in den Warenkob legen. Auf der 
+*** C: 1. Ins Front-End gehen und einen Artikel in den Warenkorb legen. Auf der 
           Warenkorb Seite prüfen, ob der "So bestellen Sie bei uns" Link 
           direkt unter "Zur Kasse gehen" sichtbar ist. Dieser Link muss auf 
           die im Backend eingestellte Seite verweisen.
 
-*** D: 1. Ins Front-End gehen und einen Artikel in den Warenkob legen. Auf der 
+*** D: 1. Ins Front-End gehen und einen Artikel in den Warenkorb legen. Auf der 
           Warenkorb Seite prüfen, ob der "Hier finden Sie die Einzelheiten zu 
           Ihrem Widerrufsrecht" Link direkt unter "Zur Kasse gehen" sichtbar 
           ist. Dieser Link muss auf die im Backend eingestellte Seite 

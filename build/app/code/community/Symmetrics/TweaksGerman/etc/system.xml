@@ -24,6 +24,60 @@
 -->
 <config>
     <sections>
+        <general>
+            <groups>                
+                <info translate="label">
+                    <label>market ready germany Info</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>-1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[
+<div style="font-family:Helvetica,sans-serif;background-color:white;color:#8f8f8f;font-size:13px;">
+<table border="0" cellmargin="0" cellspacing="0" style="width:640px;">
+<tr><td>
+<table border="0" cellmargin="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;"><tr>
+<td rowspan="2"><img style="margin-left:10px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/mrg_logo.png" alt="market ready germany Logo" /></td>
+<td>
+    <p style="font-family:Helvetica, sans-serif;font-size:18px;font-weight:900;color:#494949;line-height:1.3em;">Herzlichen Glückwunsch: <span style="color:#000000;">market ready</span><br /> hat Ihren Shop an die Markterfordernisse<br /> in Deutschland angepasst.</p>
+</td></tr><tr><td>
+    <p style="font-family:Helvetica, sans-serif;color:#000000;font-size:13px;line-height:1.3em;"><span style="font-weight:bold;">market ready</span> vereint das rechtliche Know-how von Trusted Shops mit<br /> den technischen  Innovationen von symmetrics. Dank der freundlichen<br /> Unterstützung durch unsere Sponsoren können wir das Modul allen<br /> Nutzern von Magento kostenlos anbieten. Wir wünschen viel Erfolg!</p>
+</td>
+</tr></table>
+</td></tr>
+<tr><td><img src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/tophr.png" /></td></tr>
+<tr><td>
+<table border="0" cellmargin="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;">
+<tr><td width="50%">
+<img style="margin-top: 10px; margin-left: 2px;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/symmetrics_logo.png" alt="symmetrics gmbh - Magento Partner, Certified Developer" />
+</td><td width="50%">
+<p style="font-family:Helvetica,sans-serif;font-size:16px;font-weight:400;color:#2d2d2d;line-height:1.3em;">Der nächste Schritt:<br />
+Das Gütesiegel für Ihren Magento-Shop.</p>
+</td></tr><tr><td>
+<p>symmetrics realisiert E-Commerce-Lösungen<br /> auf Basis der Magento Enterprise Edition sowie<br /> individuelle Schnittstellen und Erweiterungen.</p>
+
+<p>Als strategischer Magento Partner<br /> und Certified Developer steht symmetrics<br /> im engen Dialog mit Varien<br /> für den Erfolg von Kunden und Partnern.</p>
+
+<button style="" onclick="" class="scalable" type="button"><span>Informieren Sie sich jetzt!</span></button>
+</td><td>
+<p>Die Lösungen von Trusted Shops führen<br /> mit Sicherheit zu mehr Konversion.</p>
+<ul>
+<li><span style="font-weight:bold;">Steigen Sie die Konversionsrate</span></li>
+<li><span style="font-weight:bold;">Bieten Sie echten Käuferschutz</span></li>
+<li><span style="font-weight:bold;">Senken Sie Ihr Abmahnrisiko</span></li>
+</ul>
+<img style="margin-left:-20px;margin-top:-24px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/trustedshops_logo.png" alt="Trusted Shops - Certified Software" />
+
+<p>Wie bereits mehr als 7.000<br /> erfolgreiche Online Händler!</p>
+
+<button style="" onclick="" class="scalable" type="button"><span>Sonderkonditionen jetzt nutzen!</span></button>
+</td></tr></table>
+</td>
+                </tr></table></div>]]></comment>
+                </info>
+            </groups>
+        </general>
         <tax>
             <groups>
                 <display>

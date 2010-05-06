@@ -62,10 +62,10 @@ Das Gütesiegel für Ihren Magento-Shop.</p>
 <button style="" onclick="" class="scalable" type="button"><span>Informieren Sie sich jetzt!</span></button>
 </td><td>
 <p>Die Lösungen von Trusted Shops führen<br /> mit Sicherheit zu mehr Konversion.</p>
-<ul>
-<li><span style="font-weight:bold;">Steigen Sie die Konversionsrate</span></li>
-<li><span style="font-weight:bold;">Bieten Sie echten Käuferschutz</span></li>
-<li><span style="font-weight:bold;">Senken Sie Ihr Abmahnrisiko</span></li>
+<ul style="margin-left:14px;">
+<li type="square"><span style="font-weight:bold;">Steigen Sie die Konversionsrate</span></li>
+<li type="square"><span style="font-weight:bold;">Bieten Sie echten Käuferschutz</span></li>
+<li type="square"><span style="font-weight:bold;">Senken Sie Ihr Abmahnrisiko</span></li>
 </ul>
 <img style="margin-left:-20px;margin-top:-24px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/trustedshops_logo.png" alt="Trusted Shops - Certified Software" />
 

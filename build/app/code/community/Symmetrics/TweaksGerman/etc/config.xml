@@ -37,6 +37,15 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <tweaksgerman>
+                    <file>tweaksgerman.xml</file>
+                </tweaksgerman>
+            </updates>
+        </layout>
+    </adminhtml>
     <global>
         <models>
             <tweaksgerman>

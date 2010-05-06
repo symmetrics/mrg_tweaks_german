@@ -38,7 +38,7 @@
 <table border="0" cellmargin="0" cellspacing="0" style="width:640px;">
 <tr><td>
 <table border="0" cellmargin="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;"><tr>
-<td rowspan="2"><img style="margin-left:10px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/mrg_logo.png" alt="market ready germany Logo" /></td>
+<td rowspan="2"><img class="mrgimg" style="margin-left:10px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/mrg_logo.png" alt="market ready germany Logo" /></td>
 <td>
     <p style="font-family:Helvetica, sans-serif;font-size:18px;font-weight:900;color:#494949;line-height:1.3em;">Herzlichen Glückwunsch: <span style="color:#000000;">market ready</span><br /> hat Ihren Shop an die Markterfordernisse<br /> in Deutschland angepasst.</p>
 </td></tr><tr><td>
@@ -46,11 +46,11 @@
 </td>
 </tr></table>
 </td></tr>
-<tr><td><img src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/tophr.png" /></td></tr>
+<tr><td><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/tophr.png" /></td></tr>
 <tr><td>
 <table border="0" cellmargin="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;">
 <tr><td width="50%">
-<img style="margin-top: 10px; margin-left: 2px;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/symmetrics_logo.png" alt="symmetrics gmbh - Magento Partner, Certified Developer" />
+<img style="margin-top: 10px; margin-left: 2px;" class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/symmetrics_logo.png" alt="symmetrics gmbh - Magento Partner, Certified Developer" />
 </td><td width="50%">
 <p style="font-family:Helvetica,sans-serif;font-size:16px;font-weight:400;color:#2d2d2d;line-height:1.3em;">Der nächste Schritt:<br />
 Das Gütesiegel für Ihren Magento-Shop.</p>
@@ -67,7 +67,7 @@ Das Gütesiegel für Ihren Magento-Shop.</p>
 <li type="square"><span style="font-weight:bold;">Bieten Sie echten Käuferschutz</span></li>
 <li type="square"><span style="font-weight:bold;">Senken Sie Ihr Abmahnrisiko</span></li>
 </ul>
-<img style="margin-left:-20px;margin-top:-24px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/trustedshops_logo.png" alt="Trusted Shops - Certified Software" />
+<img class="mrgimg" style="margin-left:-20px;margin-top:-24px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/trustedshops_logo.png" alt="Trusted Shops - Certified Software" />
 
 <p>Wie bereits mehr als 7.000<br /> erfolgreiche Online Händler!</p>
 

@@ -29,10 +29,4 @@ $installer->setConfigData('checkout/cart/deliveryurl', 'lieferung');
 $installer->setConfigData('checkout/cart/revocationurl', 'widerruf');
 $installer->setConfigData('checkout/cart/orderurl', 'bestellung');
 
-// make 'weight' visible in front-end
-$attributeData = array(
-    'is_visible_on_front' => true,
-);
-$installer->updateAttribute('catalog_product', 'weight', $attributeData);
-
 $installer->endSetup();

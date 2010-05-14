@@ -26,7 +26,7 @@
 <config>
     <modules>
         <Symmetrics_TweaksGerman>
-            <version>0.1.5</version>
+            <version>0.1.7</version>
         </Symmetrics_TweaksGerman>
     </modules>    
     <global>
@@ -103,4 +103,11 @@
             </modules>
         </translate>
     </adminhtml>
+    <default>
+        <customer>
+            <create_account>
+                <emailnotice><![CDATA[Wir senden Ihnen regelmäßig sorgfältig ausgesuchte Angebote zu ähnlichen Produkten ausunserem Sortiment per E-Mail zu. Ihre E-Mail-Adresse wird nicht an andere Unternehmen weitergegeben. Sie können der Nutzung Ihrer E-Mail-Adresse für Werbezwecke jederzeit durch formlose E-Mail widersprechen.]]></emailnotice>
+            </create_account>
+        </customer>
+    </default>
 </config>

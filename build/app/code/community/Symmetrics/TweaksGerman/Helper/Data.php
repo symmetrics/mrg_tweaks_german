@@ -49,6 +49,7 @@ class Symmetrics_TweaksGerman_Helper_Data extends Mage_Core_Helper_Abstract
     public function getEmailNotice()
     {
         $emailNotice = Mage::getStoreConfig(self::EMAILNOTICE_PATH);
+
         return $emailNotice;
     }
 }

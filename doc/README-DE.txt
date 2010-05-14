@@ -56,6 +56,10 @@ Templates zu verändern.
         (s. Screenshot "doc/examples/Info-Banner.jpeg") hinzu. Info-Banner ist 
         unter "Konfiguration" -> "Allgemein" -> "Allgemein" -> 
         "market ready germany Info" zu sehen.
+        
+*** H: Fügt unter dem E-Mail Feld auf Registrierungseiten (Checkout, 
+       Benutzerkonto anlegen) ein Hinweistext auf Werbenutzung der
+       E-Mail Adresse ein.
 
 ** TECHNICAL
 Templates können in den Dateien
@@ -127,3 +131,8 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
 *** G: 1. Vergleichen Sie das Aussehen des Info-Banners mit dem Bespiel 
            ("doc/examples/Info-Banner.jpeg").
 
+*** H: 1. Im Backend unter Kundenkonfiguration > Benutzerkonto anlegen 
+          Optionen > Datenschutzhinweis unter dem E-Mail Feld kann ein
+          Hinweis definiert werden welcher unter dem E-Mail Feld auf 
+          der Seite customer/account/create und im Checkout im Abschnitt
+          "Rechnungsinformationen" angezeigt wird.

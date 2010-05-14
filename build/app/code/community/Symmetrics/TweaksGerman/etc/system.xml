@@ -132,5 +132,23 @@ Das Gütesiegel für Ihren Magento-Shop.</p>
                 </cart>
             </groups>
         </checkout>
+        <customer>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <create_account>
+                    <fields>
+                        <emailnotice translate="label comment">
+                            <label>E-Mail Field Notice</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Legal info notice about using the Email address for advertising]]></comment>
+                        </emailnotice>
+                    </fields>
+                </create_account>
+            </groups>
+        </customer>
     </sections>
 </config>

@@ -34,4 +34,9 @@ document.observe('dom:loaded', function() {
     $$('img.mrgimg').each(function(img){
        img.writeAttribute('src', baseUrl + removeRelative(img.readAttribute('src')));
     });
+    // Unfold MRG info Banner
+    var banner = $('general_info-head');
+    if (banner) {
+        banner.onclick();
+    }
 });

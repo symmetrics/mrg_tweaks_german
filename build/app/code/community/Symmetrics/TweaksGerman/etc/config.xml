@@ -109,5 +109,10 @@
                 <emailnotice><![CDATA[Wir senden Ihnen regelmäßig sorgfältig ausgesuchte Angebote zu ähnlichen Produkten ausunserem Sortiment per E-Mail zu. Ihre E-Mail-Adresse wird nicht an andere Unternehmen weitergegeben. Sie können der Nutzung Ihrer E-Mail-Adresse für Werbezwecke jederzeit durch formlose E-Mail widersprechen.]]></emailnotice>
             </create_account>
         </customer>
+        <catalog>
+            <frontend>
+                <enable_weight_info>0</enable_weight_info>
+            </frontend>
+        </catalog>
     </default>
 </config>

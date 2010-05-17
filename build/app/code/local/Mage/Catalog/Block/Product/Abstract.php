@@ -158,7 +158,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
             ->setIdSuffix($idSuffix)
             ->setUseLinkForAsLowAs($this->_useLinkForAsLowAs)
             //begin: symmetrics code
-            ->toHtml() . Mage::getBlockSingleton('Symmetrics_TweaksGerman_Block_Tax')->getTaxInfo($product);
+            ->toHtml() . Mage::getBlockSingleton('tweaksgerman/info')->setProduct($product)->getInfo();
             //end:   symmetrics code
     }
 

@@ -35,11 +35,18 @@
 class Symmetrics_TweaksGerman_Helper_Data extends Mage_Core_Helper_Abstract
 {
     /**
-     * The recipients email address
+     * Path to the email legal notice
      *
      * @var string store config
      */
     const EMAILNOTICE_PATH = 'customer/create_account/emailnotice';
+    
+    /**
+     * Path to enable switch
+     *
+     * @var string store config
+     */
+    const ENABLE_EMAILNOTICE_PATH = 'customer/create_account/enable_emailnotice';
 
     /**
      * Get email notice
@@ -48,7 +55,11 @@ class Symmetrics_TweaksGerman_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getEmailNotice()
     {
-        $emailNotice = Mage::getStoreConfig(self::EMAILNOTICE_PATH);
+        if (Mage::getStoreConfig(self::ENABLE_EMAILNOTICE_PATH)) {
+            $emailNotice = Mage::getStoreConfig(self::EMAILNOTICE_PATH);
+        } else {
+            $emailNotice = '';
+        }
 
         return $emailNotice;
     }

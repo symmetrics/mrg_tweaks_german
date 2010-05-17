@@ -106,7 +106,7 @@
     <default>
         <customer>
             <create_account>
-                <emailnotice><![CDATA[Wir senden Ihnen regelmäßig sorgfältig ausgesuchte Angebote zu ähnlichen Produkten ausunserem Sortiment per E-Mail zu. Ihre E-Mail-Adresse wird nicht an andere Unternehmen weitergegeben. Sie können der Nutzung Ihrer E-Mail-Adresse für Werbezwecke jederzeit durch formlose E-Mail widersprechen.]]></emailnotice>
+                <emailnotice><![CDATA[Wir senden Ihnen regelmÃ¤ÃŸig sorgfÃ¤ltig ausgesuchte Angebote zu Ã¤hnlichen Produkten ausunserem Sortiment per E-Mail zu. Ihre E-Mail-Adresse wird nicht an andere Unternehmen weitergegeben. Sie kÃ¶nnen der Nutzung Ihrer E-Mail-Adresse fÃ¼r Werbezwecke jederzeit durch formlose E-Mail widersprechen.]]></emailnotice>
             </create_account>
         </customer>
     </default>

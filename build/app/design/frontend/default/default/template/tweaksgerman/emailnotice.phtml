@@ -21,11 +21,10 @@
  * @link      http://www.symmetrics.de/
  */
 ?>
-<?php 
-$_helper = $this->helper('tweaksgerman');
-$emailNotice = $_helper->getEmailNotice();
-?>
-<?php if ($emailNotice) : ?>
+
+<?php $emailNotice = $this->helper('tweaksgerman')->getEmailNotice() ?>
+
+<?php if (strlen(trim($emailNotice)) > 0): ?>
 <script type="text/javascript"> 
 //<![CDATA[
 document.observe('dom:loaded', function() {

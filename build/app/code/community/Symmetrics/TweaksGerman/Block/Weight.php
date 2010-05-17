@@ -80,13 +80,11 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
      */
     public function getWeightInfo($product)
     {
-        $_product = Mage::getModel('catalog/product')->load($product->getId());
-        
-        $weight = Zend_Locale_Format::toFloat($_product->getWeight(), array('precision' => 2));
+        $catalogProduct = Mage::getModel('catalog/product')->load($product->getId());
+        $weight = Zend_Locale_Format::toFloat($catalogProduct->getWeight(), array('precision' => 2));
         $label = $this->getAttributeLabel('weight');
-        $result = '<span class="weight-details"> (' . $label . ' ' . $weight . 'kg)</span>';
 
-        return $result;
+        return '<span class="weight-details"> (' . $label . ' ' . $weight . 'kg)</span>';
     }
 
     /**

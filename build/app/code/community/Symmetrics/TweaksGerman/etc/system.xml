@@ -59,7 +59,7 @@ Das Gütesiegel für Ihren Magento-Shop.</p>
 
 <p>Als strategischer Magento Partner<br /> und Certified Developer steht symmetrics<br /> im engen Dialog mit Varien<br /> für den Erfolg von Kunden und Partnern.</p>
 
-<button style="" onclick="location.href='http://www.symmetrics.de'" class="scalable" type="button"><span>Informieren Sie sich jetzt!</span></button>
+<button style="" onclick="window.open('http://www.symmetrics.de')" class="scalable" type="button"><span>Informieren Sie sich jetzt!</span></button>
 </td><td>
 <p>Die Lösungen von Trusted Shops führen<br /> mit Sicherheit zu mehr Konversion.</p>
 <ul style="margin-left:14px;">
@@ -67,11 +67,11 @@ Das Gütesiegel für Ihren Magento-Shop.</p>
 <li type="square"><span style="font-weight:bold;">Bieten Sie echten Käuferschutz</span></li>
 <li type="square"><span style="font-weight:bold;">Senken Sie Ihr Abmahnrisiko</span></li>
 </ul>
-<a href="http://www.trustedshops.de/magento"><img class="mrgimg" style="margin-left:-20px;margin-top:-24px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/trustedshops_logo.png" alt="Trusted Shops - Certified Software" /></a>
+<a href="http://www.trustedshops.de/magento" target="_blank"><img class="mrgimg" style="margin-left:-20px;margin-top:-24px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/trustedshops_logo.png" alt="Trusted Shops - Certified Software" /></a>
 
 <p>Wie bereits mehr als 7.000<br /> erfolgreiche Online Händler!</p>
 
-<button style="" onclick="location.href='http://www.trustedshops.de/shopbetreiber/mitgliedschaft_partner.html?shopsw=MAGENTO'" class="scalable" type="button"><span>Sonderkonditionen jetzt nutzen!</span></button>
+<button style="" onclick="window.open('http://www.trustedshops.de/shopbetreiber/mitgliedschaft_partner.html?shopsw=MAGENTO')" class="scalable" type="button"><span>Sonderkonditionen jetzt nutzen!</span></button>
 </td></tr></table>
 </td>
                 </tr></table></div>]]></comment>

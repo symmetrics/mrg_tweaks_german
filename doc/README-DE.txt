@@ -6,12 +6,12 @@ Ggf. ist das Leeren/Auffrischen des Magento-Caches notwendig.
 
 ** USAGE
 Das Modul Symmetrics_TweaksGerman verändert das System so, dass es 
-deutschen rechtlichen Ansprüchen an einen Online-Shop genügt. Das Modul 
+deutschen rechtlichen Ansprüchen von einem Online-Shop entspricht. Das Modul 
 ist ein Teil der Vorzertifizierung für das Trusted Shop Siegel.
 
 Das Wort "Gewicht" in Attributen wird mit der Versandkosten-Seite verlinkt.
 Das Modul ersetzt die Versandkostenschätzung im Warenkorb und fügt 
-zusätzliche Links zu Bestellinformationen sowie Widerrufinformationen hinzu. 
+zusätzliche Links zu Bestellinformationen, sowie Widerrufinformationen hinzu. 
 Diese Links können unter "Verkäufe" => "Zur Kasse" => "Warenkorb" als 
 CMS-Seiten ausgewählt werden.
 
@@ -21,7 +21,7 @@ Das Modul Symmetrics_TweaksGerman aktiviert stattdessen die Option
 
 Symmetrics_TweaksGerman fügt nach jeder Preisanzeige im Frontend 
 Informationen über die Steuern für einen Artikel hinzu. Diese Anzeige ist vom 
-Gesetzgeber vorgeschrieben damit jedem Besucher ersichtlich ist ob die Preise
+Gesetzgeber vorgeschrieben, damit jedem Besucher ersichtlich ist, ob die Preise
 inklusive oder zuzüglich Mehrwertsteuer sind.  Es wird ebenfalls ein Link 
 auf die Seite Versandkosten hinzugefügt, das alles wird gemacht ohne die 
 Templates zu verändern.
@@ -95,35 +95,35 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
 ** BASIC
 *** A: 1. Installieren Sie das Modul (in einem Magento - Shop ver. 1.4.0.0). 
            Prüfen Sie ob danach die Bestellfunktionalität läuft.
-       2. Finden Sie oder legen Sie ein neuen Artikel an (der Artikel muss 
+       2. Finden Sie oder legen Sie einen neuen Artikel an (der Artikel muss 
            das "Gewicht" Attribut haben und das Gewicht Attribut muss im 
-           Front-End sichtbar sein). Auf die Produktdetail Seite im Front-End 
-           gehen und prüfen ob das "Gewicht" Attribut in der 
-           Produktbeschreibung mit der, im Backend eingestellte, CMS-Seite 
+           Front-End sichtbar sein). Gehen Sie auf die Produktdetail-Seite im Frontend 
+           und prüfen Sie, ob das "Gewicht" Attribut in der 
+           Produktbeschreibung mit der, im Backend eingestellten, CMS-Seite 
            verlinkt ist.
 
-*** B: 1. Ins Front-End gehen und ein Artikel in den Warenkorb legen. Auf der 
-           Warenkorb Seite prüfen, ob es den "Versandkosten Informationen" 
+*** B: 1. Gehen Sie ins Frontend und legen Sie einen Artikel in den Warenkorb. Prüfen Sie auf der 
+           Warenkorbseite, ob es den "Versandkosten Informationen" 
            Block zusammen mit dem Link "Hier finden Sie Informationen zu den 
-           Versandkosten" gibt. Dieser Link muss auf die im Backend 
-           eingestellte Seite verweisen.
+           Versandkosten" gibt. Dieser Link muss auf die, im Backend 
+           eingestellte Seite, verweisen.
 
-*** C: 1. Ins Front-End gehen und einen Artikel in den Warenkorb legen. Auf der 
-           Warenkorb Seite prüfen, ob der "So bestellen Sie bei uns" Link 
-           direkt unter "Zur Kasse gehen" sichtbar ist. Dieser Link muss auf 
-           die im Backend eingestellte Seite verweisen.
+*** C: 1. Gehen Sie ins Frontend und legen Sie einen Artikel in den Warenkorb. Prüfen Sie auf der 
+           Warenkorbseite, ob der "So bestellen Sie bei uns" Link 
+           direkt unter "Zur Kasse gehen" sichtbar ist. Dieser Link muss, auf 
+           die im Backend eingestellte Seite, verweisen.
 
-*** D: 1. Ins Front-End gehen und einen Artikel in den Warenkorb legen. Auf der 
-           Warenkorb Seite prüfen, ob der "Hier finden Sie die Einzelheiten zu 
+*** D: 1. Gehen Sie ins Frontend und legen Sie einen Artikel in den Warenkorb. Prüfen Sie auf der 
+           Warenkorbseite, ob der "Hier finden Sie die Einzelheiten zu 
            Ihrem Widerrufsrecht" Link direkt unter "Zur Kasse gehen" sichtbar 
-           ist. Dieser Link muss auf die im Backend eingestellte Seite 
+           ist. Dieser Link muss auf, die im Backend eingestellte Seite, 
            verweisen.
 
-*** E: 1. Führen sie im Frontend einen Bestellvorgang durch; Wenn sie ihre
+*** E: 1. Führen Sie im Frontend einen Bestellvorgang durch; Wenn Sie Ihre
            Rechnungsadresse eingegeben haben, sollte standardmäßig die Option
            "An diese Adresse verschicken" ausgewählt sein.
 
-*** F: 1. Im Frontend soll nach jeder Preisanzeige eine Steuerinformationen
+*** F: 1. Im Frontend soll nach jeder Preisanzeige Steuerinformationen
            (zzgl. ..% MwSt.) und ein Link auf die Seite Versandkosten gezeigt 
            werden. Dieser Link muss auf die im Backend eingestellte Seite 
            verweisen.
@@ -131,8 +131,8 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
 *** G: 1. Vergleichen Sie das Aussehen des Info-Banners mit dem Bespiel 
            ("doc/examples/Info-Banner.jpeg").
 
-*** H: 1. Im Backend unter Kundenkonfiguration > Benutzerkonto anlegen 
+*** H: 1. In der Kundenkonfiguration > Benutzerkonto anlegen 
           Optionen > Datenschutzhinweis unter dem E-Mail Feld kann ein
-          Hinweis definiert werden welcher unter dem E-Mail Feld auf 
+          Hinweis definiert werden, welcher unter dem E-Mail Feld auf 
           der Seite customer/account/create und im Checkout im Abschnitt
           "Rechnungsinformationen" angezeigt wird.

@@ -33,7 +33,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-class Symmetrics_TweaksGerman_Block_TaxRender extends Mage_Checkout_Block_Total_Default
+class Symmetrics_TweaksGerman_Block_TaxRender extends Mage_Checkout_Block_Total_Tax
 {
     /**
      * Setter for totals

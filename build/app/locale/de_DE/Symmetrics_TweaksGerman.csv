@@ -8,6 +8,8 @@
 "Bank account number","Kto-Nr."
 "Bank sort code","BLZ"
 "Bank name","Bankname"
+"Incl. tax","Inkl. MwSt."
+"Excl. tax","Zzgl. MwSt."
 "Incl. %1$s%% tax","inkl. %1$s%% MwSt."
 "Excl. %1$s%% tax","zzgl. %1$s%% MwSt."
 "Excl. <a href=""%1$s"">shipping</a>","zzgl. <a href=""%1$s"">Versandkosten</a>"

@@ -28,7 +28,7 @@
         <Symmetrics_TweaksGerman>
             <version>0.1.15</version>
         </Symmetrics_TweaksGerman>
-    </modules>    
+    </modules>
     <global>
         <models>
             <tweaksgerman>
@@ -66,6 +66,15 @@
                 </connection>
             </tweaksgerman_read>
         </resources>
+        <sales>
+            <quote>
+                <totals>
+                    <tax>
+                        <renderer>Symmetrics_TweaksGerman_Block_TaxRender</renderer>                        
+                    </tax>
+                </totals>
+            </quote>
+        </sales>
     </global>
     <frontend>
         <layout>

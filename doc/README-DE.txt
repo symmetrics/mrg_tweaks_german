@@ -61,6 +61,11 @@ Templates zu verändern.
        Benutzerkonto anlegen) ein Hinweistext auf Werbenutzung der
        E-Mail Adresse ein.
 
+*** I: Zeigt "Zzgl. MwSt." und "Inkl. MwSt." Texts, abhängig von der 
+        Backend-Einstellung 'tax/sales/display/price' (unter "System" -> 
+        "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in Bestellungen, 
+        Rechnungen, Gutschriften" -> "Preisanzeige").
+
 ** TECHNICAL
 Templates können in den Dateien
 app/design/frontend/default/default/template/tweaksgerman/cartinfo.phtml
@@ -85,6 +90,11 @@ G: Weil alle Bilder des Banners in der system.xml relative URLs benutzen,
     werden diese dynamisch per Javascript angepasst. Der Skript befindet
     sich unter "js/symmetrics/tweaksgerman/mrg_banner.js". Für die 
     Korrektur der URL ist die BLANK_IMG variable genutzt.
+
+I: Mit Hilfe des neuen Blocks TaxRender wird "Zzgl. MwSt." und "Inkl. MwSt." 
+    abhängig von der Backend-Einstellung 'tax/sales/display/price' (unter 
+    "System" -> "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in 
+    Bestellungen, Rechnungen, Gutschriften" -> "Preisanzeige") angezeigt.
 
 ** PROBLEMS
 F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
@@ -136,3 +146,12 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
           Hinweis definiert werden, welcher unter dem E-Mail Feld auf 
           der Seite customer/account/create und im Checkout im Abschnitt
           "Rechnungsinformationen" angezeigt wird.
+
+*** I: 1. Legen Sie ein Produkt in den Warenkorb und überprüfen Sie, ob die
+           Steuer-Infos mit dem Text "Zzgl. MwSt." und "Inkl. MwSt." 
+           angezeigt werden. (abhängig von der Einstellung unter "System" -> 
+           "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in Bestellungen, 
+           Rechnungen, Gutschriften" -> "Preisanzeige"). 
+       2. Die Steuer-Infos müssen auch in "Zur Kasse" (vor der Bestellung) 
+           richtig angezeigt werden.
+

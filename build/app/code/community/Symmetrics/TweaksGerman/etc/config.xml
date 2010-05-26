@@ -70,7 +70,7 @@
             <quote>
                 <totals>
                     <tax>
-                        <renderer>Symmetrics_TweaksGerman_Block_TaxRender</renderer>                        
+                        <renderer>Symmetrics_TweaksGerman_Block_Tax_Render</renderer>
                     </tax>
                 </totals>
             </quote>

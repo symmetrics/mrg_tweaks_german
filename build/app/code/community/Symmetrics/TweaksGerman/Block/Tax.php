@@ -42,7 +42,7 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
      * @return string url appended to tax info
      */
     protected static function _getShippingLink()
-    {        
+    {
         $pattern = Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>');
         $value = Mage::getUrl('') . Mage::getStoreConfig('tax/display/shippingurl');
         $shippingLink = sprintf($pattern, $value);
@@ -59,12 +59,21 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
      */
     protected static function _getTaxInfo($product)
     {
-        $taxPercent = $product->getTaxPercent();
         $tax = Mage::helper('tax');
-        if ($tax->displayPriceIncludingTax()) {
-            $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Incl. %1$s%% tax'), $taxPercent);
+        if ($product->getTypeId() == 'bundle') {
+            // bundle product type has not tax percent
+            if ($tax->displayPriceIncludingTax()) {
+                $taxInfo = Mage::helper('tweaksgerman')->__('Incl. tax');
+            } else {
+                $taxInfo = Mage::helper('tweaksgerman')->__('Excl. tax');
+            }
         } else {
-            $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Excl. %1$s%% tax'), $taxPercent);
+            $taxPercent = $product->getTaxPercent();
+            if ($tax->displayPriceIncludingTax()) {
+                $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Incl. %1$s%% tax'), $taxPercent);
+            } else {
+                $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Excl. %1$s%% tax'), $taxPercent);
+            }
         }
 
         return $taxInfo;
@@ -79,11 +88,11 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
      *                     is combined
      */
     public static function getTaxInfo($product)
-    {        
+    {
         if ($product->getCanShowPrice() === false) {
             return null;
         }
-        
+
         $productTypeId = $product->getTypeId();
         if ($productTypeId == 'combined') {
             // ignore Symmetrics_CombinedProduct

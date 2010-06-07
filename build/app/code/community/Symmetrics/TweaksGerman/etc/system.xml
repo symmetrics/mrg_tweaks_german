@@ -42,7 +42,7 @@
 <td>
     <p style="font-family:Helvetica, sans-serif;font-size:18px;font-weight:900;color:#494949;line-height:1.3em;">Herzlichen Glückwunsch: <span style="color:#000000;">Market Ready Germany</span><br /> hat Ihren Shop an die Markterfordernisse<br /> in Deutschland angepasst.</p>
 </td></tr><tr><td>
-    <p style="font-family:Helvetica, sans-serif;color:#000000;font-size:13px;line-height:1.3em;"><span style="font-weight:bold;">Market Ready Germany</span> vereint die technischen Innovationen von<br /> <a style="color:#000000;text-decoration:underline;" href="http://www.symmetrics.de">Magento Enterprise Partner symmetrics</a> mit dem rechtlichen Know-How von<br /> Trusted Shops. Dank der freundlichen Unterstützung durch unsere Sponsoren können wir das Modul allen Nutzern von Magento kostenlos anbieten. Wir wünschen viel Erfolg!</p>
+    <p style="font-family:Helvetica, sans-serif;color:#000000;font-size:13px;line-height:1.3em;"><span style="font-weight:bold;">Market Ready Germany</span> vereint das rechtliche Know-how von Trusted Shops mit den technischen Innovationen von Magento Enterprise Partner symmetrics. Dank der freundlichen Unterstützung durch unsere Sponsoren können wir das Modul allen Nutzern von Magento kostenlos anbieten. Wir wünschen viel Erfolg!</p>
 </td>
 </tr></table>
 </td></tr>
@@ -82,13 +82,13 @@ Das Gütesiegel für Ihren Magento-Shop.</p>
     <div>
     <a href="http://www.cash-ticket.com/marketreadygermany" target="_blank"><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/cashticketlogo.png" /></a>
     <br />
-    <button style="" onclick="window.open('http://www.cash-ticket.com/marketreadygermany')" class="scalable" type="button"><span>Sonderkonditionen nutzen!</span></button>
+    <button style="" onclick="window.open('http://www.cash-ticket.com/marketreadygermany')" class="scalable" type="button"><span style="font-size:9px;">Sonderkonditionen nutzen!</span></button>
     </div>
 </td><td style="width:184px;text-align:center;">
     <div>
     <a href="http://www.payone.de/marketready" target="_blank"><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/payonelogo.png" /></a>
     <br/ >
-    <button style="" onclick="window.open('http://www.payone.de/marketready')" class="scalable" type="button"><span>Sonderkonditionen nutzen!</span></button>
+    <button style="" onclick="window.open('http://www.payone.de/marketready')" class="scalable" type="button"><span style="font-size:9px;">Sonderkonditionen nutzen!</span></button>
     </div>
 </td><td style="width:184px;">
     <!--<img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/boxbg.png" />-->

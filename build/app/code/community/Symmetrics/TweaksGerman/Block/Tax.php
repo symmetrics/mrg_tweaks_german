@@ -16,6 +16,7 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Siegfried Schmitz <ss@symmetrics.de>
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
  * @copyright 2009-2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
@@ -28,6 +29,7 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Siegfried Schmitz <ss@symmetrics.de>
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
  * @copyright 2009-2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
@@ -35,37 +37,78 @@
 class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
 {
     /**
-     * Get tax info
+     * Get shipping link
+     *
+     * @return string url appended to tax info
+     */
+    protected static function _getShippingLink()
+    {
+        $pattern = Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>');
+        $value = Mage::getUrl('') . Mage::getStoreConfig('tax/display/shippingurl');
+        $shippingLink = sprintf($pattern, $value);
+
+        return $shippingLink;
+    }
+
+    /**
+     * Compute tax info
      *
      * @param Mage_Catalog_Model_Product $product product object
      *
-     * @return string
+     * @return string tax info
+     */
+    protected static function _getTaxInfo($product)
+    {
+        $tax = Mage::helper('tax');
+        if ($product->getTypeId() == 'bundle') {
+            // bundle product type has not tax percent
+            if ($tax->displayPriceIncludingTax()) {
+                $taxInfo = Mage::helper('tweaksgerman')->__('Incl. tax');
+            } else {
+                $taxInfo = Mage::helper('tweaksgerman')->__('Excl. tax');
+            }
+        } else {
+            $taxPercent = (int) $product->getTaxPercent();
+            if ($tax->displayPriceIncludingTax()) {
+                $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Incl. %1$s%% tax'), $taxPercent);
+            } else {
+                $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Excl. %1$s%% tax'), $taxPercent);
+            }
+        }
+
+        return $taxInfo;
+    }
+
+    /**
+     * Get tax info as html
+     *
+     * @param Mage_Catalog_Model_Product $product product object
+     *
+     * @return string|null result is null if product is so configured or product
+     *                     is combined
      */
     public static function getTaxInfo($product)
     {
-        if ($product->getCanShowPrice() !== false) {
-            $tax = Mage::helper('tax');
-            $productTypeId = $product->getTypeId();
-            
-            if ($productTypeId != 'combined') { // use not for Symmetrics_CombinedProduct
-                $taxPercent = $product->getTaxPercent();
-                if ($tax->displayPriceIncludingTax()) {
-                    $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Incl. %1$s%% tax'), $taxPercent);
-                } else {
-                    $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Excl. %1$s%% tax'), $taxPercent);
-                }
-    
-                $shippingLink = sprintf(
-                    Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>'),
-                    Mage::getUrl('') . Mage::getStoreConfig('tax/display/shippingurl')
-                );
-    
-                if ($productTypeId != 'virtual' && $productTypeId != 'downloadable') {
-                    return '<span class="tax-details">' . $taxInfo . ', ' . $shippingLink . '</span>';
-                } else {
-                    return '<span class="tax-details">' . $taxInfo . '</span>';
-                }
-            }
+        if ($product->getCanShowPrice() === false) {
+            return null;
         }
+
+        $productTypeId = $product->getTypeId();
+        if ($productTypeId == 'combined') {
+            // ignore Symmetrics_CombinedProduct
+            return null;
+        }
+
+        // produce tax info
+        $ignoreTypeIds = array('virtual', 'downloadable');
+        $taxInfo = self::_getTaxInfo($product);
+        if (in_array($productTypeId, $ignoreTypeIds)) {
+            $result = '<span class="tax-details">' . $taxInfo . '</span>';
+        } else {
+            // product type is not in ingore list, so we append a shipping link
+            $result = '<span class="tax-details">' . $taxInfo . ', ' . self::_getShippingLink() . '</span>';
+        }
+
+        return $result;
     }
 }

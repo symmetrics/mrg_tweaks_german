@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
  * Magento
@@ -24,12 +24,88 @@
 -->
 <config>
     <sections>
+        <general>
+            <groups>                
+                <info translate="label">
+                    <label>Market Ready Germany Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>-1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[
+<div style="font-family:Helvetica,sans-serif;background-color:white;color:#8f8f8f;font-size:13px;">
+<table border="0" cellpadding="0" cellspacing="0" style="width:640px;">
+<tr><td>
+<table border="0" cellpadding="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;"><tr>
+<td rowspan="2"><img class="mrgimg" style="margin-left:10px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/mrg_logo.png" alt="Market Ready Germany Logo" /></td>
+<td>
+    <p style="font-family:Helvetica, sans-serif;font-size:18px;font-weight:900;color:#494949;line-height:1.3em;">Herzlichen Glückwunsch: <span style="color:#000000;">Market Ready Germany</span><br /> hat Ihren Shop an die Markterfordernisse<br /> in Deutschland angepasst.</p>
+</td></tr><tr><td>
+    <p style="font-family:Helvetica, sans-serif;color:#000000;font-size:13px;line-height:1.3em;"><span style="font-weight:bold;">Market Ready Germany</span> vereint das rechtliche Know-how von Trusted Shops mit den technischen Innovationen von Magento Enterprise Partner symmetrics. Dank der freundlichen Unterstützung durch unsere Sponsoren können wir das Modul allen Nutzern von Magento kostenlos anbieten. Wir wünschen viel Erfolg!</p>
+</td>
+</tr></table>
+</td></tr>
+<tr><td><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/tophr.png" /></td></tr>
+<tr><td>
+<table border="0" cellpadding="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;">
+<tr><td width="50%">
+<img style="margin-top: 10px; margin-left: 2px;" class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/symmetrics_logo.png" alt="symmetrics gmbh - Magento Partner, Certified Developer" />
+</td><td width="50%">
+<p style="font-family:Helvetica,sans-serif;font-size:16px;font-weight:400;color:#2d2d2d;line-height:1.3em;">Der nächste Schritt:<br />
+Das Gütesiegel für Ihren Magento-Shop.</p>
+</td></tr><tr><td>
+<p>symmetrics realisiert E-Commerce-Lösungen<br /> auf Basis der Magento Enterprise Edition sowie<br /> individuelle Schnittstellen und Erweiterungen.</p>
+
+<p>Als strategischer Magento Partner<br /> und Certified Developer steht symmetrics<br /> im engen Dialog mit Varien<br /> für den Erfolg von Kunden und Partnern.</p>
+
+<button style="" onclick="window.open('http://www.symmetrics.de')" class="scalable" type="button"><span>Informieren Sie sich jetzt!</span></button>
+</td><td>
+<p>Die Lösungen von Trusted Shops führen<br /> mit Sicherheit zu mehr Konversion.</p>
+<ul style="margin-left:14px;">
+<li type="square"><span style="font-weight:bold;">Steigen Sie die Konversionsrate</span></li>
+<li type="square"><span style="font-weight:bold;">Bieten Sie echten Käuferschutz</span></li>
+<li type="square"><span style="font-weight:bold;">Senken Sie Ihr Abmahnrisiko</span></li>
+</ul>
+<a href="http://www.trustedshops.de/magento" target="_blank"><img class="mrgimg" style="margin-left:-20px;margin-top:-24px;float:right;position:relative;" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/trustedshops_logo.png" alt="Trusted Shops - Certified Software" /></a>
+
+<p>Wie bereits mehr als 7.000<br /> erfolgreiche Online Händler!</p>
+
+<button style="" onclick="window.open('http://www.trustedshops.de/shopbetreiber/mitgliedschaft_partner.html?shopsw=MAGENTO')" class="scalable" type="button"><span>Sonderkonditionen jetzt nutzen!</span></button>
+</td></tr></table>
+</td></tr>
+<tr><td align="left" style="vertical-align: bottom;"><img style="margin-bottom: -5px;" class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/bottomhr.png" /></td></tr>
+<tr style="background-color:#f7f7f7;"><td><div style="margin-left:8px;font-family:sans-serif;color:#000000;font-size:11px;font-weight:bold;">Market Ready Germany sponsored by</div></td></tr>
+<tr style="background-color:#f7f7f7;"><td>
+<table border="0" cellpadding="0" cellspacing="0" style="width:640px;padding:1px;margin:1px;height:100px">
+<tr><td style="width:184px;text-align:center;">
+    <div>
+    <a href="http://www.cash-ticket.com/marketreadygermany" target="_blank"><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/cashticketlogo.png" /></a>
+    <br />
+    <button style="" onclick="window.open('http://www.cash-ticket.com/marketreadygermany')" class="scalable" type="button"><span style="font-size:9px;">Sonderkonditionen nutzen!</span></button>
+    </div>
+</td><td style="width:184px;text-align:center;">
+    <div>
+    <a href="http://www.payone.de/marketready" target="_blank"><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/payonelogo.png" /></a>
+    <br/ >
+    <button style="" onclick="window.open('http://www.payone.de/marketready')" class="scalable" type="button"><span style="font-size:9px;">Sonderkonditionen nutzen!</span></button>
+    </div>
+</td><td style="width:184px;">
+    <!--<img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/boxbg.png" />-->
+</td><td style="width:184px;">
+    <!--<img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/boxbg.png" />-->
+</td></tr>
+</table></td>
+                </tr></table></div>]]></comment>
+                </info>
+            </groups>
+        </general>
         <tax>
             <groups>
                 <display>
                     <fields>
                         <shippingurl translate="label">
-                            <label>Shipping costs (CMS Page)</label>
+                            <label>Shipping costs (CMS page)</label>
                             <frontend_type>select</frontend_type>
                             <source_model>tweaksgerman/system_config_source_cms_page</source_model>
                             <sort_order>30</sort_order>
@@ -48,28 +124,28 @@
                     <show_in_store>1</show_in_store>
                     <fields>
                         <orderurl translate="label">
-                            <label>Order information (CMS Page)</label>
+                            <label>Order information (CMS page)</label>
                             <frontend_type>select</frontend_type>
                             <source_model>tweaksgerman/system_config_source_cms_page</source_model>
-                            <sort_order>10</sort_order>
+                            <sort_order>15</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </orderurl>
                         <revocationurl translate="label">
-                            <label>Revocation terms (CMS Page)</label>
+                            <label>Revocation terms (CMS page)</label>
                             <frontend_type>select</frontend_type>
                             <source_model>tweaksgerman/system_config_source_cms_page</source_model>
-                            <sort_order>10</sort_order>
+                            <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </revocationurl>
                         <deliveryurl translate="label">
-                            <label>Delivery information (CMS Page)</label>
+                            <label>Delivery information (CMS page)</label>
                             <frontend_type>select</frontend_type>
                             <source_model>tweaksgerman/system_config_source_cms_page</source_model>
-                            <sort_order>10</sort_order>
+                            <sort_order>45</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -78,5 +154,51 @@
                 </cart>
             </groups>
         </checkout>
+        <customer>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <create_account>
+                    <fields>
+                        <enable_emailnotice translate="label comment">
+                            <label>Enable Email Notice</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>89</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enable or disable legal information for the Email address field]]></comment>
+                        </enable_emailnotice>
+                        <emailnotice translate="label comment">
+                            <label>Email Field Notice</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Legal info notice about using the Email address for advertising]]></comment>
+                        </emailnotice>
+                    </fields>
+                </create_account>
+            </groups>
+        </customer>
+        <catalog>
+            <groups>
+                <frontend>
+                    <fields>
+                        <enable_weight_info translate="label comment">
+                            <label>Show Weight Value</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Show the value of weight attribute behind the product price]]></comment>
+                        </enable_weight_info>
+                    </fields>                    
+                </frontend>
+            </groups>
+        </catalog>
     </sections>
 </config>

@@ -22,7 +22,8 @@
  */
 
 /**
- * Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page
+ * Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page helps to construct
+ * dropdown element for the back-end configuraton filled with cms-pages
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
@@ -32,20 +33,18 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page 
+class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page
     extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
     /**
-     * Options
-     *
-     * @var array
+     * @var array $_options cached options
      */
     protected $_options;
 
     /**
      * Return option array
      *
-     * @return array
+     * @return array options
      */
     public function toOptionArray()
     {
@@ -55,14 +54,14 @@ class Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page
                 ->setOrder('title', 'ASC')
                 ->toOptionArray();
         }
-        
+
         return $this->_options;
     }
 
     /**
      * Get all options as array
      *
-     * @return array
+     * @return array options
      */
     public function getAllOptions()
     {

@@ -1,13 +1,7 @@
 * DOCUMENTATION
 
 ** INSTALLATION
-
-*** 1. Unpack the content of this module into Magento directory, i.e.
-       folders app/ and js/ must be copied into the project root. 
-       Update the system cache.
-
-*** 2. Go to the Front-end to provoke module setup/invocation by accessing the
-       home page. We are done.
+Unpack the content of this module into Magento directory.
 
 ** USAGE
 
@@ -25,18 +19,17 @@ of "Trusted Shop" certification process.
 
 *** C: Adds some additional links below the order button in the cart.
 
-** TECHNINCAL
-
-***    Links can be always customized in following files located at 
-       app/design/frontend/default/default/template/:
-         tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml,
+** TECHNICAL
+Links can be always customized in following files located at 
+app/design/frontend/default/default/template/:
+tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml,
 
 ** PROBLEMS
+Taxes can be inccorrect under some circumstances.
 
 * TESTCASES
 
 ** BASIC
-
 *** A:  1. Install the module (into Magento - Shop ver. 1.4.0.0). Make sure
            one can successfully order a product.
         2. Find or create a new product (it should have a defined "weight" 
@@ -54,8 +47,3 @@ of "Trusted Shop" certification process.
            Check "In this way, you order by us" link on the cart page just under
            "Proceed to checkout" button. The link itself must be proper 
            referenced to the "bestellung" (order) CMS-page.
-
-** CATCHABLE
-
-** STRESS
-

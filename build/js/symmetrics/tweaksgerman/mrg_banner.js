@@ -14,16 +14,29 @@
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @author    Eric Reiche <er@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
 
 /**
- * Check the radiobutton "shipping to this adress"
+ * MRG Banner hooks
  */
 document.observe('dom:loaded', function() {
-    $('billing:use_for_shipping_yes').writeAttribute('checked', true);
+    var baseUrl = BLANK_IMG.sub('js/spacer.gif','');
+    var removeRelative = function(path){
+        while (path.startsWith('../')) {
+            path = path.sub('../','');
+        }
+        return path;
+    }
+    $$('img.mrgimg').each(function(img){
+       img.writeAttribute('src', baseUrl + removeRelative(img.readAttribute('src')));
+    });
+    // Unfold MRG info Banner
+    var banner = $('general_info-head');
+    if (banner) {
+        banner.onclick();
+    }
 });

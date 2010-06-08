@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
 /**
  * Magento
  *
@@ -14,16 +16,16 @@
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @author    Eric Reiche <er@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-
-/**
- * Check the radiobutton "shipping to this adress"
- */
-document.observe('dom:loaded', function() {
-    $('billing:use_for_shipping_yes').writeAttribute('checked', true);
-});
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>symmetrics/tweaksgerman/mrg_banner.js</script></action>
+        </reference>
+    </default>
+</layout>

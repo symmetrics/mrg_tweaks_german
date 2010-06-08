@@ -1,3 +1,4 @@
+<?php
 /**
  * Magento
  *
@@ -14,16 +15,18 @@
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @author    Eric Reiche <er@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
 
-/**
- * Check the radiobutton "shipping to this adress"
- */
-document.observe('dom:loaded', function() {
-    $('billing:use_for_shipping_yes').writeAttribute('checked', true);
-});
+$installer = $this;
+$installer->startSetup();
+
+// setup checkout linking
+$installer->setConfigData('checkout/cart/deliveryurl', 'lieferung');
+$installer->setConfigData('checkout/cart/revocationurl', 'widerruf');
+$installer->setConfigData('checkout/cart/orderurl', 'bestellung');
+
+$installer->endSetup();

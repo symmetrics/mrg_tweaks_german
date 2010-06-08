@@ -15,52 +15,60 @@
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @author    Eugen Gitin <eg@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
 
 /**
- * Symmetrics_TweaksGerman_Helper_Data
+ * Block class for tax and weight information
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @author    Eugen Gitin <eg@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-class Symmetrics_TweaksGerman_Helper_Data extends Mage_Core_Helper_Abstract
+class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
 {
     /**
-     * Path to the email legal notice
+     * Get additional price information
      *
-     * @var string store config
+     * @return string html
      */
-    const EMAILNOTICE_PATH = 'customer/create_account/emailnotice';
-    
-    /**
-     * Path to enable switch
-     *
-     * @var string store config
-     */
-    const ENABLE_EMAILNOTICE_PATH = 'customer/create_account/enable_emailnotice';
-
-    /**
-     * Get email notice
-     *
-     * @return string emailnotice
-     */
-    public function getEmailNotice()
+    public function getInfo()
     {
-        if (Mage::getStoreConfig(self::ENABLE_EMAILNOTICE_PATH)) {
-            $emailNotice = Mage::getStoreConfig(self::EMAILNOTICE_PATH);
-        } else {
-            $emailNotice = '';
+        $info = $this->getTaxInfo();
+        
+        if (Mage::getStoreConfig('catalog/frontend/enable_weight_info')) {
+            $info .= $this->getWeightInfo();
         }
+        
+        return $info; 
+    }
 
-        return $emailNotice;
+    /**
+     * Get weight information
+     *
+     * @return string html
+     */
+    public function getWeightInfo()
+    {
+        return Mage::getBlockSingleton('tweaksgerman/weight')
+            ->getWeightInfo($this->getProduct());
+    }
+
+    /**
+     * Get tax information
+     *
+     * @return string html
+     */
+    public function getTaxInfo()
+    {
+        return Mage::getBlockSingleton('tweaksgerman/tax')
+            ->getTaxInfo($this->getProduct());
     }
 }

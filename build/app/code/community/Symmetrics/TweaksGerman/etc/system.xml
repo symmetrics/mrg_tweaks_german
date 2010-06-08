@@ -86,9 +86,9 @@ Das Gütesiegel für Ihren Magento-Shop.</p>
     </div>
 </td><td style="width:184px;text-align:center;">
     <div>
-    <a href="http://www.payone.de/marketready" target="_blank"><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/payonelogo.png" /></a>
+    <a href="http://www.payone.de/marketready/" target="_blank"><img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/payonelogo.png" /></a>
     <br/ >
-    <button style="" onclick="window.open('http://www.payone.de/marketready')" class="scalable" type="button"><span style="font-size:9px;">Sonderkonditionen nutzen!</span></button>
+    <button style="" onclick="window.open('http://www.payone.de/marketready/')" class="scalable" type="button"><span style="font-size:9px;">Sonderkonditionen nutzen!</span></button>
     </div>
 </td><td style="width:184px;">
     <!--<img class="mrgimg" src="../../../../../../../../skin/adminhtml/default/default/images/symmetrics/boxbg.png" />-->

@@ -141,11 +141,14 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
 *** G: 1. Vergleichen Sie das Aussehen des Info-Banners mit dem Bespiel 
            ("doc/examples/Info-Banner.jpeg").
 
-*** H: 1. In der Kundenkonfiguration > Benutzerkonto anlegen 
-          Optionen > Datenschutzhinweis unter dem E-Mail Feld kann ein
-          Hinweis definiert werden, welcher unter dem E-Mail Feld auf 
-          der Seite customer/account/create und im Checkout im Abschnitt
-          "Rechnungsinformationen" angezeigt wird.
+*** H: 1. Defenieren Sie unter "System -> Konfiguraton -> Kunden -> 
+           Kundenkonfiguration -> Benutzerkonto anlegen Optionen -> 
+           Datenschutzhinweis unter dem E-Mail Feld" einen Hinweis, welcher 
+           unter dem E-Mail Feld auf der Seite customer/account/create und 
+           im Checkout im Abschnitt "Rechnungsinformationen" angezeigt wird.
+       2. Überprüfen Sie, dass die Einstellung "Info-Notiz für E-Mail Feld 
+           aktivieren" entsprechend den Hinweis aktiviert/deaktiviert. Der 
+           standart Wert ist "Nein".
 
 *** I: 1. Legen Sie ein Produkt in den Warenkorb und überprüfen Sie, ob die
            Steuer-Infos mit dem Text "Zzgl. MwSt." und "Inkl. MwSt." 

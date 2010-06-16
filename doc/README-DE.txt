@@ -154,7 +154,8 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
            Steuer-Infos mit dem Text "Zzgl. MwSt." und "Inkl. MwSt." 
            angezeigt werden. (abhängig von der Einstellung unter "System" -> 
            "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in Bestellungen, 
-           Rechnungen, Gutschriften" -> "Preisanzeige"). 
+           Rechnungen, Gutschriften" -> "Preisanzeige").
        2. Die Steuer-Infos müssen auch in "Zur Kasse" (vor der Bestellung) 
            richtig angezeigt werden.
+       3. Achtung! Der Wert "Including and Excluding Tax" wird nicht unterschtzt.
 

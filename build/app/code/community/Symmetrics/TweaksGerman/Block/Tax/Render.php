@@ -48,11 +48,10 @@ class Symmetrics_TweaksGerman_Block_Tax_Render extends Mage_Checkout_Block_Total
         $store = $this->getStore();
         if ($total->getCode() == 'tax') {
             $taxHelper = Mage::helper('tax');
-            $taxConfig = $taxHelper->getConfig();
-            if ($taxConfig->displayCartSubtotalInclTax($store)) {
+            if ($taxHelper->displaySalesPriceInclTax($store)) {
                 $title = Mage::helper('tweaksgerman')->__('Incl. tax');
                 $total->setTitle($title);
-            } else if ($taxConfig->displayCartSubtotalExclTax($store)) {
+            } else if ($taxHelper->displaySalesPriceExclTax($store)) {
                 $title = Mage::helper('tweaksgerman')->__('Excl. tax');
                 $total->setTitle($title);
             }

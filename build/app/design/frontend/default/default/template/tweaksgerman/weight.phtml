@@ -26,8 +26,6 @@
 
 <script type="text/javascript">
     document.observe('dom:loaded', function() {
-        var blankImg = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
-        var shopUrl = blankImg.substr(0, blankImg.length-13);
         var labels = $$('#product-attribute-specs-table .label');
         labels.each(function(label) {
             if (label.innerHTML.match('<?php echo $_weightLabel ?>') !== null) {

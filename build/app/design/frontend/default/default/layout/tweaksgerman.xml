@@ -27,9 +27,11 @@
         <reference name="checkout.cart.methods">
             <block type="core/template" name="cartlink" template="tweaksgerman/cartinfo.phtml"/>
         </reference>
+        <!-- 
         <reference name="checkout.cart">
             <block type="checkout/cart_shipping" name="checkout.cart.shipping" as="shipping" template="tweaksgerman/shippinginfo.phtml"/>
         </reference>
+         -->
     </checkout_cart_index>
     <checkout_onepage_index>
         <reference name="head">

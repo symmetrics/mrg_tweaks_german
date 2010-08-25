@@ -43,7 +43,16 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
      */
     protected static function _getShippingLink()
     {
-        $pattern = Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>');
+        $displayShipping = Mage::getStoreConfig('catalog/frontend/display_shippingcosts');
+        
+        if ($displayShipping == '0') {
+            return '';
+        } else if ($displayShipping == 'incl') {
+            $pattern = Mage::helper('core')->__('Incl. <a href="%1$s">shipping</a>');
+        } else {
+            $pattern = Mage::helper('core')->__('Excl. <a href="%1$s">shipping</a>');   
+        }
+        
         $value = Mage::getUrl('') . Mage::getStoreConfig('tax/display/shippingurl');
         $shippingLink = sprintf($pattern, $value);
 

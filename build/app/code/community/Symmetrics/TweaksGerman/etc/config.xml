@@ -26,7 +26,7 @@
 <config>
     <modules>
         <Symmetrics_TweaksGerman>
-            <version>0.1.37</version>
+            <version>0.1.39</version>
         </Symmetrics_TweaksGerman>
     </modules>
     <global>
@@ -122,6 +122,7 @@
         <catalog>
             <frontend>
                 <enable_weight_info>0</enable_weight_info>
+                <display_shippingcosts>excl</display_shippingcosts>
             </frontend>
         </catalog>
     </default>

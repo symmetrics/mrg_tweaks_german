@@ -15,27 +15,21 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @author    Eric Reiche <er@symmetrics.de>
  * @copyright 2009-2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
- 
+
+/**
+ * Change the position from zip and city - fields
+ */
 document.observe('dom:loaded', function() {
-    /* Check the radiobutton "shipping to this adress" */
-    $('billing:use_for_shipping_yes').writeAttribute('checked', true);
-    
-    /* Change the position from zip and city - fields */    
-    changeElements($('billing:postcode'), $('billing:city'));
-    changeElements($('shipping:postcode'), $('shipping:city'));
+    if ($('city') && $('zip')) {
+        var cityField = $('city').up().up();
+        var zipField = $('zip').up().up().innerHTML;
+        
+        $('zip').up().up().update(cityField.innerHTML);
+        $('city').up().up().update(zipField);
+    }
 });
 
-function changeElements(zipElement, cityElement) {
-    if (zipElement && cityElement) {
-        var cityField = cityElement.up().up();
-        var zipField = zipElement.up().up().innerHTML;
-
-        zipElement.up().up().update(cityField.innerHTML);
-        cityElement.up().up().update(zipField);
-    }
-}

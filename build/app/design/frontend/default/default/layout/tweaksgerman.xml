@@ -51,4 +51,9 @@
             <block type="core/template" name="emailnotice" template="tweaksgerman/emailnotice.phtml"/>
         </reference>
     </customer_account_create>
+    <customer_address_form>
+        <reference name="head">
+            <action method="addJs"><script>symmetrics/tweaksgerman/address.js</script></action>
+        </reference>
+    </customer_address_form>
 </layout>

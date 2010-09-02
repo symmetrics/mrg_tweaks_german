@@ -68,20 +68,29 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
      */
     protected static function _getTaxInfo($product)
     {
+        $showPercentage = true;
         $tax = Mage::helper('tax');
         if ($product->getTypeId() == 'bundle') {
-            // bundle product type has not tax percent
-            if ($tax->displayPriceIncludingTax()) {
-                $taxInfo = Mage::helper('tweaksgerman')->__('Incl. tax');
-            } else {
-                $taxInfo = Mage::helper('tweaksgerman')->__('Excl. tax');
-            }
-        } else {
+            $showPercentage = false;
+        }
+        if ($showPercentage) {
             $taxPercent = (int) $product->getTaxPercent();
+            if ($taxPercent == 0) {
+                $showPercentage = false;
+            }
+        }
+        
+        if ($showPercentage) {
             if ($tax->displayPriceIncludingTax()) {
                 $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Incl. %1$s%% tax'), $taxPercent);
             } else {
                 $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Excl. %1$s%% tax'), $taxPercent);
+            }
+        } else {
+            if ($tax->displayPriceIncludingTax()) {
+                $taxInfo = Mage::helper('tweaksgerman')->__('Incl. tax');
+            } else {
+                $taxInfo = Mage::helper('tweaksgerman')->__('Excl. tax');
             }
         }
 

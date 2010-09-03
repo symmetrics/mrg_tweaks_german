@@ -65,6 +65,8 @@ Templates zu verändern.
         Backend-Einstellung 'tax/sales/display/price' (unter "System" -> 
         "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in Bestellungen, 
         Rechnungen, Gutschriften" -> "Preisanzeige").
+*** J: Vertauscht die Position der Felder PLZ und Stadt im Checkout sowie im
+       Kundenkonto
 
 ** TECHNICAL
 Templates können in den Dateien
@@ -158,4 +160,8 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
        2. Die Steuer-Infos müssen auch in "Zur Kasse" (vor der Bestellung) 
            richtig angezeigt werden.
        3. Achtung! Der Wert "Including and Excluding Tax" wird nicht unterstützt.
+       
+*** J: 1. Prüfen Sie ob die Positionen der Felder PLZ und Stadt im Checkout sowie
+          im Kundenkonto (Neue Adresse anlegen / Adressen bearbeiten) vertauscht
+          sind (Erst kommt PLZ, danach Stadt).
 

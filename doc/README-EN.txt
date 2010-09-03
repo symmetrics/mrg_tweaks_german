@@ -67,6 +67,10 @@ Templates zu verändern.
         Rechnungen, Gutschriften" -> "Preisanzeige").
 *** J: Vertauscht die Position der Felder PLZ und Stadt im Checkout sowie im
        Kundenkonto
+*** K: Fügt eine neue Auswahl in der Konfiguration hinzu, ob der Versandkosten-
+       Hinweis inkl., exkl oder garnicht angezeigt wird. Ebenfalls kann man die
+       Anzeige des Gewichts (inkl. 7% MwSt., inkl. Versandkosten (Gewicht 3,20kg))
+       ein- und ausschalten.
 
 ** TECHNICAL
 Templates können in den Dateien
@@ -164,4 +168,10 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
 *** J: 1. Prüfen Sie ob die Positionen der Felder PLZ und Stadt im Checkout sowie
           im Kundenkonto (Neue Adresse anlegen / Adressen bearbeiten) vertauscht
           sind (Erst kommt PLZ, danach Stadt).
-
+        
+*** K: 1. Prüfen Sie ob die Einstellungen "Gewicht-Info anzeigen" sowie 
+          "Versandkosten-Info anzeigen" unter Admin Panel / System / 
+          Konfiguration / Katalog / Katalog korrekt funktionieren (Es geht
+          um die Anzeige nebem dem Produktpreis in der Kategorie sowie 
+          Produktansicht).
+          

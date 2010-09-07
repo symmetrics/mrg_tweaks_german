@@ -27,7 +27,7 @@
         <reference name="checkout.cart.methods">
             <block type="core/template" name="cartlink" template="tweaksgerman/cartinfo.phtml"/>
         </reference>
-        <!-- 
+        <!--
         <reference name="checkout.cart">
             <block type="checkout/cart_shipping" name="checkout.cart.shipping" as="shipping" template="tweaksgerman/shippinginfo.phtml"/>
         </reference>
@@ -36,6 +36,9 @@
     <checkout_onepage_index>
         <reference name="head">
             <action method="addJs"><script>symmetrics/tweaksgerman/checkout.js</script></action>
+        </reference>
+        <reference name="head">
+            <action method="addJs"><script>symmetrics/tweaksgerman/province.js</script></action>
         </reference>
         <reference name="content">
             <block type="core/template" name="emailnotice" template="tweaksgerman/emailnotice.phtml"/>
@@ -54,6 +57,9 @@
     <customer_address_form>
         <reference name="head">
             <action method="addJs"><script>symmetrics/tweaksgerman/address.js</script></action>
+        </reference>
+        <reference name="head">
+            <action method="addJs"><script>symmetrics/tweaksgerman/province.js</script></action>
         </reference>
     </customer_address_form>
 </layout>

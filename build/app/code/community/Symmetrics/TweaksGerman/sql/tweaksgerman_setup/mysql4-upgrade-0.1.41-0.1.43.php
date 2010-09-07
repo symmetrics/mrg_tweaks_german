@@ -28,6 +28,9 @@ $installer = $this;
 $connection  = $this->getConnection();
 $regionTable = $installer->getTable('directory/country_region');
 
+/**
+ * Build the German regions to insert
+ */
 $regionsToIns = array(
     array(
         'DE',
@@ -35,7 +38,9 @@ $regionsToIns = array(
         'Nicht ausgewählt'
         )
 );
-
+/**
+ * Add the regions we created
+ */
 foreach ($regionsToIns as $row) {
     $connection->insert(
         $regionTable,

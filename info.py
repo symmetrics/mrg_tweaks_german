@@ -29,6 +29,7 @@ MAINTAINER = {
 
 AUTHORS = {
     'Siegfried Schmitz': 'ss@symmetrics.de',
+    'Benjamin Klein': 'bk@symmetrics.de',
 }
 
 # =============================================================================

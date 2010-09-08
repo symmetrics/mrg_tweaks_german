@@ -40,7 +40,7 @@ Symmetrics.Province = Class.create();
 Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
 {
     /**
-     * Constructor initialize observer for dom loaded
+     * Constructor initialize observer for dom loaded.
      */
     initialize: function()
     {
@@ -48,7 +48,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * createObserverDomLoaded
+     * createObserverDomLoaded:waiting for observer dom loaded and create observers and start the change first time.
      *
      * @return void
      */
@@ -71,7 +71,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * createObserverProvinceBilling
+     * createObserverProvinceBilling: create observer for billing process.
      *
      * @return void
      */
@@ -83,7 +83,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * startProvinceBillingChanging
+     * startProvinceBillingChanging: start changing region_id in billing process.
      *
      * @return void
      */
@@ -93,11 +93,10 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
         var regionInputFieldName = "billing[region_id]";
         var regionFieldName= 'billing:region_id';
         this.setRegionId(countryFieldName, regionInputFieldName, regionFieldName);
-
     },
 
     /**
-     * createObserverProvinceShipping
+     * createObserverProvinceShipping: create observer for shipping process.
      *
      * @return void
      */
@@ -109,7 +108,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * startProvinceShippingChanging
+     * startProvinceShippingChanging: start changing region_id in shipping process.
      *
      * @return void
      */
@@ -123,7 +122,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * createObserverProvinceAddress
+     * createObserverProvinceAddress: create observer for address editing process.
      *
      * @return void
      */
@@ -135,7 +134,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * startProvinceAdressChanging
+     * startProvinceAdressChanging: start changing region_id in address editing process.
      *
      * @return void
      */
@@ -148,11 +147,13 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * setRegionId
+     * setRegionId: check if country is german, hide "state/province" label and update region_id.
+     * If country is not german show "state/province" label.
      *
-     * @param String countryFieldName
-     * @param String regionInputFieldName
-     * @param String regionFieldName
+     * @param String countryFieldName     Name of Country field.
+     * @param String regionInputFieldName Name of region input field.
+     * @param String regionFieldName      Name of region field.
+     * @param String regionFieldNameLabel Name of region label field optional couse only one observer needs this.
      *
      * @return void
      */
@@ -176,9 +177,9 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * hideTextElement
+     * hideTextElement: hide the first label by name filter.
      *
-     * @param String textFieldName The name of the "State/Province" field name
+     * @param String textFieldName The name of the "State/Province" field name.
      *
      * @return void
      */
@@ -189,9 +190,9 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * showTextElement
+     * showTextElement: show the first label by name filter.
      *
-     * @param String textFieldName The name of the "State/Province" field name
+     * @param String textFieldName The name of the "State/Province" field name.
      *
      * @return void
      */
@@ -201,28 +202,26 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * deleteRegionIdField
+     * updateRegionIdField: Hide the region field and add hidden input field with given id
      *
-     * @param String fieldName       The Name of the RegionId field
-     * @param String regionFieldName Name of the new input field
-     * @param Int    regionId        Id of new RegionId
+     * @param String fieldName       The Name of the RegionId field.
+     * @param String regionFieldName Name of the new input field.
+     * @param Int    regionId        Id of new RegionId.
      *
      * @return void
      */
     updateRegionIdField: function(fieldName, regionFieldName, regionId)
     {
         var inputString = '<input type="hidden" name="' + regionFieldName +'" value="' + regionId + '">';
-        console.log($(fieldName));
-        console.log(inputString);
         //To hide this element is recomment couse Magento work with it on change Country
         $(fieldName).hide();
         $(fieldName).update(inputString);
     },
 
     /**
-     * getLastRegionId
+     * getLastRegionId: Get the last id of region in options
      *
-     * @param String fieldName The Name of the RegionId field
+     * @param String fieldName The Name of the RegionId field.
      *
      * @return int
      */
@@ -234,9 +233,9 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     },
 
     /**
-     * checkCountryCode
+     * checkCountryCode check if the country is germany
      *
-     * @param String countryFieldName The Name of country field
+     * @param String countryFieldName The Name of country field.
      *
      * @return boolean
      */

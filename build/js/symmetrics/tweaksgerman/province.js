@@ -23,7 +23,7 @@ document.observe('dom:loaded', function() {
     /**
      * Get country element from Dom.
      */
-    country = $('billing:country_id');
+    var country = $('billing:country_id');
     /**
      * Setup billingFlag to register later if we are in billing.
      */
@@ -70,15 +70,15 @@ function setRegion(billingFlag) {
      * Setup form.
      */
     if (billingFlag) {
-        prefix = 'billing:';
-        country_prefix = '_id';
-        region_prefix = '_id';
-        form = 'co-billing-form';
+        var prefix = 'billing:';
+        var country_prefix = '_id';
+        var region_prefix = '_id';
+        var form = 'co-billing-form';
     } else {
-        prefix = '';
-        country_prefix = '';
-        region_prefix = '_id';
-        form = 'form-validate';
+        var prefix = '';
+        var country_prefix = '';
+        var region_prefix = '_id';
+        var form = 'form-validate';
     }
     if ($(prefix + 'region' + region_prefix)) {
         /**

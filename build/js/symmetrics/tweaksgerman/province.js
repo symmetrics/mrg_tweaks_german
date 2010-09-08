@@ -247,7 +247,5 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
             return false;
         }
     }
-
-
 });
 new Symmetrics.Province();

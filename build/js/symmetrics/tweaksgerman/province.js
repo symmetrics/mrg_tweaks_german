@@ -58,7 +58,6 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
         {
             var country = $('billing:country_id');
             if (!country) {
-                console.log("choose address");
                 this.createObserverProvinceAddress();
                 this.startProvinceAdressChanging();
             } else {
@@ -89,10 +88,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceBillingChanging: function()
     {
-        var countryFieldName = "billing:country_id";
-        var regionInputFieldName = "billing[region_id]";
-        var regionFieldName= 'billing:region_id';
-        this.setRegionId(countryFieldName, regionInputFieldName, regionFieldName);
+        this.setRegionId('billing:country_id', 'billing[region_id]', 'billing:region_id');
     },
 
     /**
@@ -102,7 +98,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     createObserverProvinceShipping: function ()
     {
-        Event.observe($('shipping:country_id'),'change', (function(){
+        Event.observe($('shipping:country_id'), 'change', (function(){
             this.startProvinceShippingChanging();
         }).bind(this));
     },
@@ -114,11 +110,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceShippingChanging: function()
     {
-        var countryFieldName = "shipping:country_id";
-        var regionInputFieldName = "shipping[region]";
-        var regionFieldName = 'shipping:region_id';
-        var regionFieldNameLabel = 'shipping:region';
-        this.setRegionId(countryFieldName, regionInputFieldName, regionFieldName, regionFieldNameLabel);
+        this.setRegionId('shipping:country_id', 'shipping[region]', 'shipping:region_id', 'shipping:region');
     },
 
     /**
@@ -140,10 +132,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceAdressChanging: function()
     {
-        var countryFieldName = "country";
-        var regionInputFieldName = "region_id";
-        var regionFieldName= 'region_id';
-        this.setRegionId(countryFieldName, regionInputFieldName, regionFieldName);
+        this.setRegionId('country', 'region_id', 'region_id');
     },
 
     /**
@@ -160,7 +149,6 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     setRegionId: function(countryFieldName, regionInputFieldName, regionFieldName, regionFieldNameLabel)
     {
         try {
-            console.log(this.checkCountryCode(countryFieldName));
             if (this.checkCountryCode(countryFieldName)) {
                 if (regionFieldNameLabel === undefined) {
                     this.hideTextElement(regionFieldName);
@@ -171,9 +159,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
             } else {
                 this.showTextElement(regionFieldName);
             }
-        } catch (exception) {
-            console.log(exception);
-        }
+        } catch (exception) {}
     },
 
     /**
@@ -185,7 +171,6 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     hideTextElement: function(textFieldName)
     {
-        console.log(textFieldName);
         $$('label[for="' + textFieldName + '"]').first().hide();
     },
 

@@ -19,10 +19,19 @@ of "Trusted Shop" certification process.
 
 *** C: Adds some additional links below the order button in the cart.
 
+*** D: Hide the "state/province" when country is germany in editing address data
+
+*** E: Hide the "state/province" when country is germany in checkout process when c
+
 ** TECHNICAL
 Links can be always customized in following files located at 
 app/design/frontend/default/default/template/:
 tweaksgerman/cartinfo.phtml, tweaksgerman/shippinginfo.phtml,
+added js/symmetrics/tweaksgerman/province.js
+In this file we create 3 observer.
+They are listening for an change of the country_id.
+If the country_id is "DE" hide the "state/province" and add a new hidden field
+with an dump id.
 
 ** PROBLEMS
 Taxes can be inccorrect under some circumstances.
@@ -47,3 +56,12 @@ Taxes can be inccorrect under some circumstances.
            Check "In this way, you order by us" link on the cart page just under
            "Proceed to checkout" button. The link itself must be proper 
            referenced to the "bestellung" (order) CMS-page.
+
+*** D:  1. Go to the Front-end and add or edit an address.
+           Check when country is germany you have no "state/province" to choose.
+           Check if you can save your address
+
+*** E:  1. Go to the Front-end and buy some products.
+           Check if you can set an address in billing and shipping
+           with german country and no "state/province" to choose.
+           Look if you can complete your order

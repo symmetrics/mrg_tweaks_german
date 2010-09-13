@@ -29,7 +29,7 @@ document.observe('dom:loaded', function() {
         var cityField = $('city').up(2);
         var zipField = $('zip').up(2).innerHTML;
 
-        $('zip').up().up().update(cityField.innerHTML);
-        $('city').up().up().update(zipField);
+        $('zip').up(2).update(cityField.innerHTML);
+        $('city').up(2).update(zipField);
     }
 });

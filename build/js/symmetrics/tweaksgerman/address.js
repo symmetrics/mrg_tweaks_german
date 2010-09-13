@@ -26,8 +26,8 @@
  */
 document.observe('dom:loaded', function() {
     if ($('city') && $('zip')) {
-        var cityField = $('city').up().up();
-        var zipField = $('zip').up().up().innerHTML;
+        var cityField = $('city').up(2);
+        var zipField = $('zip').up(2).innerHTML;
 
         $('zip').up().up().update(cityField.innerHTML);
         $('city').up().up().update(zipField);

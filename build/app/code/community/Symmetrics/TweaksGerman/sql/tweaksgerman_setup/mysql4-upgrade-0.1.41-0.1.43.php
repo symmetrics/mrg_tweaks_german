@@ -1,3 +1,4 @@
+<?php
 /**
  * Magento
  *
@@ -14,22 +15,39 @@
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Siegfried Schmitz <ss@symmetrics.de>
  * @author    Benjamin Klein <bk@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
 
-/**
- * Change the position from zip and city - fields
- */
-document.observe('dom:loaded', function() {
-    if ($('city') && $('zip')) {
-        var cityField = $('city').up(2);
-        var zipField = $('zip').up(2).innerHTML;
+$installer = $this;
 
-        $('zip').up(2).update(cityField.innerHTML);
-        $('city').up(2).update(zipField);
-    }
-});
+
+/** @var Varien_Db_Adapter_Pdo_Mysql */
+$connection  = $this->getConnection();
+$regionTable = $installer->getTable('directory/country_region');
+
+/**
+ * Build the German regions to insert
+ */
+$regionsToIns = array(
+    array(
+        'DE',
+        'DE',
+        'Nicht ausgewählt'
+        )
+);
+/**
+ * Add the regions we created
+ */
+foreach ($regionsToIns as $row) {
+    $connection->insert(
+        $regionTable,
+        array(
+            'country_id'   => $row[0],
+            'code'         => $row[1],
+            'default_name' => $row[2]
+        )
+    );
+}

@@ -35,8 +35,8 @@ Templates zu verändern.
         die Versandkosten-Seite. Der Link ist in der Konfiguration unter 
         "Verkäufe" => "Zur Kasse" => "Warenkorb" => "Lieferinfos" einstellbar.
 
-*** C: Fügt zusätzliche Links zu Bestellinformationen im Warenkorb unter 
-        dem Button "Zur Kasse" hinzu. Diese Links sind ebenfalls unter 
+
+*** D: Hide the "state/province" when country is germany in editing address data
         "Verkäufe" => "Zur Kasse" => "Warenkorb" => "Bestellinfos" einstellbar.
 
 *** D: Fügt zusätzliche Links zu Widerrufinformationen im Warenkorb unter 
@@ -61,7 +61,7 @@ Templates zu verändern.
        Benutzerkonto anlegen) ein Hinweistext auf Werbenutzung der
        E-Mail Adresse ein.
 
-*** I: Zeigt "Zzgl. MwSt." und "Inkl. MwSt." Texts, abhängig von der 
+*** E: Hide the "state/province" when country is germany in checkout process when c
         Backend-Einstellung 'tax/sales/display/price' (unter "System" -> 
         "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in Bestellungen, 
         Rechnungen, Gutschriften" -> "Preisanzeige").
@@ -76,11 +76,11 @@ Templates zu verändern.
 Templates können in den Dateien
 app/design/frontend/default/default/template/tweaksgerman/cartinfo.phtml
 app/design/frontend/default/default/template/tweaksgerman/shippinginfo.phtml
-app/design/frontend/default/default/template/tweaksgerman/weight.phtml
-angepasst werden. Es handelt sich dabei um normale HTML-Dateien, die 
-Sie komplett nach Ihren Wünschen verändern können. Per Layout XML wird eine
-Javascript Datei eingebunden, die das select Feld im Checkout ("An diese 
-Adresse verschicken") ändert.
+added js/symmetrics/tweaksgerman/province.js
+In this file we create 3 observer.
+They are listening for an change of the country_id.
+If the country_id is "DE" hide the "state/province" and add a new hidden field
+with an dump id.
 
 F: 1. Ein Beispiel-Link wird durch das Modul Symmetrics_ConfigGermanTexts 
        installiert.
@@ -122,11 +122,11 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
            Warenkorbseite, ob es den "Versandkosten Informationen" 
            Block zusammen mit dem Link "Hier finden Sie Informationen zu den 
            Versandkosten" gibt. Dieser Link muss auf die, im Backend 
-           eingestellte Seite, verweisen.
 
-*** C: 1. Gehen Sie ins Frontend und legen Sie einen Artikel in den Warenkorb. Prüfen Sie auf der 
-           Warenkorbseite, ob der "So bestellen Sie bei uns" Link 
-           direkt unter "Zur Kasse gehen" sichtbar ist. Dieser Link muss, auf 
+*** C:  1. Go to the Front-end and put an arbitrary product into your cart.
+           Check "In this way, you order by us" link on the cart page just under
+           "Proceed to checkout" button. The link itself must be proper 
+           referenced to the "bestellung" (order) CMS-page.
            die im Backend eingestellte Seite, verweisen.
 
 *** D: 1. Gehen Sie ins Frontend und legen Sie einen Artikel in den Warenkorb. Prüfen Sie auf der 
@@ -168,10 +168,14 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
 *** J: 1. Prüfen Sie ob die Positionen der Felder PLZ und Stadt im Checkout sowie
           im Kundenkonto (Neue Adresse anlegen / Adressen bearbeiten) vertauscht
           sind (Erst kommt PLZ, danach Stadt).
-        
-*** K: 1. Prüfen Sie ob die Einstellungen "Gewicht-Info anzeigen" sowie 
-          "Versandkosten-Info anzeigen" unter Admin Panel / System / 
-          Konfiguration / Katalog / Katalog korrekt funktionieren (Es geht
+
+*** D:  1. Go to the Front-end and add or edit an address.
+           Check when country is germany you have no "state/province" to choose.
+           Check if you can save your address
           um die Anzeige nebem dem Produktpreis in der Kategorie sowie 
           Produktansicht).
-          
+
+*** E:  1. Go to the Front-end and buy some products.
+           Check if you can set an address in billing and shipping
+           with german country and no "state/province" to choose.
+           Look if you can complete your order

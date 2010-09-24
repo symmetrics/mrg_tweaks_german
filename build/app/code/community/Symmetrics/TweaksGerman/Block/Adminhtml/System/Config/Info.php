@@ -59,9 +59,10 @@ class Symmetrics_TweaksGerman_Block_Adminhtml_System_Config_Info
         $html = $this->_getHeaderHtml($element);
 
         $this->setElement($element);
-        $html .= '<tr><td>' . $this->toHtml() . '</tr></td>';
         
+        $html .= '<tr><td>' . $this->toHtml() . '</tr></td>';
         $html .= $this->_getFooterHtml($element);
+        
         return $html;
     }
 }

@@ -22,7 +22,7 @@
  */
 
 /**
- * Info renderer for Symmetrics_TweaksGerman system config
+ * This is info renderer for Symmetrics_TweaksGerman system config.
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
@@ -37,7 +37,7 @@ class Symmetrics_TweaksGerman_Block_Adminhtml_System_Config_Info
     implements Varien_Data_Form_Element_Renderer_Interface
 {
     /**
-     * Internal constructor
+     * Constructor — sets the template.
      * 
      * @return void
      */
@@ -47,7 +47,8 @@ class Symmetrics_TweaksGerman_Block_Adminhtml_System_Config_Info
     }
     
     /**
-     * Render fieldset html
+     * Render to return the html-content of sub-menu,
+     * under Admin Panel / System / Configuration.
      *
      * @param Varien_Data_Form_Element_Abstract $element element
      * 

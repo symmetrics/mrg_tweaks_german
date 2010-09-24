@@ -53,8 +53,8 @@ class Symmetrics_TweaksGerman_Model_System_Config_Source_Shippingcosts
         if (!$this->_options) {
             $this->_options = array(
                 array('value' => '0', 'label' => $helper->__('No')),
-                array('value' => 'incl', 'label' => $helper->__('Display incl')),
-                array('value' => 'excl', 'label' => $helper->__('Display excl'))
+                array('value' => 'incl', 'label' => $helper->__('incl. Shipping costs')),
+                array('value' => 'excl', 'label' => $helper->__('excl. Shipping costs'))
             );
         }
 

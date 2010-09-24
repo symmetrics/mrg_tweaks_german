@@ -49,10 +49,10 @@ class Symmetrics_TweaksGerman_Block_Tax_Render extends Mage_Checkout_Block_Total
         if ($total->getCode() == 'tax') {
             $taxHelper = Mage::helper('tax');
             if ($taxHelper->displaySalesPriceInclTax($store)) {
-                $title = Mage::helper('tweaksgerman')->__('Incl. tax');
+                $title = Mage::helper('tweaksgerman')->__('Incl. VAT');
                 $total->setTitle($title);
             } else if ($taxHelper->displaySalesPriceExclTax($store)) {
-                $title = Mage::helper('tweaksgerman')->__('Excl. tax');
+                $title = Mage::helper('tweaksgerman')->__('Excl. VAT');
                 $total->setTitle($title);
             }
         }

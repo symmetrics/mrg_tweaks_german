@@ -50,10 +50,8 @@ Templates zu verändern.
         aber in der Konfiguration unter "Verkäufe" => "Steuer"
         => "Preisanzeige" => "Versandkosten (CMS-Seite)" einstellbar.
 
-*** G: Fügt Info-Banner für MRG Packet in System Konfiguration nach Vorlage 
-        (s. Screenshot "doc/examples/Info-Banner.jpeg") hinzu. Info-Banner ist 
-        unter "Konfiguration" -> "Allgemein" -> "Allgemein" -> 
-        "market ready germany Info" zu sehen.
+*** G: There's multilanguage information banner for the whole MRG
+       in System Configuration with sponsored banners, actions, text and links.
         
 *** H: Fügt unter dem E-Mail Feld auf Registrierungseiten (Checkout, 
        Benutzerkonto anlegen) ein Hinweistext auf Werbenutzung der
@@ -106,10 +104,9 @@ F: 1. Ein Beispiel-Link wird durch das Modul Symmetrics_ConfigGermanTexts
        oder die Datenbank. Daher kann kann Modul jederzeit ohne Probleme
        gelöscht werden.
 
-G: Weil alle Bilder des Banners in der system.xml relative URLs benutzen, 
-    werden diese dynamisch per Javascript angepasst. Der Skript befindet
-    sich unter "js/symmetrics/tweaksgerman/mrg_banner.js". Für die 
-    Korrektur der URL ist die BLANK_IMG variable genutzt.
+G: Magento template (with multilanguage support) is connected to Info-Box in
+   the Admin Panel Configuration by frontend model renderer
+   (adminhtml_system_config_info).
 
 I: Mit Hilfe des neuen Blocks TaxRender wird "Zzgl. MwSt." und "Inkl. MwSt." 
     abhängig von der Backend-Einstellung 'tax/sales/display/price' (unter 
@@ -160,8 +157,12 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
            werden. Dieser Link muss auf die im Backend eingestellte Seite 
            verweisen.
 
-*** G: 1. Vergleichen Sie das Aussehen des Info-Banners mit dem Bespiel 
-           ("doc/examples/Info-Banner.jpeg").
+*** G: 1. Open "Admin Panel / System / Configuration / Sales /
+          Trusted Shops Seal / Info" and compare the contents of a banner
+          with a screenshot [SCREENSHOT: Info-Banner_en.png].
+          To test the buttons and links.
+       2. Change the backend language from English to German, in this case,
+          the banner should display the German text [SCREENSHOT: Info-Banner_de.png].
 
 *** H: 1. Defenieren Sie unter "System -> Konfiguraton -> Kunden -> 
            Kundenkonfiguration -> Benutzerkonto anlegen Optionen -> 

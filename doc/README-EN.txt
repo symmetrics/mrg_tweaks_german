@@ -4,6 +4,7 @@
 
 Unpack the content of this module into Magento directory.
 
+
 ** USAGE
 
 The module Symmetrics_TweaksGerman tunes the system for some default 
@@ -27,48 +28,50 @@ inklusive oder zuzüglich Mehrwertsteuer sind.  Es wird ebenfalls ein Link
 auf die Seite Versandkosten hinzugefügt, das alles wird gemacht ohne die 
 Templates zu verändern.
 
+
 ** FUNCTIONALITY
 
-*** A: The word "Weight" for the corresponding attribute on product details 
-       page, once shown, becomes a reference to the shipping information page.
+*** A:  The word "Weight" for the corresponding attribute on product details 
+        page, once shown, becomes a reference to the shipping information page.
 
-*** B: Adds 2 additional links to CMS Pages below the order button
-       in the cart. Settings in "Admin Panel / System / Configuration / Sales /
-       Checkout / Shopping Cart": 
-       - Order information (CMS page),
-       - Revocation terms (CMS page).
+*** B:  Adds 2 additional links to CMS Pages below the order button
+        in the cart. Settings in "Admin Panel / System / Configuration / Sales /
+        Checkout / Shopping Cart": 
+        - Order information (CMS page),
+        - Revocation terms (CMS page).
 
-*** E: Per Javascript wird automatisch "An diese Adresse verschicken" (im 
+*** C:  Per Javascript wird automatisch "An diese Adresse verschicken" (im 
         Checkout) ausgewählt, damit der Kunde das nicht manuell umstellen muss.
 
-*** F: Fügt Steuerinformationen und einen Link auf die Seite Versandkosten 
+*** D:  Fügt Steuerinformationen und einen Link auf die Seite Versandkosten 
         nach jeder Preisanzeige im Frontend ein. Der Link auf der Seite ist 
         aber in der Konfiguration unter "Verkäufe" => "Steuer"
         => "Preisanzeige" => "Versandkosten (CMS-Seite)" einstellbar.
 
-*** G: There's multilanguage information banner for the whole MRG
-       in System Configuration with sponsored banners, actions, text and links.
+*** E:  There's multilanguage information banner for the whole MRG
+        in System Configuration with sponsored banners, actions, text and links.
         
-*** H: Fügt unter dem E-Mail Feld auf Registrierungseiten (Checkout, 
-       Benutzerkonto anlegen) ein Hinweistext auf Werbenutzung der
-       E-Mail Adresse ein.
+*** F:  Fügt unter dem E-Mail Feld auf Registrierungseiten (Checkout, 
+        Benutzerkonto anlegen) ein Hinweistext auf Werbenutzung der
+        E-Mail Adresse ein.
 
-*** I: Zeigt "Zzgl. MwSt." und "Inkl. MwSt." Texts, abhängig von der 
+*** G:  Zeigt "Zzgl. MwSt." und "Inkl. MwSt." Texts, abhängig von der 
         Backend-Einstellung 'tax/sales/display/price' (unter "System" -> 
         "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in Bestellungen, 
         Rechnungen, Gutschriften" -> "Preisanzeige").
 
-*** J: Vertauscht die Position der Felder PLZ und Stadt im Checkout sowie im
-       Kundenkonto
+*** H:  Vertauscht die Position der Felder PLZ und Stadt im Checkout sowie im
+        Kundenkonto
 
-*** K: Fügt eine neue Auswahl in der Konfiguration hinzu, ob der Versandkosten-
-       Hinweis inkl., exkl oder garnicht angezeigt wird. Ebenfalls kann man die
-       Anzeige des Gewichts (inkl. 7% MwSt., inkl. Versandkosten (Gewicht 3,20kg))
-       ein- und ausschalten.
+*** I:  Fügt eine neue Auswahl in der Konfiguration hinzu, ob der Versandkosten-
+        Hinweis inkl., exkl oder garnicht angezeigt wird. Ebenfalls kann man die
+        Anzeige des Gewichts (inkl. 7% MwSt., inkl. Versandkosten (Gewicht 3,20kg))
+        ein- und ausschalten.
 
-*** L: Hide the "state/province" when country is germany in editing address data.
+*** J:  Hide the "state/province" when country is germany in editing address data.
 
-*** M: Hide the "state/province" when country is germany in checkout process.
+*** K:  Hide the "state/province" when country is germany in checkout process.
+
 
 ** TECHNICAL
 
@@ -78,44 +81,68 @@ app/design/frontend/default/default/template/tweaksgerman/:
     shippinginfo.phtml,
     weight.phtml.
 
-Added js/symmetrics/tweaksgerman/province.js
-In this file we create 3 observer.
-They are listening for an change of the country_id.
-If the country_id is "DE" hide the "state/province" and add a new hidden field
-with an dump id.
+A:  Via js, which was added in the new template weight.phtml, the attribute 
+    "weight", which is displayed in the product detail view, was wrapped
+    with a link to the shipping CMS Page.
     
-Es handelt sich dabei um normale HTML-Dateien, die 
-Sie komplett nach Ihren Wünschen verändern können. Per Layout XML wird eine
-Javascript Datei eingebunden, die das select Feld im Checkout ("An diese 
-Adresse verschicken") ändert.
+B:  The template cartinfo.phtml was added in checkout.cart.methods and displayes
+    the two links to the CMS-Pages "Order information" and "Revocation terms".
+    
+C:  The js-file checkout.js implements js to select automatically
+    "ship to this address".
 
-
-F: 1. Ein Beispiel-Link wird durch das Modul Symmetrics_ConfigGermanTexts 
+D:  1. Ein Beispiel-Link wird durch das Modul Symmetrics_ConfigGermanTexts 
        installiert.
-   2. Das Modul zeigt keinen Versandkosten-Link für Virtual und Downloadable
+    2. Das Modul zeigt keinen Versandkosten-Link für Virtual und Downloadable
        Produkte an.
-   3. Das Modul zeigt keinen TAX-Infos und Versandkosten-Link für Combined
+    3. Das Modul zeigt keinen TAX-Infos und Versandkosten-Link für Combined
        Produkte an.
-   4. Das Modul verändert auf keine Weise die Konfiguration, den Core-Code
+    4. Das Modul verändert auf keine Weise die Konfiguration, den Core-Code
        oder die Datenbank. Daher kann kann Modul jederzeit ohne Probleme
        gelöscht werden.
 
-G: Magento template (with multilanguage support) is connected to Info-Box in
-   the Admin Panel Configuration by frontend model renderer
-   (adminhtml_system_config_info).
+E:  Magento template (with multilanguage support) is connected to Info-Box in
+    the Admin Panel Configuration by frontend model renderer
+    (adminhtml_system_config_info).
+   
+F:  The template emailnotice.phtml implements js to add the email - notice,
+    which is configurable in the admin panel, after the email - fields in
+    the registration form and the checkout form.
 
-I: Mit Hilfe des neuen Blocks TaxRender wird "Zzgl. MwSt." und "Inkl. MwSt." 
+G:  Mit Hilfe des neuen Blocks TaxRender wird "Zzgl. MwSt." und "Inkl. MwSt." 
     abhängig von der Backend-Einstellung 'tax/sales/display/price' (unter 
     "System" -> "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in 
     Bestellungen, Rechnungen, Gutschriften" -> "Preisanzeige") angezeigt.
+    
+H:  The js-file address.js (added in customer_address_form) changes the 
+    position from zip and city. The js-file checkout.js is doing the
+    same (and has the functionality from point "C" too) in 
+    checkout_onepage_index.
+    
+I:  The core class Mage_Catalog_Block_Product_Abstract was added to the 
+    local pool, because you cannot rewrite a abstract class. The function 
+    "getPriceHtml" in this class was modified, so that the shipping costs
+    info - link was displayed after the product price in the product- 
+    and category view.
+    
+J:  The js-file province.js, which was added in customer_address_form
+    hides the "state/province" - field when germany is selected as country.
+    In this file we create 3 observer.
+    They are listening for an change of the country_id.
+    If the country_id is "DE" hide the "state/province" and add a new hidden field
+    with an dump id.
+    
+K:  The same as in point "J", but implemented in checkout_onepage_index.
+
 
 ** PROBLEMS
 
 Taxes can be inccorrect under some circumstances.
 
-F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
+D:  Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
     verwenden, kann die Anzeige des Mehrwertsteuersatzes für ein Produkt 
     unkorrekt sein.
+
 
 * TESTCASES
 ** BASIC
@@ -128,29 +155,29 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
            word inside the listing of the product attributes is a reference to 
            the corresponding "lieferung" (shipping) CMS page.
 
-*** B: Go to the Front-end and put an arbitrary product into your cart.
-       Under the button "Process to Checkout" should be 2 additional links:
-       1) "How to order."
-       2) "Click here to find  details on revocation."
-       Which should lead to the appropriate CMS Pages.
+*** B:  Go to the Front-end and put an arbitrary product into your cart.
+        Under the button "Process to Checkout" should be 2 additional links:
+        1) "How to order."
+        2) "Click here to find  details on revocation."
+        Which should lead to the appropriate CMS Pages.
        
-*** E: 1. Führen Sie im Frontend einen Bestellvorgang durch; Wenn Sie Ihre
+*** C:  1. Führen Sie im Frontend einen Bestellvorgang durch; Wenn Sie Ihre
            Rechnungsadresse eingegeben haben, sollte standardmäßig die Option
            "An diese Adresse verschicken" ausgewählt sein.
 
-*** F: 1. Im Frontend soll nach jeder Preisanzeige Steuerinformationen
+*** D:  1. Im Frontend soll nach jeder Preisanzeige Steuerinformationen
            (zzgl. ..% MwSt.) und ein Link auf die Seite Versandkosten gezeigt 
            werden. Dieser Link muss auf die im Backend eingestellte Seite 
            verweisen.
 
-*** G: 1. Open "Admin Panel / System / Configuration / Sales /
-          Trusted Shops Seal / Info" and compare the contents of a banner
-          with a screenshot [SCREENSHOT: Info-Banner_en.png].
-          To test the buttons and links.
-       2. Change the backend language from English to German, in this case,
-          the banner should display the German text [SCREENSHOT: Info-Banner_de.png].
+*** E:  1. Open "Admin Panel / System / Configuration / Sales /
+           Trusted Shops Seal / Info" and compare the contents of a banner
+           with a screenshot [SCREENSHOT: Info-Banner_en.png].
+           To test the buttons and links.
+        2. Change the backend language from English to German, in this case,
+           the banner should display the German text [SCREENSHOT: Info-Banner_de.png].
 
-*** H: 1. Defenieren Sie unter "System -> Konfiguraton -> Kunden -> 
+*** F: 1. Defenieren Sie unter "System -> Konfiguraton -> Kunden -> 
            Kundenkonfiguration -> Benutzerkonto anlegen Optionen -> 
            Datenschutzhinweis unter dem E-Mail Feld" einen Hinweis, welcher 
            unter dem E-Mail Feld auf der Seite customer/account/create und 
@@ -159,7 +186,7 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
            aktivieren" entsprechend den Hinweis aktiviert/deaktiviert. Der 
            standart Wert ist "Nein".
 
-*** I: 1. Legen Sie ein Produkt in den Warenkorb und überprüfen Sie, ob die
+*** G: 1. Legen Sie ein Produkt in den Warenkorb und überprüfen Sie, ob die
            Steuer-Infos mit dem Text "Zzgl. MwSt." und "Inkl. MwSt." 
            angezeigt werden. (abhängig von der Einstellung unter "System" -> 
            "Konfiguration" ->"Verkäufe" -> "Steuer" -> "Anzeige in Bestellungen, 
@@ -168,21 +195,21 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
            richtig angezeigt werden.
        3. Achtung! Der Wert "Including and Excluding Tax" wird nicht unterstützt.
        
-*** J: 1. Prüfen Sie ob die Positionen der Felder PLZ und Stadt im Checkout sowie
+*** H: 1. Prüfen Sie ob die Positionen der Felder PLZ und Stadt im Checkout sowie
           im Kundenkonto (Neue Adresse anlegen / Adressen bearbeiten) vertauscht
           sind (Erst kommt PLZ, danach Stadt).
 
-*** K: 1. Prüfen Sie ob die Einstellungen "Gewicht-Info anzeigen" sowie 
+*** I: 1. Prüfen Sie ob die Einstellungen "Gewicht-Info anzeigen" sowie 
           "Versandkosten-Info anzeigen" unter Admin Panel / System / 
           Konfiguration / Katalog / Katalog korrekt funktionieren (Es geht
           um die Anzeige nebem dem Produktpreis in der Kategorie sowie 
           Produktansicht).
 
-*** L: 1. Go to the Front-end and add or edit an address.
+*** J: 1. Go to the Front-end and add or edit an address.
           Check when country is germany you have no "state/province" to choose.
           Check if you can save your address.
 
-*** M: 1. Go to the Front-end and buy some products.
+*** K: 1. Go to the Front-end and buy some products.
           Check if you can set an address in billing and shipping
           with german country and no "state/province" to choose.
           Look if you can complete your order.

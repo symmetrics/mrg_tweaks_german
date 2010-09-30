@@ -32,16 +32,12 @@ Templates zu verändern.
 *** A: The word "Weight" for the corresponding attribute on product details 
        page, once shown, becomes a reference to the shipping information page.
 
-*** B: Replaces "shipping costs information" with static information about 
-       shipping.
+*** B: Adds 2 additional links to CMS Pages below the order button
+       in the cart. Settings in "Admin Panel / System / Configuration / Sales /
+       Checkout / Shopping Cart": 
+       - Order information (CMS page),
+       - Revocation terms (CMS page).
 
-*** C: Adds some additional links below the order button in the cart.
-
-*** D: Fügt zusätzliche Links zu Widerrufinformationen im Warenkorb unter 
-        dem Button "Zur Kasse" hinzu. Diese Links sind ebenfalls unter 
-        "Verkäufe" => "Zur Kasse" => "Warenkorb" => "Widerrufinfos" 
-        einstellbar. 
-       
 *** E: Per Javascript wird automatisch "An diese Adresse verschicken" (im 
         Checkout) ausgewählt, damit der Kunde das nicht manuell umstellen muss.
 
@@ -132,22 +128,12 @@ F: Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
            word inside the listing of the product attributes is a reference to 
            the corresponding "lieferung" (shipping) CMS page.
 
-*** B:  1. Go to the Front-end and put an arbitrary product into your cart.
-           Check the cart page for "shipping costs information". The link must
-           be pointing to the "lieferung" page and the text of the link "Here 
-           you found informations to the shipping costs".
-
-*** C:  1. Go to the Front-end and put an arbitrary product into your cart.
-           Check "In this way, you order by us" link on the cart page just under
-           "Proceed to checkout" button. The link itself must be proper 
-           referenced to the "bestellung" (order) CMS-page.
-
-*** D: 1. Gehen Sie ins Frontend und legen Sie einen Artikel in den Warenkorb. Prüfen Sie auf der 
-           Warenkorbseite, ob der "Hier finden Sie die Einzelheiten zu 
-           Ihrem Widerrufsrecht" Link direkt unter "Zur Kasse gehen" sichtbar 
-           ist. Dieser Link muss auf, die im Backend eingestellte Seite, 
-           verweisen.
-
+*** B: Go to the Front-end and put an arbitrary product into your cart.
+       Under the button "Process to Checkout" should be 2 additional links:
+       1) "How to order."
+       2) "Click here to find  details on revocation."
+       Which should lead to the appropriate CMS Pages.
+       
 *** E: 1. Führen Sie im Frontend einen Bestellvorgang durch; Wenn Sie Ihre
            Rechnungsadresse eingegeben haben, sollte standardmäßig die Option
            "An diese Adresse verschicken" ausgewählt sein.

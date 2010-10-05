@@ -22,5 +22,33 @@
  * @link      http://www.symmetrics.de/
  */
 
-// This file is not longer needed, the functionality has moved
-// to file mysql4-upgrade-0.1.47-0.1.48.php.
+$installer = $this;
+
+/** @var Varien_Db_Adapter_Pdo_Mysql */
+$connection  = $this->getConnection();
+$regionTable = $installer->getTable('directory/country_region');
+
+/**
+ * Build the German regions to insert.
+ */
+$regions = array(
+    array(
+        'DE',
+        'DE',
+        'Nicht ausgewählt'
+    )
+);
+
+/**
+ * Add the regions we created.
+ */
+foreach ($regions as $row) {
+    $connection->insert(
+        $regionTable,
+        array(
+            'country_id' => $row[0],
+            'code' => $row[1],
+            'default_name' => $row[2]
+        )
+    );
+}

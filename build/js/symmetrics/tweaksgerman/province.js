@@ -57,6 +57,9 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
         document.observe('dom:loaded', (function()
         {
             var country = $('billing:country_id');
+            this.startObserveShippingTab();
+            this.startObserveBillingRegion();
+            this.startObserveShippingRegion();
             if (!country) {
                 this.createObserverProvinceAddress();
                 this.startProvinceAdressChanging();
@@ -78,6 +81,26 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     {
         Event.observe($('billing:country_id'),'change', (function(){
             this.startProvinceBillingChanging();
+        }).bind(this));
+    },
+    
+    startObserveBillingRegion: function()
+    {
+        Event.observe($('billing:region_id'),'change', (function(){
+            var selectedValue = ($('billing:region_id').options[$('billing:region_id').selectedIndex].value);
+            if (selectedValue) {
+                $('billing[region_id]-tmp').value = selectedValue;
+            }
+        }).bind(this));
+    },
+    
+    startObserveShippingRegion: function()
+    {
+        Event.observe($('shipping:region_id'),'change', (function(){
+            var selectedValue = ($('shipping:region_id').options[$('shipping:region_id').selectedIndex].value);
+            if (selectedValue) {
+                $('shipping[region_id]-tmp').value = selectedValue;
+            }
         }).bind(this));
     },
 
@@ -134,6 +157,26 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     {
         this.setRegionId('country', 'region_id', 'region_id');
     },
+    
+    /**
+     * startObserveShippingTab: start observing manually click on the shipping tab
+     *
+     * @return void
+     */
+    startObserveShippingTab: function()
+    {
+        Event.observe($$('li#opc-shipping div.step-title').first(), 'click', (function() {
+            var selectedValue = ($('shipping:country_id').options[$('shipping:country_id').selectedIndex].value);
+            if (selectedValue == 'DE') {
+                this.updateRegionIdField('shipping:region_id', 'shipping[region_id]', this.getLastRegionId('shipping:region_id'));
+            } else {
+                $$('label[for="shipping:region"]').first().show();
+                $$('label[for="shipping:region"]').first().next().show();
+                $$('label[for="shipping:region"]').first().next().down().show();
+                
+            }
+        }).bind(this));
+    },
 
     /**
      * setRegionId: check if country is german, hide "state/province" label and update region_id.
@@ -171,6 +214,8 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     hideTextElement: function(textFieldName)
     {
+        // IE - bugfix, have to hide the parent element from dropdown 
+        document.getElementById(textFieldName).up().style.display = 'none';
         $$('label[for="' + textFieldName + '"]').first().hide();
     },
 
@@ -183,6 +228,9 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     showTextElement: function(textFieldName)
     {
+        // IE - bugfix, have to hide the parent element from dropdown
+        document.getElementById(textFieldName).up().style.display = '';
+        $(textFieldName).up().previous('label').show();
         $$('label[for="' + textFieldName + '"]').first().show();
     },
 
@@ -197,10 +245,14 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     updateRegionIdField: function(fieldName, regionFieldName, regionId)
     {
-        var inputString = '<input type="hidden" name="' + regionFieldName +'" value="' + regionId + '">';
+        var inputString = '<input type="hidden" id="' + regionFieldName + '-tmp" name="' + regionFieldName +'" value="' + regionId + '">';
         //To hide this element is recomment couse Magento work with it on change Country
         $(fieldName).hide();
-        $(fieldName).update(inputString);
+        if ($(regionFieldName + '-tmp')) {
+            $(regionFieldName + '-tmp').value = regionId;
+        } else {
+            $(fieldName).insert({after: inputString});
+        }
     },
 
     /**

@@ -74,7 +74,10 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
             $showPercentage = false;
         }
         if ($showPercentage) {
-            $taxPercent = (int) $product->getTaxPercent();
+            $taxPercent = $product->getTaxPercent();
+            $locale = Mage::app()->getLocale()->getLocaleCode();
+            // format number using shop locale
+            $taxPercent = Zend_Locale_Format::getNumber($taxPercent, array('locale' => $locale));
             if ($taxPercent == 0) {
                 $showPercentage = false;
             }

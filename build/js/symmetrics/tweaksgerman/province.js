@@ -15,6 +15,7 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Benjamin Klein <bk@symmetrics.de>
+ * @author    Siegfried Schmitz <ss@symmetrics.de>
  * @copyright 2009-2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
@@ -32,6 +33,7 @@ if (!window.Symmetrics) {
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Benjamin Klein <bk@symmetrics.de>
+ * @author    Siegfried Schmitz <ss@symmetrics.de>
  * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
@@ -41,6 +43,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
 {
     /**
      * Constructor initialize observer for dom loaded.
+     * Check if current location is in checkout.
      */
     initialize: function()
     {

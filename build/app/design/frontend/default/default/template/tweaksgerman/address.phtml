@@ -1,3 +1,4 @@
+<?php
 /**
  * Magento
  *
@@ -15,14 +16,15 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Siegfried Schmitz <ss@symmetrics.de>
- * @author    Benjamin Klein <bk@symmetrics.de>
  * @copyright 2009-2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
+?>
 
+<script type="text/javascript">
 /**
- * Change the position from zip and city - fields
+ * Change the position from zip and city - fields.
  */
 document.observe('dom:loaded', function() {
     if ($('city') && $('zip')) {
@@ -32,4 +34,11 @@ document.observe('dom:loaded', function() {
         $('zip').up(2).update(cityField.innerHTML);
         $('city').up(2).update(zipField);
     }
+    //<![CDATA[
+        var regions = <?php echo Mage::helper('directory')->getRegionJson() ?>;
+        new RegionUpdater('country', 'region', 'region_id', regions, undefined, 'zip');
+    //]]>
 });
+
+new Symmetrics.Province();
+</script>

@@ -44,6 +44,20 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     initialize: function()
     {
+        var currentUrl = window.location.href;
+        
+        if (currentUrl.include('checkout')) {
+            this.isCheckout = true;
+            this.countryName = 'billing:country_id';
+            this.regionName = 'billing:region';
+            this.regionIdName = 'billing:region_id';
+        } else {
+            this.isCheckout = false;
+            this.countryName = 'country';
+            this.regionName = 'region';
+            this.regionIdName = 'region_id';
+        }
+        
         this.createObserverDomLoaded();
     },
 
@@ -54,22 +68,25 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     createObserverDomLoaded: function()
     {
-        document.observe('dom:loaded', (function()
-        {
-            var country = $('billing:country_id');
+        var country = $(this.countryName);
+        this.startObserveBillingRegion();
+    
+        if (this.isCheckout == true) {
             this.startObserveShippingTab();
-            this.startObserveBillingRegion();
-            this.startObserveShippingRegion();
-            if (!country) {
-                this.createObserverProvinceAddress();
-                this.startProvinceAdressChanging();
-            } else {
-                this.createObserverProvinceBilling();
-                this.createObserverProvinceShipping();
-                this.startProvinceBillingChanging();
-                this.startProvinceShippingChanging();
+            this.startObserveShippingRegion();    
+        } 
+        
+        if (!country) {
+            this.createObserverProvinceAddress();
+            this.startProvinceAdressChanging();
+        } else {
+            this.createObserverProvinceBilling();
+            if (this.isCheckout == true) {
+              this.createObserverProvinceShipping();  
+              this.startProvinceShippingChanging();
             }
-        }).bind(this));
+            this.startProvinceBillingChanging();
+        }
     },
 
     /**
@@ -79,17 +96,17 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     createObserverProvinceBilling: function()
     {
-        Event.observe($('billing:country_id'),'change', (function(){
+        Event.observe($(this.countryName),'change', (function(){
             this.startProvinceBillingChanging();
         }).bind(this));
     },
     
     startObserveBillingRegion: function()
     {
-        Event.observe($('billing:region_id'),'change', (function(){
-            var selectedValue = ($('billing:region_id').options[$('billing:region_id').selectedIndex].value);
+        Event.observe($(this.regionIdName),'change', (function(){
+            var selectedValue = ($(this.regionIdName).options[$(this.regionIdName).selectedIndex].value);
             if (selectedValue) {
-                $('billing[region_id]-tmp').value = selectedValue;
+                $(this.regionIdName + '-tmp').value = selectedValue;
             }
         }).bind(this));
     },
@@ -111,7 +128,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceBillingChanging: function()
     {
-        this.setRegionId('billing:country_id', 'billing[region_id]', 'billing:region_id');
+        this.setRegionId(this.countryName, this.regionIdName, this.regionIdName);
     },
 
     /**
@@ -143,7 +160,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     createObserverProvinceAddress: function()
     {
-        Event.observe($('country'), 'change', (function(){
+        Event.observe($(this.countryName), 'change', (function(){
             this.startProvinceAdressChanging();
         }).bind(this));
     },
@@ -155,7 +172,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceAdressChanging: function()
     {
-        this.setRegionId('country', 'region_id', 'region_id');
+        this.setRegionId(this.countryName, this.regionIdName, this.regionIdName);
     },
     
     /**
@@ -285,4 +302,5 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
         }
     }
 });
-new Symmetrics.Province();
+
+//new Symmetrics.Province();

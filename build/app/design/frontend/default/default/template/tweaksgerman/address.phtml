@@ -28,16 +28,13 @@
  */
 document.observe('dom:loaded', function() {
     if ($('city') && $('zip')) {
-        var cityField = $('city').up(2);
-        var zipField = $('zip').up(2).innerHTML;
-
-        $('zip').up(2).update(cityField.innerHTML);
-        $('city').up(2).update(zipField);
+        var cityField = $('city').up().up();
+        var zipField = $('zip').up().up().innerHTML;
+        $('zip').up().up().update(cityField.innerHTML);
+        $('city').up().up().update(zipField);
     }
-    //<![CDATA[
-        var regions = <?php echo Mage::helper('directory')->getRegionJson() ?>;
-        new RegionUpdater('country', 'region', 'region_id', regions, undefined, 'zip');
-    //]]>
+    var regions = <?php echo Mage::helper('directory')->getRegionJson() ?>;
+    new RegionUpdater('country', 'region', 'region_id', regions, undefined, 'zip');
 });
 
 new Symmetrics.Province();

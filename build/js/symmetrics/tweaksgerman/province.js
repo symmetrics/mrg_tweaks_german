@@ -27,13 +27,11 @@ if (!window.Symmetrics) {
 
 /**
  * Symmetrics.Province
- * Generate lorem ipsum text
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Benjamin Klein <bk@symmetrics.de>
- * @author    Siegfried Schmitz <ss@symmetrics.de>
  * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
@@ -42,8 +40,7 @@ Symmetrics.Province = Class.create();
 Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
 {
     /**
-     * Constructor initialize observer for dom loaded.
-     * Check if current location is in checkout.
+     * Constructor initialize element names.
      */
     initialize: function()
     {
@@ -61,7 +58,21 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
             this.regionIdName = 'region_id';
         }
         
-        this.createObserverDomLoaded();
+        this.startObserver();
+    },
+    
+    /**
+     * Initialize observer for dom loaded.
+     */
+    startObserver: function()
+    {
+      if (this.isCheckout) {
+          this.createObserverDomLoaded();
+      } else {
+          document.observe('dom:loaded', (function(){
+              this.createObserverDomLoaded();
+          }).bind(this));
+      }
     },
 
     /**
@@ -73,11 +84,11 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     {
         var country = $(this.countryName);
         this.startObserveBillingRegion();
-    
+        
         if (this.isCheckout == true) {
             this.startObserveShippingTab();
             this.startObserveShippingRegion();    
-        } 
+        }
         
         if (!country) {
             this.createObserverProvinceAddress();
@@ -100,6 +111,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     createObserverProvinceBilling: function()
     {
         Event.observe($(this.countryName),'change', (function(){
+            alert('onchange fired');
             this.startProvinceBillingChanging();
         }).bind(this));
     },
@@ -305,5 +317,3 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
         }
     }
 });
-
-//new Symmetrics.Province();

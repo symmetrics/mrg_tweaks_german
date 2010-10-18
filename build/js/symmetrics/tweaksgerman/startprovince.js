@@ -20,6 +20,6 @@
  * @link      http://www.symmetrics.de/
  */ 
  
-document.observe('dom:loaded', function() {
+document.observe('dom:loaded', (function() {
     new Symmetrics.Province();
-});
+}).bind(this));

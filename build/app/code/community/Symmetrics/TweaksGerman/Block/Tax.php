@@ -83,7 +83,7 @@ class Symmetrics_TweaksGerman_Block_Tax extends Mage_Core_Block_Abstract
             }
         }
         
-        if ($showPercentage) {
+        if ($showPercentage && Mage::getStoreConfig('catalog/frontend/display_taxinfo')) {
             if ($tax->displayPriceIncludingTax()) {
                 $taxInfo = sprintf(Mage::helper('tweaksgerman')->__('Incl. %1$s%% VAT'), $taxPercent);
             } else {

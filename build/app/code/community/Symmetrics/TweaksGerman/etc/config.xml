@@ -123,6 +123,7 @@
             <frontend>
                 <enable_weight_info>0</enable_weight_info>
                 <display_shippingcosts>excl</display_shippingcosts>
+                <display_taxinfo>1</display_taxinfo>
             </frontend>
         </catalog>
     </default>

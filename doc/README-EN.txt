@@ -72,6 +72,8 @@ Templates zu verändern.
 
 *** K:  Hide the "state/province" when country is germany in checkout process.
 
+*** L:  Show / hide percent in tax info.
+
 
 ** TECHNICAL
 
@@ -213,3 +215,7 @@ D:  Wenn Sie unterschiedliche Mehrwertsteuersätze abhängig von Kundengruppen
           Check if you can set an address in billing and shipping
           with german country and no "state/province" to choose.
           Look if you can complete your order.
+
+*** L: 1. You can enable / disable displaying the percent in the
+          tax info link by admin panel / catalog / shop / Show tax info.
+          

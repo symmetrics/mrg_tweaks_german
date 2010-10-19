@@ -111,7 +111,6 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     createObserverProvinceBilling: function()
     {
         Event.observe($(this.countryName),'change', (function(){
-            alert('onchange fired');
             this.startProvinceBillingChanging();
         }).bind(this));
     },

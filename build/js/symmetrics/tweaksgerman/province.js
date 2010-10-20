@@ -142,7 +142,12 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceBillingChanging: function()
     {
-        this.setRegionId(this.countryName, this.regionIdName, this.regionIdName);
+        if (this.isCheckout) {
+            var regionName = 'billing[region_id]';
+        } else {
+            var regionName = this.regionIdName;
+        }
+        this.setRegionId(this.countryName, regionName, this.regionIdName);
     },
 
     /**

@@ -87,7 +87,8 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
         
         if (this.isCheckout == true) {
             this.startObserveShippingTab();
-            this.startObserveShippingRegion();    
+            this.startObserveBillingButtons();
+            this.startObserveShippingRegion();
         }
         
         if (!country) {
@@ -202,18 +203,40 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     startObserveShippingTab: function()
     {
         Event.observe($$('li#opc-shipping div.step-title').first(), 'click', (function() {
-            var selectedValue = ($('shipping:country_id').options[$('shipping:country_id').selectedIndex].value);
-            if (selectedValue == 'DE') {
-                this.updateRegionIdField('shipping:region_id', 'shipping[region_id]', this.getLastRegionId('shipping:region_id'));
-            } else {
-                $$('label[for="shipping:region"]').first().show();
-                $$('label[for="shipping:region"]').first().next().show();
-                $$('label[for="shipping:region"]').first().next().down().show();
-                
-            }
+            this.setShippingRegionId();
         }).bind(this));
     },
-
+    
+    /**
+     * startObserveBillingButtons: start observing the shipping tab.
+     *
+     * @return void
+     */
+    startObserveBillingButtons: function()
+    {
+        Event.observe($$('div#billing-buttons-container button.button').first(), 'click', (function() {
+            this.setShippingRegionId();
+        }).bind(this));
+    },
+    
+    /**
+     * setShippingRegionId: Set region id in shipping tab.
+     *
+     * @return void
+     */
+    setShippingRegionId: function()
+    {
+        var selectedValue = ($('shipping:country_id').options[$('shipping:country_id').selectedIndex].value);
+        if (selectedValue == 'DE') {
+            this.updateRegionIdField('shipping:region_id', 'shipping[region_id]', this.getLastRegionId('shipping:region_id'));
+        } else {
+            $$('label[for="shipping:region"]').first().show();
+            $$('label[for="shipping:region"]').first().next().show();
+            $$('label[for="shipping:region"]').first().next().down().show();
+            
+        }
+    },
+    
     /**
      * setRegionId: check if country is german, hide "state/province" label and update region_id.
      * If country is not german show "state/province" label.

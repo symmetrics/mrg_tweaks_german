@@ -21,7 +21,7 @@
  *
  * @category    Mage
  * @package     Mage_Catalog
- * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -36,20 +36,20 @@
 abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Template
 {
     protected $_priceBlock = array();
-    
+
     /**
      * Default price block
      *
      * @var string
      */
     protected $_block = 'catalog/product_price';
-    
+
     protected $_priceBlockDefaultTemplate = 'catalog/product/price.phtml';
-    
+
     protected $_tierPriceDefaultTemplate  = 'catalog/product/view/tierprices.phtml';
-    
+
     protected $_priceBlockTypes = array();
-    
+
     /**
      * Flag which allow/disallow to use link for as low as price
      *
@@ -96,7 +96,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
         }
         return $this->helper('checkout/cart')->getAddUrl($product, $additional);
     }
-    
+
     /**
      * Retrieves url for form submitting:
      * some objects can use setSubmitRouteData() to set route and params for form submitting,
@@ -172,7 +172,8 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
         }
         return $this->_priceBlockDefaultTemplate;
     }
-    
+
+
     /**
      * Prepares and returns block to render some product type
      *
@@ -191,13 +192,17 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      *
      * @param Mage_Catalog_Model_Product $product
      * @param boolean $displayMinimalPrice
+     * @param string $idSuffix
+     * @return string
      */
-    public function getPriceHtml($product, $displayMinimalPrice = false, $idSuffix='')
+    public function getPriceHtml($product, $displayMinimalPrice = false, $idSuffix = '')
     {
         //begin: symmetrics code
-        Mage::dispatchEvent("catalog_block_product_abstract_get_price_html", array('product' => $product, "block" => $this));
+        Mage::dispatchEvent(
+            'catalog_block_product_abstract_get_price_html',
+            array('product' => $product, "block" => $this)
+        );
         //end:   symmetrics code
-            
         return $this->_preparePriceRenderer($product->getTypeId())
             ->setProduct($product)
             ->setDisplayMinimalPrice($displayMinimalPrice)
@@ -205,6 +210,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
             //begin: symmetrics code
             ->toHtml() . Mage::getBlockSingleton('tweaksgerman/info')->setProduct($product)->getInfo();
             //end:   symmetrics code
+
     }
 
     /**
@@ -491,7 +497,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
     {
         return $this->helper('page/layout')->getCurrentPageLayout();
     }
-    
+
     /**
      * Check whether the price can be shown for the specified product
      *

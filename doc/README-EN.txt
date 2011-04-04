@@ -168,9 +168,8 @@ D:  When you apply different value added tax depending on customer groups,
            should be shown. This link must reference to 
 		   the configured page in backend.
 
-*** E:  1. Open "Admin Panel / System / Configuration / Sales /
-           Trusted Shops Seal / Info" and compare the contents of a banner
-           with a screenshot [SCREENSHOT: Info-Banner_en.png].
+*** E:  1. Open "Admin Panel / System / Configuration / General / General"
+        and compare the contents of the page with a screenshot [SCREENSHOT: Info-Banner_en.png].
            To test the buttons and links.
         2. Change the backend language from English to German, in this case,
            the banner should display the German text [SCREENSHOT: Info-Banner_de.png].
@@ -211,5 +210,5 @@ D:  When you apply different value added tax depending on customer groups,
           Look if you can complete your order.
 
 *** L: 1. You can enable / disable displaying the percent in the
-          tax info link by admin panel / catalog / shop / Show tax info.
+          tax info link by admin panel / catalog / catalog / shop / Show tax info.
           

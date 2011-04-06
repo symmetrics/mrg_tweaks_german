@@ -65,9 +65,9 @@ any changes in templates.
 		(incl. 7% VAT, incl. shipment costs(weight 3.20 kg)) can also be turned on 
 		and off.
 
-*** J:  Hide the "state/province" when country is germany in editing address data.
+*** J:  Hide the "state/province" when country is Germany in editing address data.
 
-*** K:  Hide the "state/province" when country is germany in checkout process.
+*** K:  Hide the "state/province" when country is Germany in checkout process.
 
 *** L:  Show / hide percent in tax info.
 
@@ -81,7 +81,7 @@ app/design/frontend/default/default/template/tweaksgerman/:
     weight.phtml.
 
 A:  Via js, which was added in the new template weight.phtml, the attribute 
-    "weight", which is displayed in the product detail view, was wrapped
+    "weight", which is displayed in the product details view, was wrapped
     with a link to the shipping CMS Page.
     
 B:  The template cartinfo.phtml was added in checkout.cart.methods and displayes
@@ -115,7 +115,7 @@ G:  With the help of the new block TaxRender "excl. VAT" and "inck. VAT"
     
 H:  The js-file address.js (added in customer_address_form) changes the 
     position from zip and city. The js-file checkout.js is doing the
-    same (and has the functionality from point "C" too) in 
+    same (and has the functionality from item "C" too) in 
     checkout_onepage_index.
     
 I:  The core class Mage_Catalog_Block_Product_Abstract was added to the 
@@ -127,11 +127,11 @@ I:  The core class Mage_Catalog_Block_Product_Abstract was added to the
 J:  The js-file province.js, which was added in customer_address_form
     hides the "state/province" - field when Germany is selected as country.
     We create 3 observers in this file .
-    They are listening for an change of the country_id.
+    They are listening for a change of the country_id.
     If the country_id is "DE" hide the "state/province" and add a new hidden field
-    with an dump id.
+    with a dump id.
     
-K:  The same as in point "J", but implemented in checkout_onepage_index.
+K:  The same as in item "J", but implemented in checkout_onepage_index.
 
 
 ** PROBLEMS
@@ -168,8 +168,9 @@ D:  When you apply different value added tax depending on customer groups,
            should be shown. This link must reference to 
 		   the configured page in backend.
 
-*** E:  1. Open "Admin Panel / System / Configuration / General / General"
-        and compare the contents of the page with a screenshot [SCREENSHOT: Info-Banner_en.png].
+*** E:  1. Open "Admin Panel / System / Configuration / Sales /
+           Trusted Shops Seal / Info" and compare the contents of a banner
+           with a screenshot [SCREENSHOT: Info-Banner_en.png].
            To test the buttons and links.
         2. Change the backend language from English to German, in this case,
            the banner should display the German text [SCREENSHOT: Info-Banner_de.png].
@@ -201,14 +202,14 @@ D:  When you apply different value added tax depending on customer groups,
 			category as well as the product view).
 
 *** J: 1. Go to the Front-end and add or edit an address.
-          Check when country is germany you have no "state/province" to choose.
+          Check that when country is Germany you have no "state/province" to choose.
           Check if you can save your address.
 
 *** K: 1. Go to the Front-end and buy some products.
           Check if you can set an address in billing and shipping
-          with german country and no "state/province" to choose.
+          with German country and no "state/province" to choose.
           Look if you can complete your order.
 
 *** L: 1. You can enable / disable displaying the percent in the
-          tax info link by admin panel / catalog / catalog / shop / Show tax info.
+          tax info link by admin panel / catalog / shop / Show tax info.
           

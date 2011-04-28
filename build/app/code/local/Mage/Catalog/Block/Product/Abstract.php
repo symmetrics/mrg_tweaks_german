@@ -200,7 +200,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
         //begin: symmetrics code
         Mage::dispatchEvent(
             'catalog_block_product_abstract_get_price_html',
-            array('product' => $product, "block" => $this)
+            array('product' => $product, 'block' => $this)
         );
         //end:   symmetrics code
         return $this->_preparePriceRenderer($product->getTypeId())

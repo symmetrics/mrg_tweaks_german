@@ -350,7 +350,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
         //begin: symmetrics code
         Mage::dispatchEvent(
             'catalog_block_product_abstract_get_price_html',
-            array('product' => $product, "block" => $this)
+            array('product' => $product, 'block' => $this)
         );
         //end:   symmetrics code
         $productType = $product->getTypeId();

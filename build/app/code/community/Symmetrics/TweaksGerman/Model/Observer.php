@@ -42,7 +42,7 @@ class Symmetrics_TweaksGerman_Model_Observer
     /**
      * Remove IP on checkout submit.
      *
-     * @param $observer Varien_Event_Observer Observer object to get the order from.
+     * @param Varien_Event_Observer $observer Observer object to get the order from.
      *
      * @return void
      */

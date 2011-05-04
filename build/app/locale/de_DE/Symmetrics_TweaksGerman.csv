@@ -48,3 +48,6 @@
 "Show tax info","Steuerinformationen anzeigen"
 "Show tax percentage","Steuersatz (in Prozent) anzeigen"
 "Show percentage in tax info.","Prozentsatz in Steuerinformation anzeigen."
+"If set to ""no"", the IP adress of the customer will be deleted after checkout.","Wenn ""nein"", wird die IP des Kunden nach dem Checkout gelöscht."
+"Privacy","Datenschutz"
+"Save IP address in order","IP Adresse in der Bestellung speichern"

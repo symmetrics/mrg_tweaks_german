@@ -69,7 +69,7 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
         $pageIdentifier = Mage::getStoreConfig(self::DELIVERY_URL_CONFIG_PATH, $this->getStore());
 
         return Mage::getUrl($pageIdentifier);
-    }
+    }              
     
     /**
      * Get weight info as html
@@ -84,13 +84,32 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
         $weight = $catalogProduct->getWeight();
         if (!is_numeric($weight)) {
             $weight = 0;
-        }
-        $weight = Zend_Locale_Format::toFloat($weight, array('precision' => 2));
+        }                 
+        
+        $storeId = Mage::app()->getStore()->getId();
+        $countrycode = Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_LOCALE, $storeId);    
+        
+        $weight = Zend_Locale_Format::toNumber($weight, array('precision' => 2, 'locale' => $countrycode));
         $label = $this->getAttributeLabel('weight');
 
-        return '<span class="weight-details"> (' . $label . ' ' . $weight . 'kg)</span>';
-    }
+        return '<span class="weight-details">' . $label . ' ' . $weight . 'kg</span>';
+    }         
+    
+    /**
+     * Get delivery information as HTML.
+     *
+     * @param Mage_Catalog_Model_Product $product product object.
+     *
+     * @return string
+     */
+    public function getDeliveryInfo($product)
+    {                                                                                    
+        $delivery = $product->getDeliveryTime();                                            
+        $label = $this->getAttributeLabel('delivery_time');
 
+        return '<span class="delivery-time-details">' . $label . ' ' . $delivery . '</span>';
+    }         
+              
     /**
      * Get current store
      *

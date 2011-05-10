@@ -41,15 +41,29 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
      */
     public function getInfo()
     {
-        $info = $this->getTaxInfo();
-        
+        $info[] = $this->getTaxInfo();
+                 
         if (Mage::getStoreConfig('catalog/frontend/enable_weight_info')) {
-            $info .= $this->getWeightInfo();
-        }
+            $info[] = $this->getWeightInfo();
+        }       
+        if (Mage::getStoreConfig('catalog/frontend/enable_delivery_info')) {
+            $info[] = $this->getDeliveryInfo();
+        }       
         
-        return $info; 
+        return implode('<br/>', $info); 
     }
-
+                       
+    /**
+     * Get delivery information.
+     *
+     * @return string html
+     */
+    public function getDeliveryInfo()
+    {
+        return Mage::getBlockSingleton('tweaksgerman/weight')
+            ->getDeliveryInfo($this->getProduct());
+    }     
+    
     /**
      * Get weight information
      *
@@ -59,7 +73,7 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
     {
         return Mage::getBlockSingleton('tweaksgerman/weight')
             ->getWeightInfo($this->getProduct());
-    }
+    }   
 
     /**
      * Get tax information

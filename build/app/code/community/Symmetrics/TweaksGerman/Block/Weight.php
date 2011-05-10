@@ -85,7 +85,10 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
         if (!is_numeric($weight)) {
             $weight = 0;
         }                 
-        
+                    
+        if ($weight == 0) {
+            return;
+        }
         $storeId = Mage::app()->getStore()->getId();
         $countrycode = Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_LOCALE, $storeId);    
         
@@ -104,7 +107,10 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
      */
     public function getDeliveryInfo($product)
     {                                                                                    
-        $delivery = $product->getDeliveryTime();                                            
+        $delivery = $product->getDeliveryTime(); 
+        if (is_null($delivery) || empty($delivery)) {
+            return;
+        }                                                           
         $label = $this->getAttributeLabel('delivery_time');
 
         return '<span class="delivery-time-details">' . $label . ' ' . $delivery . '</span>';

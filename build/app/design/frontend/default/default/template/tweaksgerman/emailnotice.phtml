@@ -28,10 +28,10 @@
 <script type="text/javascript"> 
 //<![CDATA[
 document.observe('dom:loaded', function() {
-	var emailNotice = '<p class="email-notice"><?php echo $emailNotice ?></p>';
-	$$('#opc-billing .validate-email', '.account-create .validate-email').each(function(item) {
-	    item.insert({ after: emailNotice });
-	});
+    var emailNotice = '<p class="email-notice"><?php echo $emailNotice ?></p>';
+    $$('#opc-billing .validate-email', '.account-create .validate-email').each(function(item) {
+        item.insert({ after: emailNotice });
+    });
 });
 //]]>
 </script>

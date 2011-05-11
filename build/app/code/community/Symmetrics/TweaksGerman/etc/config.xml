@@ -131,8 +131,9 @@
             </create_account>
         </customer>
         <catalog>
-            <frontend>
+            <frontend>                                    
                 <enable_weight_info>0</enable_weight_info>
+                <enable_delivery_info>1</enable_delivery_info>             
                 <display_shippingcosts>excl</display_shippingcosts>
                 <display_taxinfo>1</display_taxinfo>
             </frontend>

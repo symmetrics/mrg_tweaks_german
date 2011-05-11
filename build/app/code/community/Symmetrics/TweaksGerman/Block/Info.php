@@ -33,7 +33,17 @@
  * @link      http://www.symmetrics.de/
  */
 class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
-{
+{        
+    /**
+     * @const CONFIG_WEIGHT_INFO_PATH System configuration path to enable weight info near price.
+     */                                                                  
+    const CONFIG_WEIGHT_INFO_PATH = 'catalog/frontend/enable_weight_info';        
+    
+    /**
+     * @const CONFIG_DELIVERY_INFO_PATH System configuration path to enable delivery info near price.
+     */
+    const CONFIG_DELIVERY_INFO_PATH = 'catalog/frontend/enable_delivery_info';                 
+    
     /**
      * Get additional price information
      *
@@ -43,10 +53,10 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
     {
         $info[] = $this->getTaxInfo();
                  
-        if (Mage::getStoreConfig('catalog/frontend/enable_weight_info')) {
+        if (Mage::getStoreConfigFlag(self::CONFIG_WEIGHT_INFO_PATH)) {
             $info[] = $this->getWeightInfo();
         }       
-        if (Mage::getStoreConfig('catalog/frontend/enable_delivery_info')) {
+        if (Mage::getStoreConfigFlag(self::CONFIG_DELIVERY_INFO_PATH)) {
             $info[] = $this->getDeliveryInfo();
         }       
         

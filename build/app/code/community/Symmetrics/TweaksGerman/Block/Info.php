@@ -33,7 +33,7 @@
  * @link      http://www.symmetrics.de/
  */
 class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
-{        
+{
     /**
      * @const CONFIG_WEIGHT_INFO_PATH System configuration path to enable weight info near price.
      */                                                                  

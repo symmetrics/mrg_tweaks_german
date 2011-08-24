@@ -35,7 +35,8 @@
         </reference>
         <reference name="head">
             <action method="addJs"><script>symmetrics/tweaksgerman/province.js</script></action>
-            <action method="addJs"><script>symmetrics/tweaksgerman/startprovince.js</script></action>
+            <!-- <action method="addJs"><script>symmetrics/tweaksgerman/startprovince.js</script></action> -->
+            <block type="core/template" name="switchaddress" template="tweaksgerman/address/cart.phtml"/>
         </reference>
         <reference name="content">
             <block type="core/template" name="emailnotice" template="tweaksgerman/emailnotice.phtml"/>

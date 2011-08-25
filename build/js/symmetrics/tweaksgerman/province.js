@@ -341,5 +341,6 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
         if (this.countries.indexOf($F(countryFieldName)) != -1) {
             return true;
         }
+        return false;
     }
 });

@@ -36,14 +36,14 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
 {
     /**
      * @const CONFIG_WEIGHT_INFO_PATH System configuration path to enable weight info near price.
-     */                                                                  
-    const CONFIG_WEIGHT_INFO_PATH = 'catalog/frontend/enable_weight_info';        
-    
+     */
+    const CONFIG_WEIGHT_INFO_PATH = 'catalog/frontend/enable_weight_info';
+
     /**
      * @const CONFIG_DELIVERY_INFO_PATH System configuration path to enable delivery info near price.
      */
-    const CONFIG_DELIVERY_INFO_PATH = 'catalog/frontend/enable_delivery_info';                 
-    
+    const CONFIG_DELIVERY_INFO_PATH = 'catalog/frontend/enable_delivery_info';
+
     /**
      * Get additional price information
      *
@@ -52,17 +52,17 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
     public function getInfo()
     {
         $info[] = $this->getTaxInfo();
-                 
+
         if (Mage::getStoreConfigFlag(self::CONFIG_WEIGHT_INFO_PATH)) {
             $info[] = $this->getWeightInfo();
-        }       
+        }
         if (Mage::getStoreConfigFlag(self::CONFIG_DELIVERY_INFO_PATH)) {
             $info[] = $this->getDeliveryInfo();
-        }       
-        
-        return implode('<br/>', $info); 
+        }
+
+        return implode('<br/>', array_filter($info));
     }
-                       
+
     /**
      * Get delivery information.
      *
@@ -72,8 +72,8 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
     {
         return Mage::getBlockSingleton('tweaksgerman/weight')
             ->getDeliveryInfo($this->getProduct());
-    }     
-    
+    }
+
     /**
      * Get weight information
      *
@@ -83,7 +83,7 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
     {
         return Mage::getBlockSingleton('tweaksgerman/weight')
             ->getWeightInfo($this->getProduct());
-    }   
+    }
 
     /**
      * Get tax information

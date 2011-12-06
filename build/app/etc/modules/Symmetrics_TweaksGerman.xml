@@ -23,15 +23,15 @@
  */
 -->
 <config>
-	<modules>
-		<Symmetrics_TweaksGerman>
-			<active>true</active>
-			<codePool>community</codePool>
-			<depends>
+    <modules>
+        <Symmetrics_TweaksGerman>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
                 <Mage_Tax />
                 <Mage_Catalog />
-				<Mage_Checkout />
-			</depends>
-		</Symmetrics_TweaksGerman>
-	</modules>
+                <Mage_Checkout />
+            </depends>
+        </Symmetrics_TweaksGerman>
+    </modules>
 </config>

@@ -28,7 +28,8 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Eric Reiche <er@symmetrics.de>
- * @copyright 2010 symmetrics gmbh
+ * @author    Torsten Walluhn <tw@symmetrics.de>
+ * @copyright 2011 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -40,6 +41,11 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
     const DELIVERY_URL_CONFIG_PATH = 'checkout/cart/deliveryurl';
 
     /**
+     * @var attray attributeLabelCache Attribute Label Cache.
+     */
+    private $_attributeLabelCache = array();
+
+    /**
      * Get translation for attribute
      *
      * @param string $code Attribute code
@@ -48,15 +54,19 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
      */
     public function getAttributeLabel($code)
     {
-        $attribute = Mage::getModel('eav/entity_attribute')->loadByCode('catalog_product', $code);
-        $weightLabels = $attribute->getStoreLabels();
-        if (array_key_exists($this->getStoreId(), $weightLabels)) {
-            $weightLabel = $weightLabels[$this->getStoreId()];
-        } else {
-            $weightLabel = $attribute->getFrontendLabel();
+        $cacheKey = $code . '-' . $this->getStoreId();
+        if (!array_key_exists($cacheKey, $this->_attributeLabelCache)) {
+            $attribute = Mage::getModel('eav/entity_attribute')->loadByCode('catalog_product', $code);
+            $attibuteLabels = $attribute->getStoreLabels();
+            if (array_key_exists($this->getStoreId(), $attibuteLabels)) {
+                $attibuteLabel = $attibuteLabels[$this->getStoreId()];
+            } else {
+                $attibuteLabel = $attribute->getFrontendLabel();
+            }
+            $this->_attributeLabelCache[$cacheKey] = $attibuteLabel;
         }
 
-        return $weightLabel;
+        return $this->_attributeLabelCache[$cacheKey];
     }
 
     /**
@@ -70,7 +80,7 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
 
         return Mage::getUrl($pageIdentifier);
     }
-    
+
     /**
      * Get weight info as html
      *
@@ -80,11 +90,40 @@ class Symmetrics_TweaksGerman_Block_Weight extends Mage_Core_Block_Template
      */
     public function getWeightInfo($product)
     {
-        $catalogProduct = Mage::getModel('catalog/product')->load($product->getId());
-        $weight = Zend_Locale_Format::toFloat($catalogProduct->getWeight(), array('precision' => 2));
+        // $catalogProduct = Mage::getModel('catalog/product')->load($product->getId());
+        $weight = $product->getWeight();
+        if (!is_numeric($weight)) {
+            $weight = 0;
+        }
+
+        if ($weight == 0) {
+            return;
+        }
+        $storeId = Mage::app()->getStore()->getId();
+        $countrycode = Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_LOCALE, $storeId);
+
+        $weight = Zend_Locale_Format::toNumber($weight, array('precision' => 2, 'locale' => $countrycode));
         $label = $this->getAttributeLabel('weight');
 
-        return '<span class="weight-details"> (' . $label . ' ' . $weight . 'kg)</span>';
+        return '<span class="weight-details">' . $label . ' ' . $weight . 'kg</span>';
+    }
+
+    /**
+     * Get delivery information as HTML.
+     *
+     * @param Mage_Catalog_Model_Product $product product object.
+     *
+     * @return string
+     */
+    public function getDeliveryInfo($product)
+    {
+        $delivery = $product->getDeliveryTime();
+        if (is_null($delivery) || empty($delivery)) {
+            return;
+        }
+        $label = $this->getAttributeLabel('delivery_time');
+
+        return '<span class="delivery-time-details">' . $label . ' ' . $delivery . '</span>';
     }
 
     /**

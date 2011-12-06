@@ -26,7 +26,7 @@
 <config>
     <modules>
         <Symmetrics_TweaksGerman>
-            <version>0.1.47</version>
+            <version>0.1.81</version>
         </Symmetrics_TweaksGerman>
     </modules>
     <global>
@@ -93,6 +93,17 @@
                 </Symmetrics_TweaksGerman>
             </modules>
         </translate>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <tweaksgerman>
+                        <type>singleton</type>
+                        <class>Symmetrics_TweaksGerman_Model_Observer</class>
+                        <method>checkoutSubmit</method>
+                    </tweaksgerman>
+                </observers>
+            </sales_order_place_after>
+        </events>
     </frontend>
     <adminhtml>
         <layout>
@@ -116,13 +127,15 @@
         <customer>
             <create_account>
                 <enable_emailnotice>0</enable_emailnotice>
-                <emailnotice><![CDATA[Wir senden Ihnen regelmäßig sorgfältig ausgesuchte Angebote zu ähnlichen Produkten aus unserem Sortiment per E-Mail zu. Ihre E-Mail-Adresse wird nicht an andere Unternehmen weitergegeben. Sie können der Nutzung Ihrer E-Mail-Adresse für Werbezwecke jederzeit durch formlose E-Mail widersprechen.]]></emailnotice>
+                <emailnotice><![CDATA[Wir senden Ihnen regelmäßig sorgfältig ausgesuchte Angebote zu ähnlichen Produkten aus unserem Sortiment per E-Mail zu. Ihre E-Mail-Adresse wird nicht an andere Unternehmen weitergegeben. Sie können der Nutzung Ihrer E-Mail-Adresse für Werbezwecke jederzeit durch formlose E-Mail widersprechen, ohne dass hierfür andere als die Übermittlungskosten nach den Basistarifen entstehen.]]></emailnotice>
             </create_account>
         </customer>
         <catalog>
             <frontend>
                 <enable_weight_info>0</enable_weight_info>
+                <enable_delivery_info>1</enable_delivery_info>
                 <display_shippingcosts>excl</display_shippingcosts>
+                <display_taxinfo>1</display_taxinfo>
             </frontend>
         </catalog>
     </default>

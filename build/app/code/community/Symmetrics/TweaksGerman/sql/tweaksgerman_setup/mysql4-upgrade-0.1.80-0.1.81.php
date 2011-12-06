@@ -15,24 +15,39 @@
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Eugen Gitin <eg@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @author    Torsten Walluhn <tw@symmetrics.de>
+ * @copyright 2011 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-?>
 
-<?php $emailNotice = $this->helper('tweaksgerman')->getEmailNotice() ?>
+$installer = $this;
 
-<?php if (strlen(trim($emailNotice)) > 0): ?>
-<script type="text/javascript"> 
-//<![CDATA[
-document.observe('dom:loaded', function() {
-    var emailNotice = '<p class="email-notice"><?php echo $emailNotice ?></p>';
-    $$('#opc-billing .validate-email', '.account-create .validate-email').each(function(item) {
-        item.insert({ after: emailNotice });
-    });
-});
-//]]>
-</script>
-<?php endif ?>
+/** @var Varien_Db_Adapter_Pdo_Mysql */
+$connection  = $this->getConnection();
+$regionTable = $installer->getTable('directory/country_region');
+
+/**
+ * Build the German regions to insert.
+ */
+$regions = array(
+    array(
+        'DE',
+        'DE',
+        'Nicht ausgewählt'
+    )
+);
+
+/**
+ * Add the regions we created.
+ */
+foreach ($regions as $row) {
+    $connection->delete(
+        $regionTable,
+        array(
+            'country_id = ?' => $row[0],
+            'code = ?' => $row[1],
+            'default_name = ?' => $row[2]
+        )
+    );
+}

@@ -1,4 +1,3 @@
-<?php
 /**
  * Magento
  *
@@ -15,24 +14,12 @@
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Eugen Gitin <eg@symmetrics.de>
- * @copyright 2009-2010 symmetrics gmbh
+ * @author    Siegfried Schmitz <ss@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
- */
-?>
-
-<?php $emailNotice = $this->helper('tweaksgerman')->getEmailNotice() ?>
-
-<?php if (strlen(trim($emailNotice)) > 0): ?>
-<script type="text/javascript"> 
-//<![CDATA[
-document.observe('dom:loaded', function() {
-    var emailNotice = '<p class="email-notice"><?php echo $emailNotice ?></p>';
-    $$('#opc-billing .validate-email', '.account-create .validate-email').each(function(item) {
-        item.insert({ after: emailNotice });
-    });
-});
-//]]>
-</script>
-<?php endif ?>
+ */ 
+ 
+document.observe('dom:loaded', (function() {
+    new Symmetrics.Province();
+}).bind(this));

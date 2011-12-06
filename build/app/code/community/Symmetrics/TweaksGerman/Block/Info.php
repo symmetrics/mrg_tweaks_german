@@ -28,12 +28,23 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Eugen Gitin <eg@symmetrics.de>
- * @copyright 2010 symmetrics gmbh
+ * @author    Torsten Walluhn <tw@symmetrics.de>
+ * @copyright 2011 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
 class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
 {
+    /**
+     * @const CONFIG_WEIGHT_INFO_PATH System configuration path to enable weight info near price.
+     */
+    const CONFIG_WEIGHT_INFO_PATH = 'catalog/frontend/enable_weight_info';
+
+    /**
+     * @const CONFIG_DELIVERY_INFO_PATH System configuration path to enable delivery info near price.
+     */
+    const CONFIG_DELIVERY_INFO_PATH = 'catalog/frontend/enable_delivery_info';
+
     /**
      * Get additional price information
      *
@@ -41,13 +52,27 @@ class Symmetrics_TweaksGerman_Block_Info extends Mage_Core_Block_Template
      */
     public function getInfo()
     {
-        $info = $this->getTaxInfo();
-        
-        if (Mage::getStoreConfig('catalog/frontend/enable_weight_info')) {
-            $info .= $this->getWeightInfo();
+        $info[] = $this->getTaxInfo();
+
+        if (Mage::getStoreConfigFlag(self::CONFIG_WEIGHT_INFO_PATH)) {
+            $info[] = $this->getWeightInfo();
         }
-        
-        return $info; 
+        if (Mage::getStoreConfigFlag(self::CONFIG_DELIVERY_INFO_PATH)) {
+            $info[] = $this->getDeliveryInfo();
+        }
+
+        return implode('<br/>', array_filter($info));
+    }
+
+    /**
+     * Get delivery information.
+     *
+     * @return string html
+     */
+    public function getDeliveryInfo()
+    {
+        return Mage::getBlockSingleton('tweaksgerman/weight')
+            ->getDeliveryInfo($this->getProduct());
     }
 
     /**

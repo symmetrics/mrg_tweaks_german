@@ -16,38 +16,11 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Benjamin Klein <bk@symmetrics.de>
+ * @author    Siegfried Schmitz <ss@symmetrics.de>
  * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
 
-$installer = $this;
-
-
-/** @var Varien_Db_Adapter_Pdo_Mysql */
-$connection  = $this->getConnection();
-$regionTable = $installer->getTable('directory/country_region');
-
-/**
- * Build the German regions to insert
- */
-$regionsToIns = array(
-    array(
-        'DE',
-        'DE',
-        'Nicht ausgewählt'
-        )
-);
-/**
- * Add the regions we created
- */
-foreach ($regionsToIns as $row) {
-    $connection->insert(
-        $regionTable,
-        array(
-            'country_id'   => $row[0],
-            'code'         => $row[1],
-            'default_name' => $row[2]
-        )
-    );
-}
+// This file is not longer needed, the functionality has moved
+// to file mysql4-upgrade-0.1.47-0.1.48.php.

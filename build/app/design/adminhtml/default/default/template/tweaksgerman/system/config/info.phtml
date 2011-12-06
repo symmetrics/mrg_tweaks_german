@@ -62,62 +62,105 @@
         </tr>
         <tr>
             <td>
-                <table border="0" cellpadding="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;">
+                <table border="0" cellpadding="0" cellspacing="0" style="width:640px;padding:2px;margin:4px;">         
                     <tr>
-                        <td width="50%">
+                        <td style="width:310px; padding-right: 20px;">
                             <img style="margin-top: 10px; margin-left: 2px;"
                                 class="mrgimg"
                                 src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/symmetrics_logo.png'); ?>"
-                                alt="<?php echo $this->__('Symmetrics gmbh - Magento Partner, Certified Developer'); ?>" />
+                                alt="<?php echo $this->__('Symmetrics gmbh - Magento Enterprise Partner, Certified Developer'); ?>" />   
                         </td>
-                        <td width="50%">
-                            <p style="font-family:Helvetica,sans-serif;font-size:16px;font-weight:400;color:#2d2d2d;line-height:1.3em;">
-                                <?php echo $this->__('The next step:<br /> The seal of approval for your Magento store.'); ?>
+                        <td style="width:310px;"> 
+                            <img style="margin-top: 10px; margin-left: 2px;"
+                                class="mrgimg"
+                                src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/ts_logo.png'); ?>"
+                                alt="<?php echo $this->__('Trusted Shops GmbH'); ?>" />             
+                        </td>
+                    </tr>     
+                    <tr>
+                        <td style="width:310px; padding-right: 20px;">                                                                                                 
+                            <p style="font-family:Helvetica,sans-serif;font-size:16px;font-weight:bold;color:#8f8f8f;line-height:1.3em;">
+                                <?php echo $this->__('Cloud Computing for Magento - The Future of E-Commerce has just begun!') ?>   
+                            </p>   
+                        </td>
+                        <td style="width:310px;">                                   
+                            <p style="font-family:Helvetica,sans-serif;font-size:16px;font-weight:bold;color:#8f8f8f;line-height:1.3em;">
+                                <?php echo $this->__('The next step:<br /> The seal of approval for your Magento store.') ?>
                             </p>
                         </td>
-                    </tr>
+                    </tr>     
                     <tr>
-                        <td>
-                            <p><?php echo $this->__('Symmetrics implements e-commerce solutions based on Magento<br /> Enterprise Edition and<br /> individual interfaces and enhancements.'); ?></p>
-                            <p><?php echo $this->__('As a strategic Magento partner<br /> and Certified Developer Symmetrics<br /> is in a close dialogue with Varien<br /> for the success of customers and partners.'); ?></p>
-                            <button style="" onclick="window.open('http://www.symmetrics.de')" class="scalable" type="button">
+                        <td style="width:310px; padding-right: 20px;">        
+                            <ul style="list-style-type: square;font-size: 12px;">
+                            <?php  
+                                $list[] = $this->__('automatic scalable and flexible infrastructure');
+                                $list[] = $this->__('professional and optimized environment for Magento');
+                                $list[] = $this->__('high availability and performance');
+                                $list[] = $this->__('on-demand scalability (horizontal and vertical)');
+                                $list[] = $this->__('pay-per-use payment');
+                                $list[] = $this->__('individual infrastructure-solutions for your online-shop');   
+                                foreach ($list as $listPoint) {
+                                    echo '<li style="margin-left: 15px;">' . $listPoint . '</li>';
+                                }              
+                            ?> 
+                            </ul>  
+                            <p>
+                            <?php
+                                echo $this->__('Ask for your individual offer and test our Cloud Computing Cluster - ' .
+                                    'free standard installation for MRG-user!') ?>         
+                            </p>  
+                            <button style="" onclick="window.open('http://www.symmetrics.de/de/kontakt/cloud-computing-hosting.html')" class="scalable" type="button">
                                 <span>
-                                    <?php echo $this->__('Find out now!'); ?>
+                                    <?php echo $this->__('Use special conditions now!') ?>
                                 </span>
-                            </button>
+                            </button>    
+                            <div>    
+                                <img style="margin-top: 10px; margin-left: 0px;"
+                                    class="mrgimg"
+                                    src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/enterprisepartner.png'); ?>"
+                                    alt="<?php echo $this->__('Magento Enterprise Partner'); ?>" />    
+                                <img style="margin-top: 10px; margin-left: 1px;"
+                                    class="mrgimg"
+                                    src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/founders-award.png'); ?>"
+                                    alt="<?php echo $this->__('Founders Award 2010'); ?>" />    
+                                <img style="margin-top: 10px; margin-left: 1px;"
+                                    class="mrgimg"
+                                    src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/awsprovider.png'); ?>"
+                                    alt="<?php echo $this->__('Amazon Web Services - Solution Provider'); ?>" />        
+                            </div>
                         </td>
-                        <td>
-                            <p><?php echo $this->__('The solutions from Trusted Shops<br /> certainly lead to more conversion.'); ?></p>
+                        <td style="width:310px;">
+                            <p><?php echo $this->__('The solutions from Trusted Shops<br /> certainly lead to more conversion.') ?></p>
                             <ul style="margin-left:14px;">
                                 <li type="square">
                                     <span style="font-weight:bold;">
-                                        <?php echo $this->__('Increase the conversion rate'); ?>
+                                        <?php echo $this->__('Increase the conversion rate') ?>
                                     </span>
                                 </li>
                                 <li type="square">
                                     <span style="font-weight:bold;">
-                                        <?php echo $this->__('Offer a reas buyer protection'); ?>
+                                        <?php echo $this->__('Offer a reas buyer protection') ?>
                                     </span>
                                 </li>
                                 <li type="square">
                                     <span style="font-weight:bold;">
-                                        <?php echo $this->__('Reduce your risk'); ?>
+                                        <?php echo $this->__('Reduce your risk') ?>
                                     </span>
                                 </li>
                             </ul>
                             <a href="http://www.trustedshops.de/magento" target="_blank">
                                 <img class="mrgimg"
                                     style="margin-left:-20px;margin-top:-24px;float:right;position:relative;"
-                                    src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/trustedshops_logo.png'); ?>"
-                                    alt="<?php echo $this->__('Trusted Shops - Certified Software'); ?>" />
+                                    src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/trustedshops_logo.png') ?>"
+                                    alt="<?php echo $this->__('Trusted Shops - Certified Software') ?>" />
                             </a>
-                            <p><?php echo $this->__('As already more than 7,000<br /> successful online retailers!'); ?></p>
+                            <p><?php echo $this->__('As already more than 10,000<br /> successful online retailers!') ?></p>
                             <button style=""
                                 onclick="window.open('http://www.trustedshops.de/shopbetreiber/mitgliedschaft_partner.html?shopsw=MAGENTO')"
                                 class="scalable"
                                 type="button">
                                 <span>
-                                    <?php echo $this->__('Use special conditions now!'); ?>
+                                    <?php echo $this->__('Use special conditions now!') ?>
                                 </span>
                             </button>
                         </td>
@@ -129,14 +172,14 @@
             <td align="left" style="vertical-align: bottom;">
                 <img style="margin-bottom: -5px;"
                     class="mrgimg"
-                    src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/bottomhr.png'); ?>"
+                    src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/bottomhr.png') ?>"
                     alt="" />
             </td>
         </tr>
         <tr style="background-color:#f7f7f7;">
             <td>
                 <div style="margin-left:8px;font-family:sans-serif;color:#000000;font-size:11px;font-weight:bold;">
-                    <?php echo $this->__('Market Ready Germany sponsored by'); ?>
+                    <?php echo $this->__('Market Ready Germany sponsored by') ?>
                 </div>
             </td>
         </tr>
@@ -146,37 +189,64 @@
                     <tr>
                         <td style="width:184px;text-align:center;">
                             <div>
-                                <a href="http://www.cash-ticket.com/marketreadygermany" target="_blank">
+                                <a href="http://www.cash-ticket.com/marketreadygermany" target="_blank" style="text-decoration: none; display: block;">
                                     <img class="mrgimg"
-                                        src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/cashticketlogo.png'); ?>"
+                                        src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/cashticketlogo.png') ?>"
                                         alt="" />
                                 </a>
-                                <br />
                                 <button style="" onclick="window.open('http://www.cash-ticket.com/marketreadygermany')"
                                     class="scalable" type="button">
                                     <span style="font-size:9px;">
-                                        <?php echo $this->__('Use special conditions!'); ?>
+                                        <?php echo $this->__('Use special conditions!') ?>
                                     </span>
                                 </button>
                             </div>
                         </td>
                         <td style="width:184px;text-align:center;">
                             <div>
-                                <a href="http://www.payone.de/marketready/" target="_blank">
+                                <a href="http://www.payone.de/marketready/" target="_blank" style="text-decoration: none; display: block;">
                                     <img class="mrgimg"
                                         src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/payonelogo.png'); ?>"
                                         alt="" />
                                 </a>
-                                <br/ >
                                 <button style="" onclick="window.open('http://www.payone.de/marketready/')"
                                     class="scalable" type="button">
                                     <span style="font-size:9px;">
-                                        <?php echo $this->__('Use special conditions!'); ?>
+                                        <?php echo $this->__('Use special conditions!') ?>
                                     </span>
                                 </button>
                             </div>
                         </td>
-                        <td style="width:184px;">&nbsp;</td>
+                        <td style="width:184px;text-align:center;">
+                            <div>
+                                <a href="http://www.econda.de/produkte/landing-page/partner/market-ready-germany.html?campaign=partner/MRG/00_startseite" target="_blank"  style="text-decoration: none; display: block;">
+                                    <img class="mrgimg"
+                                        src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/econdalogo.png'); ?>"
+                                        alt="" />
+                                </a>
+                                <button style="" onclick="window.open('http://www.econda.de/produkte/landing-page/partner/market-ready-germany.html?campaign=partner/MRG/00_startseite')"
+                                    class="scalable" type="button">
+                                    <span style="font-size:9px;">
+                                        <?php echo $this->__('Use special conditions!') ?>
+                                    </span>
+                                </button>
+                            </div>
+                        </td>
+                        <td style="width:184px;text-align:center;">
+                            <div>
+                                <a href="http://www.fact-finder.de/Magento.html?affiliate=symmetrics" target="_blank"  style="text-decoration: none; display: block;">
+                                    <img class="mrgimg"
+                                        src="<?php echo Mage::getDesign()->getSkinUrl('images/symmetrics/factfinderlogo.png'); ?>"
+                                        alt="" />
+                                </a>
+                                <button style="" onclick="window.open('http://www.fact-finder.de/Magento.html?affiliate=symmetrics')"
+                                    class="scalable" type="button">
+                                    <span style="font-size:9px;">
+                                        <?php echo $this->__('Use special conditions!') ?>
+                                    </span>
+                                </button>
+                            </div>
+                        </td>
                         <td style="width:184px;">&nbsp;</td>
                     </tr>
                 </table>

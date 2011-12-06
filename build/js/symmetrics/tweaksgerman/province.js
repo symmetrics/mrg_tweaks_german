@@ -15,6 +15,7 @@
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Benjamin Klein <bk@symmetrics.de>
+ * @author    Siegfried Schmitz <ss@symmetrics.de>
  * @copyright 2009-2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
@@ -26,13 +27,12 @@ if (!window.Symmetrics) {
 
 /**
  * Symmetrics.Province
- * Generate lorem ipsum text
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
  * @author    symmetrics gmbh <info@symmetrics.de>
- * @author    Benjamin Klein <bk@symmetrics.de>
- * @copyright 2010 symmetrics gmbh
+ * @author    Torsten Walluhn <tw@symmetrics.de>
+ * @copyright 2011 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -40,11 +40,40 @@ Symmetrics.Province = Class.create();
 Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
 {
     /**
-     * Constructor initialize observer for dom loaded.
+     * Constructor initialize element names.
      */
-    initialize: function()
+    initialize: function(countryList)
     {
-        this.createObserverDomLoaded();
+        var currentUrl = window.location.href;
+
+        if (currentUrl.include('checkout')) {
+            this.isCheckout = true;
+            this.countryName = 'billing:country_id';
+            this.regionName = 'billing:region';
+            this.regionIdName = 'billing:region_id';
+        } else {
+            this.isCheckout = false;
+            this.countryName = 'country';
+            this.regionName = 'region';
+            this.regionIdName = 'region_id';
+        }
+
+        this.countries = countryList;
+        this.startObserver();
+    },
+
+    /**
+     * Initialize observer for dom loaded.
+     */
+    startObserver: function()
+    {
+      if (this.isCheckout) {
+          this.createObserverDomLoaded();
+      } else {
+          document.observe('dom:loaded', (function(){
+              this.createObserverDomLoaded();
+          }).bind(this));
+      }
     },
 
     /**
@@ -54,19 +83,26 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     createObserverDomLoaded: function()
     {
-        document.observe('dom:loaded', (function()
-        {
-            var country = $('billing:country_id');
-            if (!country) {
-                this.createObserverProvinceAddress();
-                this.startProvinceAdressChanging();
-            } else {
-                this.createObserverProvinceBilling();
-                this.createObserverProvinceShipping();
-                this.startProvinceBillingChanging();
-                this.startProvinceShippingChanging();
+        var country = $(this.countryName);
+        this.startObserveBillingRegion();
+
+        if (this.isCheckout == true) {
+            this.startObserveShippingTab();
+            this.startObserveBillingButtons();
+            this.startObserveShippingRegion();
+        }
+
+        if (!country) {
+            this.createObserverProvinceAddress();
+            this.startProvinceAdressChanging();
+        } else {
+            this.createObserverProvinceBilling();
+            if (this.isCheckout == true) {
+              this.createObserverProvinceShipping();
+              this.startProvinceShippingChanging();
             }
-        }).bind(this));
+            this.startProvinceBillingChanging();
+        }
     },
 
     /**
@@ -76,8 +112,28 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     createObserverProvinceBilling: function()
     {
-        Event.observe($('billing:country_id'),'change', (function(){
+        Event.observe($(this.countryName),'change', (function(){
             this.startProvinceBillingChanging();
+        }).bind(this));
+    },
+
+    startObserveBillingRegion: function()
+    {
+        Event.observe($(this.regionIdName),'change', (function(){
+            var selectedValue = ($(this.regionIdName).options[$(this.regionIdName).selectedIndex].value);
+            if (selectedValue) {
+                $(this.regionIdName + '-tmp').value = selectedValue;
+            }
+        }).bind(this));
+    },
+
+    startObserveShippingRegion: function()
+    {
+        Event.observe($('shipping:region_id'),'change', (function(){
+            var selectedValue = ($('shipping:region_id').options[$('shipping:region_id').selectedIndex].value);
+            if (selectedValue) {
+                $('shipping[region_id]-tmp').value = selectedValue;
+            }
         }).bind(this));
     },
 
@@ -88,7 +144,12 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceBillingChanging: function()
     {
-        this.setRegionId('billing:country_id', 'billing[region_id]', 'billing:region_id');
+        if (this.isCheckout) {
+            var regionName = 'billing[region_id]';
+        } else {
+            var regionName = this.regionIdName;
+        }
+        this.setRegionId(this.countryName, regionName, this.regionIdName);
     },
 
     /**
@@ -120,7 +181,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     createObserverProvinceAddress: function()
     {
-        Event.observe($('country'), 'change', (function(){
+        Event.observe($(this.countryName), 'change', (function(){
             this.startProvinceAdressChanging();
         }).bind(this));
     },
@@ -132,7 +193,49 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     startProvinceAdressChanging: function()
     {
-        this.setRegionId('country', 'region_id', 'region_id');
+        this.setRegionId(this.countryName, this.regionIdName, this.regionIdName);
+    },
+
+    /**
+     * startObserveShippingTab: start observing manually click on the shipping tab
+     *
+     * @return void
+     */
+    startObserveShippingTab: function()
+    {
+        Event.observe($$('li#opc-shipping div.step-title').first(), 'click', (function() {
+            this.setShippingRegionId();
+        }).bind(this));
+    },
+
+    /**
+     * startObserveBillingButtons: start observing the shipping tab.
+     *
+     * @return void
+     */
+    startObserveBillingButtons: function()
+    {
+        Event.observe($$('div#billing-buttons-container button.button').first(), 'click', (function() {
+            this.setShippingRegionId();
+        }).bind(this));
+    },
+
+    /**
+     * setShippingRegionId: Set region id in shipping tab.
+     *
+     * @return void
+     */
+    setShippingRegionId: function()
+    {
+        var selectedValue = ($('shipping:country_id').options[$('shipping:country_id').selectedIndex].value);
+        if (selectedValue == 'DE') {
+            this.updateRegionIdField('shipping:region_id', 'shipping[region_id]', this.getLastRegionId('shipping:region_id'));
+        } else {
+            $$('label[for="shipping:region"]').first().show();
+            $$('label[for="shipping:region"]').first().next().show();
+            $$('label[for="shipping:region"]').first().next().down().show();
+
+        }
     },
 
     /**
@@ -171,6 +274,8 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     hideTextElement: function(textFieldName)
     {
+        // IE - bugfix, have to hide the parent element from dropdown
+        document.getElementById(textFieldName).up().style.display = 'none';
         $$('label[for="' + textFieldName + '"]').first().hide();
     },
 
@@ -183,6 +288,9 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     showTextElement: function(textFieldName)
     {
+        // IE - bugfix, have to hide the parent element from dropdown
+        document.getElementById(textFieldName).up().style.display = '';
+        $(textFieldName).up().previous('label').show();
         $$('label[for="' + textFieldName + '"]').first().show();
     },
 
@@ -197,10 +305,14 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     updateRegionIdField: function(fieldName, regionFieldName, regionId)
     {
-        var inputString = '<input type="hidden" name="' + regionFieldName +'" value="' + regionId + '">';
+        var inputString = '<input type="hidden" id="' + regionFieldName + '-tmp" name="' + regionFieldName +'" value="' + regionId + '">';
         //To hide this element is recomment couse Magento work with it on change Country
         $(fieldName).hide();
-        $(fieldName).update(inputString);
+        if ($(regionFieldName + '-tmp')) {
+            $(regionFieldName + '-tmp').value = regionId;
+        } else {
+            $(fieldName).insert({after: inputString});
+        }
     },
 
     /**
@@ -213,7 +325,7 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
     getLastRegionId: function(fieldName)
     {
         var region = $A($(fieldName).options).last();
-        
+
         return region.getAttribute('value');
     },
 
@@ -226,11 +338,9 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
      */
     checkCountryCode: function(countryFieldName)
     {
-        if ($F(countryFieldName) == 'DE') {
-            return true
-        } else {
-            return false;
+        if (this.countries.indexOf($F(countryFieldName)) != -1) {
+            return true;
         }
+        return false;
     }
 });
-new Symmetrics.Province();

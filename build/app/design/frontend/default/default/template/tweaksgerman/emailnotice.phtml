@@ -25,7 +25,7 @@
 <?php $emailNotice = $this->helper('tweaksgerman')->getEmailNotice() ?>
 
 <?php if (strlen(trim($emailNotice)) > 0): ?>
-<script type="text/javascript"> 
+<script type="text/javascript">
 //<![CDATA[
 document.observe('dom:loaded', function() {
     var emailNotice = '<p class="email-notice"><?php echo $emailNotice ?></p>';

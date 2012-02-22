@@ -72,12 +72,10 @@ class Symmetrics_TweaksGerman_Model_Observer
             && ! is_null($block->getDisplayMinimalPrice())
             && trim($html)
         ) {
-            $transport->setHtml(
-                $html .
-                Mage::getBlockSingleton('tweaksgerman/info')
-                    ->setProduct($block->getProduct())
-                    ->getInfo()
-            );
+            $info = Mage::getBlockSingleton('tweaksgerman/info')
+                ->setProduct($block->getProduct())
+                ->getInfo();
+            $transport->setHtml($html . $info);
         }
     }
 }

@@ -52,4 +52,32 @@ class Symmetrics_TweaksGerman_Model_Observer
             $observer->getOrder()->setRemoteIp('0');
         }
     }
+
+    /**
+     * Add a additional price information.
+     *
+     * @param Varien_Event_Observer $observer Observer object to get a block by
+     *                                        toHtml method call.
+     *
+     * @return void
+     */
+    public function toHtmlAfter($observer)
+    {
+        $block = $observer->getBlock();
+        $transport = $observer->getTransport();
+        $html = $transport->getHtml();
+
+        if (
+            $block instanceof Mage_Catalog_Block_Product_Price
+            && ! is_null($block->getDisplayMinimalPrice())
+            && trim($html)
+        ) {
+            $transport->setHtml(
+                $html .
+                Mage::getBlockSingleton('tweaksgerman/info')
+                    ->setProduct($block->getProduct())
+                    ->getInfo()
+            );
+        }
+    }
 }

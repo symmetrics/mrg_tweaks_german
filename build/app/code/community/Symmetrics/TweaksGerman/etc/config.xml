@@ -104,6 +104,15 @@
                     </tweaksgerman>
                 </observers>
             </sales_order_place_after>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <tweaksgerman>
+                        <type>singleton</type>
+                        <class>Symmetrics_TweaksGerman_Model_Observer</class>
+                        <method>toHtmlAfter</method>
+                    </tweaksgerman>
+                </observers>
+            </core_block_abstract_to_html_after>
         </events>
     </frontend>
     <adminhtml>

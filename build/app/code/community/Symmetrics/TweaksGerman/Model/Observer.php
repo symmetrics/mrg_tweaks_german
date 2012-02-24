@@ -38,7 +38,7 @@ class Symmetrics_TweaksGerman_Model_Observer
      * @const CONFIGURATION_ORDER_IP
      */
     const CONFIGURATION_ORDER_IP = 'customer/privacy/order_ip';
-    
+
     /**
      * Remove IP on checkout submit.
      *

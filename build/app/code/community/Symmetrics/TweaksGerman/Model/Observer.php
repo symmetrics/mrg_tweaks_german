@@ -38,7 +38,7 @@ class Symmetrics_TweaksGerman_Model_Observer
      * @const CONFIGURATION_ORDER_IP
      */
     const CONFIGURATION_ORDER_IP = 'customer/privacy/order_ip';
-    
+
     /**
      * Remove IP on checkout submit.
      *
@@ -72,7 +72,7 @@ class Symmetrics_TweaksGerman_Model_Observer
             && ! is_null($block->getDisplayMinimalPrice())
             && trim($html)
         ) {
-            $info = Mage::getBlockSingleton('tweaksgerman/info')
+            $info = Mage::app()->getLayout()->createBlock('tweaksgerman/info')
                 ->setProduct($block->getProduct())
                 ->getInfo();
             $transport->setHtml($html . $info);

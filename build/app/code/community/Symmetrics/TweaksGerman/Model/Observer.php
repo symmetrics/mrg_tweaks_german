@@ -66,16 +66,15 @@ class Symmetrics_TweaksGerman_Model_Observer
         $block = $observer->getBlock();
         $transport = $observer->getTransport();
         $html = $transport->getHtml();
+        $handles = $block->getLayout() ?
+            $block->getLayout()->getUpdate()->getHandles() : array();
 
         $additionalInfoFlag = false;
 
         // Wishlist
         if (
             $block->getIdSuffix() == '-wishlist'
-            || in_array(
-                'wishlist_index_index',
-                $block->getLayout()->getUpdate()->getHandles()
-            )
+            || in_array('wishlist_index_index', $handles)
         ) {
             if ($block instanceof Mage_Wishlist_Block_Render_Item_Price) {
                 $additionalInfoFlag = true;

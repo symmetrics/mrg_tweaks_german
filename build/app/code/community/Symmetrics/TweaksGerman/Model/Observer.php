@@ -67,11 +67,38 @@ class Symmetrics_TweaksGerman_Model_Observer
         $transport = $observer->getTransport();
         $html = $transport->getHtml();
 
+        $additionalInfoFlag = false;
+
+        // Wishlist
         if (
-            $block instanceof Mage_Catalog_Block_Product_Price
-            && ! is_null($block->getDisplayMinimalPrice())
-            && trim($html)
+            $block->getIdSuffix() == '-wishlist'
+            || in_array(
+                'wishlist_index_index',
+                $block->getLayout()->getUpdate()->getHandles()
+            )
         ) {
+            if ($block instanceof Mage_Wishlist_Block_Render_Item_Price) {
+                $additionalInfoFlag = true;
+            }
+
+        // Bundle product type
+        } elseif (
+            $block instanceof Mage_Bundle_Block_Catalog_Product_Price
+            && trim($html)
+            && (
+                $block->getDisplayMinimalPrice()
+                || $block->getNameInLayout() == 'bundle.prices'
+                || $block->getIdSuffix() == '_clone'
+            )
+        ) {
+            $additionalInfoFlag = true;
+
+        // Other product types
+        } elseif (get_class($block) == 'Mage_Catalog_Block_Product_Price' && trim($html)) {
+            $additionalInfoFlag = true;
+        }
+
+        if ($additionalInfoFlag) {
             $info = Mage::app()->getLayout()->createBlock('tweaksgerman/info')
                 ->setProduct($block->getProduct())
                 ->getInfo();

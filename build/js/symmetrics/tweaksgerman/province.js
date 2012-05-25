@@ -234,8 +234,8 @@ Object.extend(Object.extend(Symmetrics.Province.prototype, Abstract.prototype),
             $$('label[for="shipping:region"]').first().show();
             $$('label[for="shipping:region"]').first().next().show();
             $$('label[for="shipping:region"]').first().next().down().show();
-
         }
+        $('shipping:region_id').style.display = 'none';
     },
 
     /**

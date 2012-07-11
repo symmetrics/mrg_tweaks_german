@@ -22,8 +22,8 @@
  */
 
 /**
- * Symmetrics_TweaksGerman_Model_System_Config_Source_Cms_Page helps to construct
- * dropdown element for the back-end configuraton filled with cms-pages
+ * Symmetrics_TweaksGerman_Model_System_Config_Source_Product_Attribute helps to construct
+ * dropdown element for the back-end configuration filled with product attributes.
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman

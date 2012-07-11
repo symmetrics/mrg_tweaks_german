@@ -123,6 +123,15 @@
                 </observers>
             </sales_quote_config_get_product_attributes>
         </events>
+        <routers>
+            <tweaksgerman>
+                <use>standard</use>
+                <args>
+                    <module>Symmetrics_TweaksGerman</module>
+                    <frontName>tweaksgerman</frontName>
+                </args>
+            </tweaksgerman>
+        </routers>
     </frontend>
     <adminhtml>
         <layout>

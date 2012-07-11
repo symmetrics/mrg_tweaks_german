@@ -22,7 +22,7 @@
  */
 
 /**
- * Block class to render the additional quote item informations.
+ * Frontend controller to render a agreement text.
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
@@ -32,34 +32,26 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-class Symmetrics_TweaksGerman_Block_Checkout_Item_Renderer extends Mage_Core_Block_Text
+class Symmetrics_TweaksGerman_AgreementController extends Mage_Core_Controller_Front_Action
 {
     /**
-     * Get current item.
+     * View action to render one agreement.
      *
-     * @return Mage_Sales_Model_Quote_Item
+     * @return void|null
      */
-    protected function _getItem()
+    function viewAction()
     {
-        return $this->getParentBlock()->getItem();
-    }
+        $agreement = Mage::getModel('checkout/agreement')->load($this->getRequest()->getParam('id'));
+        $this->loadLayout();
+        $headBlock = $this->getLayout()->getBlock('head');
+        $headBlock->setTitle(
+            $headBlock->htmlEscape($agreement->getCheckboxText())
+        );
 
-    /**
-     * Returns the html output.
-     *
-     * @return string
-     */
-    public function _toHtml()
-    {
-        $text = '';
-        $item = $this->_getItem();
-        if ($item &&
-            (Mage::getStoreConfig(Symmetrics_TweaksGerman_Model_Observer::CART_PRODUCT_ATTRIBUTE) !=
-            Symmetrics_TweaksGerman_Model_System_Config_Source_Product_Attribute::NO_TEXT)) {
-            $text = $item->getProduct()->getData(
-                (Mage::getStoreConfig(Symmetrics_TweaksGerman_Model_Observer::CART_PRODUCT_ATTRIBUTE))
-            );
-        }
-        return $text;
+        $agreementText = $agreement->getIsHtml() ? $agreement->getContent() :
+            $this->htmlEscape($agreement->getContent());
+        $agreeBlock = $this->getLayout()->getBlock('agreement');
+        $agreeBlock->setText($agreementText);
+        $this->renderLayout();
     }
 }

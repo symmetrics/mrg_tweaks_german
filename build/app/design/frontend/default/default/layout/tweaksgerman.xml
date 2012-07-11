@@ -24,6 +24,11 @@
  */
 -->
 <layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/symmetrics/tweaksgerman.css</stylesheet></action>
+        </reference>
+    </default>
     <checkout_cart_index>
         <reference name="checkout.cart.methods">
             <block type="core/template" name="cartlink" template="tweaksgerman/cartinfo.phtml"/>

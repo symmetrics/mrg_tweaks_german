@@ -14,9 +14,10 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
- * @author    symmetrics gmbh <info@symmetrics.de>
+ * @author    symmetrics - a CGI Group brand <info@symmetrics.de>
  * @author    Eric Reiche <er@symmetrics.de>
- * @copyright 2011 symmetrics gmbh
+ * @author    Torsten Walluhn <torsten.walluhn@cgi.com>
+ * @copyright 2011-2012 symmetrics - a CGI Group brand
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -26,9 +27,10 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman
- * @author    symmetrics gmbh <info@symmetrics.de>
+ * @author    symmetrics - a CGI Group brand <info@symmetrics.de>
  * @author    Eric Reiche <er@symmetrics.de>
- * @copyright 2011 symmetrics gmbh
+ * @author    Torsten Walluhn <torsten.walluhn@cgi.com>
+ * @copyright 2011-2012 symmetrics - a CGI Group brand
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -38,6 +40,11 @@ class Symmetrics_TweaksGerman_Model_Observer
      * @const CONFIGURATION_ORDER_IP
      */
     const CONFIGURATION_ORDER_IP = 'customer/privacy/order_ip';
+
+    /**
+     * @const
+     */
+    const CART_PRODUCT_ATTRIBUTE = 'checkout/cart/product_attribute';
 
     /**
      * Remove IP on checkout submit.
@@ -102,6 +109,22 @@ class Symmetrics_TweaksGerman_Model_Observer
                 ->setProduct($block->getProduct())
                 ->getInfo();
             $transport->setHtml($html . $info);
+        }
+    }
+
+    /**
+     * Add the selected attribute to the quote product collection for displaying it
+     * on the quote checkout summary page.
+     *
+     * @param Varien_Event_Observer $observer Observer object to add the attribute.
+     *
+     * @return void
+     */
+    public function addAttributesToCart($observer)
+    {
+        if (Mage::getStoreConfig(self::CART_PRODUCT_ATTRIBUTE) !=
+            Symmetrics_TweaksGerman_Model_System_Config_Source_Product_Attribute::NO_TEXT) {
+            $observer->getAttributes()->setData(Mage::getStoreConfig(self::CART_PRODUCT_ATTRIBUTE), '');
         }
     }
 }

@@ -60,4 +60,14 @@
             <block type="core/template" name="switchaddress" template="tweaksgerman/address.phtml"/>
         </reference>
     </customer_address_form>
+    <checkout_onepage_review>
+        <block type="core/text_list" name="additional.product.info">
+            <block type="tweaksgerman/checkout_item_renderer" name="additional.product.info.tweaksgerman" />
+        </block>
+    </checkout_onepage_review>
+    <checkout_cart_index>
+        <reference name="additional.product.info">
+            <block type="tweaksgerman/checkout_item_renderer" name="additional.product.info.tweaksgerman"/>
+        </reference>
+    </checkout_cart_index>
 </layout>

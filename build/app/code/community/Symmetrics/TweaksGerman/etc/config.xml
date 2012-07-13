@@ -169,6 +169,7 @@
         <checkout>
             <cart>
                 <product_attribute>short_description</product_attribute>
+                <additional_info><![CDATA[<div class="buttons-set">zusätzlich fallen noch Kosten oder Steuern an,<br /> die nicht über uns abgeführt bzw.<br /> von uns in Rechnung gestellt werden</p></div>]]></additional_info>
             </cart>
         </checkout>
     </default>

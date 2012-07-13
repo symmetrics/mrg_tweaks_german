@@ -75,6 +75,9 @@
         <reference name="checkout.onepage.review.info.items.before">
             <block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="tweaksgerman/checkout/onepage/agreements.phtml"/>
         </reference>
+        <reference name="checkout.onepage.review.info.items.after">
+            <block type="tweaksgerman/checkout_additional" name="checkout.onepage.additional" />
+        </reference>
     </checkout_onepage_review>
     <checkout_cart_index>
         <reference name="additional.product.info">

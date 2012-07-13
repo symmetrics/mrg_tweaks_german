@@ -79,6 +79,16 @@
             <block type="tweaksgerman/checkout_additional" name="checkout.onepage.additional" />
         </reference>
     </checkout_onepage_review>
+    <checkout_multishipping_overview>
+        <reference name="checkout_overview">
+            <action method="setTemplate"><name>tweaksgerman/checkout/multishipping/overview.phtml</name></action>
+            <action method="unsetChild"><name>agreements</name></action>
+            <block type="checkout/agreements" name="checkout.multishipping.agreements" as="agreements" template="tweaksgerman/checkout/onepage/agreements.phtml" action="toHtml" />
+        </reference>
+        <reference name="checkout.multishipping.overview.items.after">
+            <block type="tweaksgerman/checkout_additional" name="checkout.multishipping.additional" as="additional" />
+        </reference>
+    </checkout_multishipping_overview>
     <checkout_cart_index>
         <reference name="additional.product.info">
             <block type="tweaksgerman/checkout_item_renderer" name="additional.product.info.tweaksgerman"/>

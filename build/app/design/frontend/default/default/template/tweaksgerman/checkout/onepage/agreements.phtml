@@ -30,10 +30,10 @@
 <?php if (!$this->getAgreements()) return; ?>
 <form action="" id="checkout-agreements" onsubmit="return false;">
 <ol class="checkout-agreements">
-<?php foreach ($this->getAgreements() as $_a): ?>
+<?php foreach ($this->getAgreements() as $_agreement): ?>
     <li>
         <p class="agree2">
-            <input type="checkbox" id="agreement-<?php echo $_a->getId()?>" name="agreement[<?php echo $_a->getId()?>]" value="1" title="<?php echo $this->htmlEscape($_a->getCheckboxText()) ?>" class="checkbox" /><label for="agreement-<?php echo $_a->getId()?>"><a href="#" onclick="window.open('<?php echo $this->getUrl('tweaksgerman/agreement/view', array('id' => $_a->getId())) ?>', '', 'width=600,height=600,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes').focus(); return false;"><?php echo $_a->getIsHtml() ? $_a->getCheckboxText() : $this->htmlEscape($_a->getCheckboxText()) ?></a></label>
+            <input type="checkbox" id="agreement-<?php echo $_agreement->getId()?>" name="agreement[<?php echo $_agreement->getId()?>]" value="1" title="<?php echo $this->htmlEscape($_agreement->getCheckboxText()) ?>" class="checkbox" /><label for="agreement-<?php echo $_agreement->getId()?>"><a href="#" onclick="window.open('<?php echo $this->getUrl('tweaksgerman/agreement/view', array('id' => $_agreement->getId())) ?>', '', 'width=600,height=600,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes').focus(); return false;"><?php echo $_agreement->getIsHtml() ? $_agreement->getCheckboxText() : $this->htmlEscape($_agreement->getCheckboxText()) ?></a></label>
         </p>
     </li>
 <?php endforeach ?>

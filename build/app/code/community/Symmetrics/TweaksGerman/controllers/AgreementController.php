@@ -22,7 +22,7 @@
  */
 
 /**
- * Frontend controller to render a agreement text.
+ * Frontend controller to render an agreement text.
  *
  * @category  Symmetrics
  * @package   Symmetrics_TweaksGerman

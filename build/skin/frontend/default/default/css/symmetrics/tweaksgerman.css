@@ -20,3 +20,11 @@
 .checkout-onepage-index #checkout-review-submit p.f-left {
     display: none;
 }
+
+.checkout-onepage-index .data-table .even ,
+.checkout-multishipping-overview .data-table .even {
+    background-color: transparent;
+}
+
+
+

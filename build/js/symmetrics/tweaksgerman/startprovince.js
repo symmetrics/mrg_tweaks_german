@@ -18,8 +18,11 @@
  * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
- */ 
- 
+ */
+
 document.observe('dom:loaded', (function() {
-    new Symmetrics.Province();
+    var MRG_REGION_ALLOWED = MRG_REGION_ALLOWED || false;
+    if (MRG_REGION_ALLOWED) {
+        new Symmetrics.Province();
+    }
 }).bind(this));

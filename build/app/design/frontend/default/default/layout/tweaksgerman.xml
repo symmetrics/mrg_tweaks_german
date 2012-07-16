@@ -27,6 +27,7 @@
     <default>
         <reference name="head">
             <action method="addCss"><stylesheet>css/symmetrics/tweaksgerman.css</stylesheet></action>
+            <block type="tweaksgerman/version" name="tweaksgerman.version" template="tweaksgerman/version.phtml" />
         </reference>
     </default>
     <checkout_cart_index>

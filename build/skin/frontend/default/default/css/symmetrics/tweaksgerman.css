@@ -22,9 +22,9 @@
 }
 
 .checkout-onepage-index .data-table .even ,
-.checkout-multishipping-overview .data-table .even {
-    background-color: transparent;
+.checkout-onepage-index .data-table .odd,
+.checkout-multishipping-overview .data-table .even,
+.checkout-multishipping-overview .data-table .odd {
+    background-color: #DEE5E8;
 }
-
-
 

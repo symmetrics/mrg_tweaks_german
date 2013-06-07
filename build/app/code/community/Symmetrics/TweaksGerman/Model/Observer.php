@@ -17,7 +17,7 @@
  * @author    symmetrics - a CGI Group brand <info@symmetrics.de>
  * @author    Eric Reiche <er@symmetrics.de>
  * @author    Torsten Walluhn <torsten.walluhn@cgi.com>
- * @copyright 2011-2012 symmetrics - a CGI Group brand
+ * @copyright 2011-2013 symmetrics - a CGI Group brand
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -30,7 +30,7 @@
  * @author    symmetrics - a CGI Group brand <info@symmetrics.de>
  * @author    Eric Reiche <er@symmetrics.de>
  * @author    Torsten Walluhn <torsten.walluhn@cgi.com>
- * @copyright 2011-2012 symmetrics - a CGI Group brand
+ * @copyright 2011-2013 symmetrics - a CGI Group brand
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */

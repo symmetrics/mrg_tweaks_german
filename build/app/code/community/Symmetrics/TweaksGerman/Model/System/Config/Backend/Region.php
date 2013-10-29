@@ -19,6 +19,7 @@
  * @copyright 2009-2013 symmetrics - a CGI Group brand
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
+ * @link      http://www.de.cgi.com/
  */
 
 /**
@@ -32,6 +33,8 @@
  * @copyright 2009-2013 symmetrics - a CGI Group brand
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
+ * @link      http://www.de.cgi.com/
+ * @deprecated since Magento CE 1.7
  */
 class Symmetrics_TweaksGerman_Model_System_Config_Backend_Region
     extends Mage_Core_Model_Config_Data
@@ -103,6 +106,13 @@ class Symmetrics_TweaksGerman_Model_System_Config_Backend_Region
     protected function _beforeSave()
     {
         $countries = $this->getValue();
+        
+        // SUPMRG-208: on saving even no values are selected the _beforeSave() is
+        // triggered because internally the Varien_Object::$_hasDataChanges flag is true
+        if (!$countries) {
+            return $this;
+        }
+        
         $this->_cleanupRegions($countries);
 
         $region = Mage::getModel('directory/region');

@@ -26,16 +26,18 @@
 /**
  * Backend Model to create and delete regions for hidden region dropdowns by the
  * specified contries.
+ * 
+ * DEPRECATED: Since CE 1.7 Magento is capable to consider the 'region' as non-mandatory!
  *
- * @category  Symmetrics
- * @package   Symmetrics_TweaksGerman
- * @author    symmetrics - a CGI Group brand <info@symmetrics.de>
- * @author    Torsten Walluhn <tw@symmetrics.de>
- * @author    Ngoc Anh Doan <ngoc-anh.doan@cgi.com>
- * @copyright 2009-2013 symmetrics - a CGI Group brand
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @link      http://www.symmetrics.de/
- * @link      http://www.de.cgi.com/
+ * @category   Symmetrics
+ * @package    Symmetrics_TweaksGerman
+ * @author     symmetrics - a CGI Group brand <info@symmetrics.de>
+ * @author     Torsten Walluhn <tw@symmetrics.de>
+ * @author     Ngoc Anh Doan <ngoc-anh.doan@cgi.com>
+ * @copyright  2009-2013 symmetrics - a CGI Group brand
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link       http://www.symmetrics.de/
+ * @link       http://www.de.cgi.com/
  * @deprecated since Magento CE 1.7
  */
 class Symmetrics_TweaksGerman_Model_System_Config_Backend_Region

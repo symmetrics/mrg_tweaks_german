@@ -100,7 +100,7 @@ class Symmetrics_TweaksGerman_Model_Observer
             $additionalInfoFlag = true;
 
         // Other product types
-        } elseif (get_class($block) == 'Mage_Catalog_Block_Product_Price' && trim($html)) {
+        } elseif ($block instanceof Mage_Catalog_Block_Product_Price && trim($html)) {
             $additionalInfoFlag = true;
         }
 
